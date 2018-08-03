@@ -38,7 +38,7 @@ namespace itg
     class PixelatePass : public RenderPass
     {
     public:
-        typedef std::shared_ptr<PixelatePass> Ptr;
+        typedef shared_ptr<PixelatePass> Ptr;
         
         PixelatePass(const ofVec2f& aspect, bool arb, const ofVec2f& resolution = ofVec2f(100.f, 100.f));
         

@@ -73,7 +73,7 @@ namespace itg
     
     void PostProcessing::begin()
     {
-        raw.begin(ofFboMode::OF_FBOMODE_NODEFAULTS);
+        raw.begin();
         
         ofMatrixMode(OF_MATRIX_PROJECTION);
         ofPushMatrix();
@@ -95,7 +95,7 @@ namespace itg
         cam.begin();
         cam.end();
         
-        raw.begin(ofFboMode::OF_FBOMODE_NODEFAULTS);
+        raw.begin();
         
         ofMatrixMode(OF_MATRIX_PROJECTION);
         ofPushMatrix();

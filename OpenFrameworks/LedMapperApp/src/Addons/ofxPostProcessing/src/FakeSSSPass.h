@@ -33,7 +33,6 @@
 
 #include "RenderPass.h"
 #include "ofShader.h"
-#include "OfMain.h"
 
 namespace itg
 {
@@ -44,7 +43,7 @@ namespace itg
     {
     public:
         
-        typedef std::shared_ptr<FakeSSSPass> Ptr;
+        typedef shared_ptr<FakeSSSPass> Ptr;
         
         FakeSSSPass(const ofVec2f& aspect,
                     bool arb,

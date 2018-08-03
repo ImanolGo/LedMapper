@@ -42,7 +42,7 @@ namespace itg
     class EdgePass : public RenderPass
     {
     public:
-        typedef std::shared_ptr<EdgePass> Ptr;
+        typedef shared_ptr<EdgePass> Ptr;
         
         EdgePass(const ofVec2f& aspect, bool arb);
         

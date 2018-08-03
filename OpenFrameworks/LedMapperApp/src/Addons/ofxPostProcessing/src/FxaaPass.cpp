@@ -30,13 +30,12 @@
  *
  */
 #include "FxaaPass.h"
-#include <sstream>
 
 namespace itg
 {
     FxaaPass::FxaaPass(const ofVec2f& aspect, bool arb) : RenderPass(aspect, arb, "fxaa")
     {
-        std::string fragShaderSrc = STRINGIFY(
+        string fragShaderSrc = STRINGIFY(
              uniform SAMPLER_TYPE tDiffuse;
              uniform vec2 resolution;
              
@@ -99,18 +98,18 @@ namespace itg
                  
              }
         );
-        std::ostringstream oss;
-        oss << "#version 120" << std::endl;
+        ostringstream oss;
+        oss << "#version 120" << endl;
         if (arb)
         {
-            oss << "#define SAMPLER_TYPE sampler2DRect" << std::endl;
-            oss << "#define TEXTURE_FN texture2DRect" <<std::endl;
+            oss << "#define SAMPLER_TYPE sampler2DRect" << endl;
+            oss << "#define TEXTURE_FN texture2DRect" << endl;
             oss << fragShaderSrc;
         }
         else
         {
-            oss << "#define SAMPLER_TYPE sampler2D" << std::endl;
-            oss << "#define TEXTURE_FN texture2D" << std::endl;
+            oss << "#define SAMPLER_TYPE sampler2D" << endl;
+            oss << "#define TEXTURE_FN texture2D" << endl;
             oss << fragShaderSrc;
         }
         shader.setupShaderFromSource(GL_FRAGMENT_SHADER, oss.str());

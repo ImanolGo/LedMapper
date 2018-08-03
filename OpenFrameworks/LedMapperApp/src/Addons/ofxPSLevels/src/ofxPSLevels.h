@@ -13,15 +13,15 @@ class ofxPSLevels {
 public:
     ofxPSLevels();
     
-	void setup();
-	void setup(int w, int h);
+    void setup();
+    void setup(int w, int h);
     void begin();
     void end();
-	void draw();
+    void draw();
     
     void resize(int w, int h);
-	
-	// shader
+    
+    // shader
     ofShader shader;
     
     // shader params
@@ -33,10 +33,6 @@ public:
     float maxInput;
     float minOutput;
     float maxOutput;
-    
-private:
-    
-    void loadShader();
     
 private:
     ofFbo fbo;

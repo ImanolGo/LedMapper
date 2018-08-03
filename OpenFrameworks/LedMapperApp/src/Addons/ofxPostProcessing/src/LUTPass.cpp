@@ -30,7 +30,6 @@
  *
  */
 #include "LUTPass.h"
-#include "ofMain.h"
 
 namespace itg
 {
@@ -49,22 +48,22 @@ namespace itg
         float r, g, b;
     };
 
-    LUTPass* LUTPass::loadLUT(std::string path)
+    LUTPass* LUTPass::loadLUT(string path)
     {
         dispose();
 
-        std::vector<RGB> lut;
+        vector<RGB> lut;
         int LUT_3D_SIZE = 0;
 
         // load .cube file
         {
             path = ofToDataPath(path);
 
-            std::ifstream ifs(path.c_str());
+            ifstream ifs(path.c_str());
 
             while (!ifs.eof())
             {
-                std::string line;
+                string line;
                 getline(ifs, line);
 
                 if (line.empty()) continue;
@@ -84,7 +83,7 @@ namespace itg
 
             while (!ifs.eof())
             {
-                std::string line;
+                string line;
                 getline(ifs, line);
 
                 if (line.empty()) continue;
@@ -125,7 +124,7 @@ namespace itg
         }
 
         // setup shader
-        std::string fragShaderSrc = STRINGIFY(
+        string fragShaderSrc = STRINGIFY(
             uniform sampler2D tex;
             uniform sampler3D lut_tex;
 

@@ -75,7 +75,7 @@ void VideoManager::load(string& path)
     {
         m_exportFbo.allocate(m_videoPlayer.getWidth(), m_videoPlayer.getHeight());
         m_exportFbo.begin();  ofClear(0); m_exportFbo.end();
-    
+        
         m_videoPlayer.setLoopState(OF_LOOP_NORMAL);
         m_videoPlayer.play();
         
@@ -109,10 +109,10 @@ void VideoManager::updateVideo()
         ofLogNotice()<< "VideoManager::updateVideo:  New Frame!!" << frame;
         //ofLogNotice()<< "VideoManager::updateVideo:  Total Frames!!" <<  m_videoPlayer.getTotalNumFrames();
         
-        if(m_exportMode && frame < m_frameNumber){
-            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
-            this->stopExporting();
-        }
+//        if(m_exportMode && frame < m_frameNumber){
+//            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
+//            this->stopExporting();
+//        }
         
         if(m_frameNumber != frame)
         {
@@ -130,10 +130,10 @@ void VideoManager::updateVideo()
         
       
         
-//        if(m_exportMode && m_videoPlayer.getIsMovieDone()){
-//            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
-//            this->stopExporting();
-//        }
+        if(m_exportMode && m_videoPlayer.getIsMovieDone()){
+            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
+            this->stopExporting();
+        }
         
 //        if(m_exportMode && m_frameNumber>= m_videoPlayer.getTotalNumFrames()){
 //            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
@@ -156,10 +156,12 @@ void VideoManager::update()
 
 void VideoManager::updateFbos()
 {
+    
     if (m_videoPlayer.isLoaded()) {
         m_exportFbo.begin();
             ofClear(0);
             this->drawVideo();
+            //m_videoPlayer.draw(0, 0);
         m_exportFbo.end();
     }
     
@@ -173,6 +175,7 @@ void VideoManager::updateFbos()
 void VideoManager::drawVideo()
 {
     m_levels.begin();
+    ofClear(0);
     m_videoPlayer.draw(0, 0);
     m_levels.end();
     

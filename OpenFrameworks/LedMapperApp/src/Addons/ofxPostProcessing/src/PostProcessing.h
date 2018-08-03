@@ -33,14 +33,13 @@
 
 #include "RenderPass.h"
 #include "ofCamera.h"
-#include "ofMain.h"
 
 namespace itg
 {
     class PostProcessing : public ofBaseDraws
     {
     public:
-        typedef std::shared_ptr<PostProcessing> Ptr;
+        typedef shared_ptr<PostProcessing> Ptr;
         
         void init(unsigned width = ofGetWidth(), unsigned height = ofGetHeight(), bool arb = false);
         void begin();
@@ -56,7 +55,7 @@ namespace itg
         void debugDraw();
         
         template<class T>
-        std::shared_ptr<T> createPass()
+        shared_ptr<T> createPass()
         {
             shared_ptr<T> pass = shared_ptr<T>(new T(ofVec2f(width, height), arb));
             passes.push_back(pass);
@@ -76,7 +75,7 @@ namespace itg
         
         unsigned size() const { return passes.size(); }
         RenderPass::Ptr operator[](unsigned i) const { return passes[i]; }
-        std::vector<RenderPass::Ptr>& getPasses() { return passes; }
+        vector<RenderPass::Ptr>& getPasses() { return passes; }
         unsigned getNumProcessedPasses() const { return numProcessedPasses; }
         
         ofFbo& getRawRef() { return raw; }
@@ -92,6 +91,6 @@ namespace itg
         
         ofFbo raw;
         ofFbo pingPong[2];
-        std::vector<RenderPass::Ptr> passes;
+        vector<RenderPass::Ptr> passes;
     };
 }

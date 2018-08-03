@@ -33,7 +33,7 @@
 
 namespace itg
 {
-    RenderPass::RenderPass(const ofVec2f& aspect, bool arb, const std::string& name) :
+    RenderPass::RenderPass(const ofVec2f& aspect, bool arb, const string& name) :
 #ifdef _ITG_TWEAKABLE
         aspect(aspect), enabled(true), arb(arb), Tweakable(name)
     {

@@ -31,8 +31,6 @@
  */
 #include "DofAltPass.h"
 
-using namespace std;
-
 namespace itg
 {
     DofAltPass::DofAltPass(const ofVec2f& aspect, bool arb, float focalDepth, float focalLength, float fStop, bool showFocus) :

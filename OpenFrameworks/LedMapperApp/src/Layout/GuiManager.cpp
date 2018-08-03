@@ -204,7 +204,8 @@ void GuiManager::setupGuiEvents()
 void GuiManager::saveGuiValues(string path)
 {
     ofXml xml;
-    ofSerialize(xml, m_parameters);
+    //ofSerialize(xml, m_parameters);
+    xml.serialize(m_parameters);
     
     if(path.empty()){
         xml.save(GUI_SETTINGS_FILE_NAME);
@@ -226,7 +227,8 @@ void GuiManager::loadGuiValues(string path)
          xml.load(path);
     }
     
-    ofDeserialize(xml, m_parameters);
+    xml.deserialize(m_parameters);
+    //ofDeserialize(xml, m_parameters);
 }
 
 

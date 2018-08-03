@@ -38,12 +38,12 @@ namespace itg
 class LUTPass : public RenderPass
 {
 public:
-    typedef std::shared_ptr<LUTPass> Ptr;
+    typedef shared_ptr<LUTPass> Ptr;
 
     LUTPass(const ofVec2f& aspect, bool arb);
     ~LUTPass();
 
-    LUTPass*loadLUT(std::string path);
+    LUTPass*loadLUT(string path);
     void render(ofFbo& readFbo, ofFbo& writeFbo);
 
 private:

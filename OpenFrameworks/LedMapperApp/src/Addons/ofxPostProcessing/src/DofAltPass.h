@@ -42,7 +42,7 @@ namespace itg
     class DofAltPass : public RenderPass
     {
     public:
-        typedef std::shared_ptr<DofAltPass> Ptr;
+        typedef shared_ptr<DofAltPass> Ptr;
         
         DofAltPass(const ofVec2f& aspect, bool arb, float focalDepth = 1.f, float focalLength = 500.f, float fStop = 3.f, bool showFocus = false);
         

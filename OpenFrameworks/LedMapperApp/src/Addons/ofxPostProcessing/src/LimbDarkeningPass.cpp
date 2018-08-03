@@ -42,7 +42,7 @@ namespace itg
     radialScale(radialScale), brightness(brightness), startColor(startColor), endColor(endColor), RenderPass(aspect, arb, "limbdarkening")
     {
         
-        std::string fragShaderSrc = STRINGIFY(
+        string fragShaderSrc = STRINGIFY(
             uniform sampler2D myTexture;
             uniform float fAspect;
 

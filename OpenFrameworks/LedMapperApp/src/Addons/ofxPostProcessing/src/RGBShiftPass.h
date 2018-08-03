@@ -43,7 +43,7 @@ namespace itg
     {
     public:
         
-        typedef std::shared_ptr<RGBShiftPass> Ptr;
+        typedef shared_ptr<RGBShiftPass> Ptr;
         
         RGBShiftPass(const ofVec2f& aspect, bool arb, float amount = 0.005, float angle = 0.0);
         

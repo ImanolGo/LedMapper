@@ -44,7 +44,7 @@ namespace itg
     public:
         static const int MAX_KERNEL_SIZE = 25;
         
-        typedef std::shared_ptr<ConvolutionPass> Ptr;
+        typedef shared_ptr<ConvolutionPass> Ptr;
         
         ConvolutionPass(const ofVec2f& aspect, bool arb, const ofVec2f& imageIncrement = ofVec2f(0.001953125, 0), float sigma = 4, unsigned kernelSize = 25);
         
@@ -55,7 +55,7 @@ namespace itg
     private:
         float gauss(float x, float sigma);
         void buildKernel(float sigma);
-        std::vector<float> kernel;
+        vector<float> kernel;
         ofShader shader;
         ofVec2f imageIncrement;
     };

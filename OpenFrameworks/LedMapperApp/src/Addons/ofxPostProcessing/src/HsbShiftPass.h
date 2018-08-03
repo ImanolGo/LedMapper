@@ -38,7 +38,7 @@ namespace itg
     class HsbShiftPass : public RenderPass
     {
     public:
-        typedef std::shared_ptr<HsbShiftPass> Ptr;
+        typedef shared_ptr<HsbShiftPass> Ptr;
         
         HsbShiftPass(const ofVec2f& aspect, bool arb, float hueShift = 0.f, float saturationShift = 0.f, float brightnessShift = 0.f);
         

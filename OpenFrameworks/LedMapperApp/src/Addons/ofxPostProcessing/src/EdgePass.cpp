@@ -30,14 +30,13 @@
  *
  */
 #include "EdgePass.h"
-#include <sstream>
 
 namespace itg
 {
     EdgePass::EdgePass(const ofVec2f& aspect, bool arb) :
         RenderPass(aspect, arb, "edge"), hue(0.5f), saturation(0.f)
     {
-        std::string fragShaderSrc = STRINGIFY(
+        string fragShaderSrc = STRINGIFY(
             uniform SAMPLER_TYPE tex;
             uniform vec2 aspect;
             uniform float hue;
@@ -88,19 +87,19 @@ namespace itg
             }
         );
         
-        std::ostringstream oss;
-        oss << "#version 120" << std::endl;
+        ostringstream oss;
+        oss << "#version 120" << endl;
         if (arb)
         {
-            oss << "#define SAMPLER_TYPE sampler2DRect" << std::endl;
-            oss << "#define TEXTURE_FN texture2DRect" << std::endl;
-            oss << "#extension GL_ARB_texture_rectangle : enable" << std::endl;
+            oss << "#define SAMPLER_TYPE sampler2DRect" << endl;
+            oss << "#define TEXTURE_FN texture2DRect" << endl;
+            oss << "#extension GL_ARB_texture_rectangle : enable" << endl;
             oss << fragShaderSrc;
         }
         else
         {
-            oss << "#define SAMPLER_TYPE sampler2D" << std::endl;
-            oss << "#define TEXTURE_FN texture2D" << std::endl;
+            oss << "#define SAMPLER_TYPE sampler2D" << endl;
+            oss << "#define TEXTURE_FN texture2D" << endl;
             oss << fragShaderSrc;
         }
         

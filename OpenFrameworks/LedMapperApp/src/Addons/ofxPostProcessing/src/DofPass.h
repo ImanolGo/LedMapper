@@ -42,7 +42,7 @@ namespace itg
     class DofPass : public RenderPass
     {
     public:
-        typedef std::shared_ptr<DofPass> Ptr;
+        typedef shared_ptr<DofPass> Ptr;
         
         DofPass(const ofVec2f& aspect, bool arb, float focus = 0.985, float aperture = 0.8, float maxBlur = 0.6);
         

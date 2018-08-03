@@ -42,7 +42,7 @@ namespace itg
     class VerticalTiltShifPass : public RenderPass
     {
     public:
-        typedef std::shared_ptr<VerticalTiltShifPass> Ptr;
+        typedef shared_ptr<VerticalTiltShifPass> Ptr;
         
         VerticalTiltShifPass(const ofVec2f& aspect, bool arb);
         
