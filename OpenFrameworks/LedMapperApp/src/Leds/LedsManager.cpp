@@ -254,6 +254,14 @@ void LedsManager::draw()
     }
 }
 
+void LedsManager::setSize(float& value)
+{
+    for(auto led: m_leds){
+        led->setWidth(value);
+    }
+}
+
+
 
 bool LedsManager::loadLeds()
 {
@@ -266,7 +274,8 @@ bool LedsManager::loadLeds()
         ofLogNotice() <<"LedsManager::loadLeds -> name: " <<   openFileResult.getName();
         ofLogNotice() <<"LedsManager::loadLeds -> path: " <<   openFileResult.getPath();
         
-        return this->loadLeds(openFileResult.getPath());
+        string path = openFileResult.getPath();
+        return this->load(path);
         
     }else {
         
@@ -309,11 +318,12 @@ bool LedsManager::isValidFile(const string& path)
 }
 
 
-bool LedsManager::loadLeds(const string& path)
+bool LedsManager::load(string& path)
 {
     bool success = isValidFile(path);
     if(success){
         m_ledsFilePath =  path;
+        AppManager::getInstance().getGuiManager().setModelPath(m_ledsFilePath);
         this->setupLeds();
     }
     
@@ -322,7 +332,7 @@ bool LedsManager::loadLeds(const string& path)
 void LedsManager::loadTest()
 {
     string path = "leds/LedPositions1.txt";
-    this->loadLeds(path);
+    this->load(path);
 }
 
 

@@ -58,11 +58,13 @@ class LedsManager: public Manager
     
         bool loadLeds();
     
-        bool loadLeds(const string& path);
+        bool load(string& path);
     
         void loadTest();
     
         bool isNewFrame() const {return m_isNewFrame;}
+    
+        void setSize(float& value);
  
     
     private:

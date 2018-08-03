@@ -69,7 +69,7 @@ void VideoManager::setupLevels(float width, float height)
 
 
 
-void VideoManager::loadVideo(const string& path)
+void VideoManager::load(string& path)
 {
     if(m_videoPlayer.load(path))
     {
@@ -79,10 +79,13 @@ void VideoManager::loadVideo(const string& path)
         
         this->setupLevels(m_videoPlayer.getWidth(), m_videoPlayer.getHeight());
         
-        ofLogNotice() <<"VideoManager::loadVideo -> successfully loaded: " << path;
+        AppManager::getInstance().getGuiManager().setVideoPath(path);
+        
+        ofLogNotice() <<"VideoManager::load -> successfully loaded: " << path;
+        
     }
     else{
-        ofLogNotice() <<"VideoManager::loadVideo -> unable to load: " << path;
+        ofLogNotice() <<"VideoManager::load -> unable to load: " << path;
     }
 }
 
@@ -100,8 +103,8 @@ void VideoManager::updateVideo()
     if(m_videoPlayer.isFrameNew())
     {
         int frame = m_videoPlayer.getCurrentFrame();
-        ofLogNotice()<< "VideoManager::updateVideo:  New Frame!!" << frame;
-         ofLogNotice()<< "VideoManager::updateVideo:  Old Frame!!" << m_frameNumber;
+        //ofLogNotice()<< "VideoManager::updateVideo:  New Frame!!" << frame;
+        // ofLogNotice()<< "VideoManager::updateVideo:  Old Frame!!" << m_frameNumber;
         //ofLogNotice()<< "VideoManager::updateVideo:  Total Frames!!" <<  m_videoPlayer.getTotalNumFrames();
         
         if(m_exportMode && frame < m_frameNumber){
@@ -200,9 +203,10 @@ void VideoManager::loadVideo()
         
         ofLogNotice() <<"VideoManager::processOpenFileSelection -> path: " <<   openFileResult.getPath();
         
+        string path = openFileResult.getPath();
         //We have a file, check it and process it
-        if(this->isVideo(openFileResult.getPath())){
-            this->loadVideo(openFileResult.getPath());
+        if(this->isVideo(path)){
+            this->load(path);
         }
         
     }else {
@@ -224,15 +228,19 @@ bool VideoManager::isVideo(const string& path)
         //We only want videos
         if (fileExtension == "MOV" || fileExtension == "MP4")
         {
-            this->loadVideo(path);
+            return true;
         }
         else{
             ofLogNotice() <<"VideoManager::processOpenFileSelection -> file is not a video ";
+            return false;
         }
     }
     else{
         ofLogNotice() <<"VideoManager::processOpenFileSelection -> file doesn't exist ";
+        return false;
     }
+    
+    return false;
     
 }
 
@@ -250,7 +258,8 @@ void VideoManager::loadTest()
 //        this->loadVideo(path);
 //        ofEnableDataPath();
         
-         this->loadVideo(videoPaths.at(name));
+        string path = videoPaths.at(name);
+         this->load(path);
         
     }
     else{

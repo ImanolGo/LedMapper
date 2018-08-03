@@ -45,7 +45,7 @@ public:
     
     void loadVideo();
     
-    void loadVideo(const string& path);
+    void load(string& path);
     
     void exportVideo();
     

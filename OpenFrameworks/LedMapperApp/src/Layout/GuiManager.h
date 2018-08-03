@@ -25,7 +25,7 @@ class GuiManager: public Manager
 {
     static const string GUI_SETTINGS_FILE_NAME;
     static const string GUI_SETTINGS_NAME;
-    static const int GUI_WIDTH;
+   // static const int GUI_WIDTH;
     
 public:
     
@@ -44,9 +44,9 @@ public:
     //! Draw the gui
     void draw();
     
-    void saveGuiValues();
+    void saveGuiValues(string path = "");
     
-    void loadGuiValues();
+    void loadGuiValues(string path = "");
     
     void toggleGui();
     
@@ -68,6 +68,10 @@ public:
     
     void onMatrixEvent(ofxDatGuiMatrixEvent e);
     
+    void setModelPath(const string& path) {m_modelPath = path;}
+    
+    void setVideoPath(const string& path) {m_videoPath = path;}
+    
 private:
     
     void setupGuiParameters();
@@ -76,11 +80,21 @@ private:
     
     void setupLevelsGui();
     
+    void setupLedsGui();
+    
     void drawRectangle();
     
     void drawGui();
     
     void setupGuiEvents();
+    
+    void importProject();
+    
+    void exportProject();
+    
+    void exportProjectAs();
+    
+    bool isValidFile(const string& path);
     
 private:
     
@@ -91,6 +105,10 @@ private:
     
     ofParameterGroup      m_parameters;
     
+    ofParameter<string>     m_modelPath;
+    ofParameter<string>     m_videoPath;
+    string                  m_projectPath;
+    
     ofParameter<float>      m_contrast;
     ofParameter<float>      m_saturation;
     ofParameter<float>      m_brightness;
@@ -99,6 +117,10 @@ private:
     ofParameter<float>      m_maxInput;
     ofParameter<float>      m_minOutput;
     ofParameter<float>      m_maxOutput;
+    
+    ofParameter<float>      m_ledsSize;
+    
+    
     
     
     bool        m_showGui;  //It defines the whether the gui should be shown or not

@@ -17,7 +17,7 @@
 
 const string GuiManager::GUI_SETTINGS_FILE_NAME = "xmls/GuiSettings.xml";
 const string GuiManager::GUI_SETTINGS_NAME = "GUI";
-const int GuiManager::GUI_WIDTH = 350;
+//const int GuiManager::GUI_WIDTH = 350;
 
 
 GuiManager::GuiManager(): Manager(), m_showGui(true)
@@ -44,6 +44,7 @@ void GuiManager::setup()
     this->setupGuiParameters();
     this->setupFileGui();
     this->setupLevelsGui();
+    this->setupLedsGui();
 
     this->setupGuiEvents();
     this->loadGuiValues();
@@ -77,11 +78,27 @@ void GuiManager::setupGuiParameters()
 
 void GuiManager::setupFileGui()
 {
-    ofxDatGuiFolder* folder = m_gui.addFolder("FILE", ofColor::deepPink);
+    auto videoManager = &AppManager::getInstance().getVideoManager();
+    auto ledsManager = &AppManager::getInstance().getLedsManager();
+    
+    
+    m_modelPath.set("ModelPath", " ");
+    m_modelPath.addListener(ledsManager, &LedsManager::load);
+    m_parameters.add(m_modelPath);
+    
+    m_videoPath.set("VideoPath", " ");
+    m_videoPath.addListener(videoManager, &VideoManager::load);
+    m_parameters.add(m_videoPath);
+    
+    ofxDatGuiFolder* folder = m_gui.addFolder("FILE", ofColor::pink);
+    folder->addButton("Import Project");
+    folder->addButton("Save Project");
+    folder->addButton("Save Project As");
     folder->addButton("Load Model");
     folder->addButton("Load Video");
     folder->addButton("Load Test");
     folder->addButton("Export");
+    
 }
 
 
@@ -135,6 +152,21 @@ void GuiManager::setupLevelsGui()
     m_gui.addBreak();
 }
 
+void GuiManager::setupLedsGui()
+{
+    auto ledsManager = &AppManager::getInstance().getLedsManager();
+    
+    m_ledsSize.set("Size", 1.0, 0.0, 5.0);
+    m_ledsSize.addListener(ledsManager, &LedsManager::setSize);
+    m_parameters.add(m_ledsSize);
+    
+    
+    ofxDatGuiFolder* folder = m_gui.addFolder("LEDS", ofColor::yellow);
+    folder->addSlider(m_ledsSize);
+    
+    m_gui.addBreak();
+}
+
 
 void GuiManager::update()
 {
@@ -169,17 +201,31 @@ void GuiManager::setupGuiEvents()
 }
 
 
-void GuiManager::saveGuiValues()
+void GuiManager::saveGuiValues(string path)
 {
     ofXml xml;
     ofSerialize(xml, m_parameters);
-    xml.save(GUI_SETTINGS_FILE_NAME);
+    
+    if(path.empty()){
+        xml.save(GUI_SETTINGS_FILE_NAME);
+    }
+    else{
+        xml.save(path);
+    }
+    
+    
 }
 
-void GuiManager::loadGuiValues()
+void GuiManager::loadGuiValues(string path)
 {
     ofXml xml;
-    xml.load(GUI_SETTINGS_FILE_NAME);
+    if(path.empty()){
+         xml.load(GUI_SETTINGS_FILE_NAME);
+    }
+    else{
+         xml.load(path);
+    }
+    
     ofDeserialize(xml, m_parameters);
 }
 
@@ -238,7 +284,20 @@ void GuiManager::onButtonEvent(ofxDatGuiButtonEvent e)
         AppManager::getInstance().getLedsManager().loadTest();
     }
     
-
+    else if(e.target->getName() == "Import Project")
+    {
+        this->importProject();
+    }
+    
+    else if(e.target->getName() == "Save Project")
+    {
+        this->exportProject();
+    }
+    
+    else if(e.target->getName() == "Save Project As")
+    {
+        this->exportProjectAs();
+    }
 }
 
 
@@ -253,4 +312,84 @@ void GuiManager::onMatrixEvent(ofxDatGuiMatrixEvent e)
     cout << "onMatrixEvent " << e.child << " : " << e.enabled << endl;
 }
 
+
+void GuiManager::importProject()
+{
+    //Open the Open File Dialog
+    ofFileDialogResult openFileResult= ofSystemLoadDialog("Select a .mori file");
+    
+    //Check if the user opened a file
+    if (openFileResult.bSuccess)
+    {
+        ofLogNotice() <<"GuiManager::importProject -> name: " <<   openFileResult.getName();
+        ofLogNotice() <<"GuiManager::importProject -> path: " <<   openFileResult.getPath();
+        
+        string path = openFileResult.getPath();
+        //We have a file, check it and process it
+        
+        if(this->isValidFile(path)){
+            this->loadGuiValues(path);
+        }
+        
+    }else {
+        
+        ofLogNotice() <<"GuiManager::importProject -> User hit cancel";
+    }
+}
+
+void GuiManager::exportProjectAs()
+{
+    ofFileDialogResult saveFileResult = ofSystemSaveDialog(ofGetTimestampString() + ".mori", "Export your .mori file");
+    
+    if (saveFileResult.bSuccess){
+        //m_exportPath = saveFileResult.filePath;
+        string path  = ofSplitString(saveFileResult.filePath, ".mori")[0] + ".mori";
+        ofLogNotice() <<"GuiManager::exportProject ->  Path: " << path;
+        this->saveGuiValues(path);
+        m_projectPath = path;
+        return true;
+    }
+    
+    return false;
+}
+
+void GuiManager::exportProject()
+{
+    if(m_projectPath.empty()){
+        this->exportProjectAs();
+    }
+    else{
+        this->saveGuiValues(m_projectPath);
+    }
+}
+
+
+
+bool GuiManager::isValidFile(const string& path)
+{
+    
+    ofFile file(path);
+    
+    if (file.exists())
+    {
+        string fileExtension = ofToUpper(file.getExtension());
+        
+        //We only want videos
+        if (fileExtension == "MORI")
+        {
+            return true;
+        }
+        else{
+            ofLogNotice() <<"GuiManager::isValidFile -> file is not a mori file ";
+            return false;
+        }
+    }
+    else{
+        ofLogNotice() <<"GuiManager::isValidFile -> file doesn't exist ";
+        return false;
+    }
+    
+    return false;
+    
+}
 
