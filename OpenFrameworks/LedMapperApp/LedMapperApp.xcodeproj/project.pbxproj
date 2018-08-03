@@ -11,12 +11,14 @@
 		00F8DAC81953313F8180A13C /* ofxTextBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1486C841BC2A30DB7CBC449C /* ofxTextBlock.cpp */; };
 		040259BAD9E7E5CDA062C1FF /* Verdana.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 63946788F06FDE10D90614A3 /* Verdana.ttf */; };
 		059F15A57C00F89CF43FDDD6 /* ofxSmartFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9EA26E2A646CE843DEEB1E /* ofxSmartFont.cpp */; };
-		0839908B21121059001CC7AE /* ofxBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0839908921121058001CC7AE /* ofxBlur.cpp */; };
+		083990B72114879A001CC7AE /* ofxAVFVideoPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 083990B52114879A001CC7AE /* ofxAVFVideoPlayer.mm */; };
+		083990B82114879A001CC7AE /* ofxAVFVideoRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 083990B62114879A001CC7AE /* ofxAVFVideoRenderer.m */; };
 		106B97E658138710B59773AE /* GodRaysPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE19FA45FB564FF3B31F7717 /* GodRaysPass.cpp */; };
 		1835B306208122634C04CA79 /* ModelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2958AE46C53B67E9739A17 /* ModelManager.cpp */; };
 		1AF15FCF93D2DDD6D4285C8E /* AppManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5056FC61E30B9810903B814D /* AppManager.cpp */; };
 		209D83A65C0D547E3D4F62A5 /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 74D32EE8DF638ACA80358972 /* readme.md */; };
 		32BAF795C43C262CEE96C5C6 /* PostProcessing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CD8F947D89F5E5DC73C37FB /* PostProcessing.cpp */; };
+		333113E71EDD596780D5FC0C /* ofxBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53739A80780BD4355F09B5A6 /* ofxBlur.cpp */; };
 		3858F6C5A65122C7E9AB7A44 /* BloomPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 270B9F32AC131BBF45E6B021 /* BloomPass.cpp */; };
 		3A6C7D72771284673CBE247D /* ImageVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F661FE0411AA0AC01E34CB7 /* ImageVisual.cpp */; };
 		3FE2F90B109919F6223E9439 /* LedsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D304BD6F716E0F1666FDA6 /* LedsManager.cpp */; };
@@ -40,6 +42,7 @@
 		6F6BBB4756484E68AB2208D7 /* picker-rainbow.png in Sources */ = {isa = PBXBuildFile; fileRef = 3486E8F5DE7C2E67C1755543 /* picker-rainbow.png */; };
 		73F91A92F99A915CBFADC77E /* SSAOPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCAC9FD717E304DDEDDEA3A6 /* SSAOPass.cpp */; };
 		751907BAACEFE670BD007118 /* VerticalTiltShifPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFFBFFED8032234C9F89EE94 /* VerticalTiltShifPass.cpp */; };
+		76A63EE6C436F4596E9DDE8C /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = B5D3E3DBCF9C9E351AA85AD5 /* readme.md */; };
 		7A4524965841683C0415874A /* HsbShiftPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E22A688927374F27EC795E58 /* HsbShiftPass.cpp */; };
 		809B0D0AA188CF0F15F4D0E2 /* ConvolutionPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279FCE7B33276953D0BDBC56 /* ConvolutionPass.cpp */; };
 		8310E60C1E2408B2C5269D5B /* ImageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5B2FDB91DADF7FAA8F0E58C /* ImageManager.cpp */; };
@@ -116,8 +119,10 @@
 		04E341BAF173644575D80ED3 /* ofxTextSuite.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxTextSuite.h; path = src/Addons/ofxTextSuite/src/ofxTextSuite.h; sourceTree = SOURCE_ROOT; };
 		05B11A7F5D0BA7A59C78DDC4 /* ofxDatGuiControls.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiControls.h; path = src/Addons/ofxDatGui/src/components/ofxDatGuiControls.h; sourceTree = SOURCE_ROOT; };
 		0731597061D6181DB86681B1 /* ofxDatGuiSlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiSlider.h; path = src/Addons/ofxDatGui/src/components/ofxDatGuiSlider.h; sourceTree = SOURCE_ROOT; };
-		0839908921121058001CC7AE /* ofxBlur.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxBlur.cpp; path = Addons/ofxBlur/src/ofxBlur.cpp; sourceTree = "<group>"; };
-		0839908A21121059001CC7AE /* ofxBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxBlur.h; path = Addons/ofxBlur/src/ofxBlur.h; sourceTree = "<group>"; };
+		083990B32114879A001CC7AE /* ofxAVFVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxAVFVideoPlayer.h; path = Addons/ofxAVFVideoPlayer/src/ofxAVFVideoPlayer.h; sourceTree = "<group>"; };
+		083990B42114879A001CC7AE /* ofxAVFVideoRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxAVFVideoRenderer.h; path = Addons/ofxAVFVideoPlayer/src/ofxAVFVideoRenderer.h; sourceTree = "<group>"; };
+		083990B52114879A001CC7AE /* ofxAVFVideoPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ofxAVFVideoPlayer.mm; path = Addons/ofxAVFVideoPlayer/src/ofxAVFVideoPlayer.mm; sourceTree = "<group>"; };
+		083990B62114879A001CC7AE /* ofxAVFVideoRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ofxAVFVideoRenderer.m; path = Addons/ofxAVFVideoPlayer/src/ofxAVFVideoRenderer.m; sourceTree = "<group>"; };
 		09BB1D7613A1F9D8E8B11D7A /* KeyboardManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = KeyboardManager.h; path = src/I0/KeyboardManager.h; sourceTree = SOURCE_ROOT; };
 		09F8F2DF1D53E65319F30B96 /* LightManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = LightManager.cpp; path = src/Engine/3D/LightManager.cpp; sourceTree = SOURCE_ROOT; };
 		11C490A0CA5771C60AE54B4B /* ImageVisual.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ImageVisual.h; path = src/Engine/Visuals/ImageVisual.h; sourceTree = SOURCE_ROOT; };
@@ -126,6 +131,7 @@
 		17CAE0163B7670B76C09C04A /* DofAltPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DofAltPass.cpp; path = src/Addons/ofxPostProcessing/src/DofAltPass.cpp; sourceTree = SOURCE_ROOT; };
 		1CC59C0A3789CFDF9768EE4C /* EdgePass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = EdgePass.h; path = src/Addons/ofxPostProcessing/src/EdgePass.h; sourceTree = SOURCE_ROOT; };
 		1D3FAE8E74B1FE8060E64EE2 /* FxaaPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = FxaaPass.h; path = src/Addons/ofxPostProcessing/src/FxaaPass.h; sourceTree = SOURCE_ROOT; };
+		1D561D10993BE07F5297841A /* ofxBlur.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxBlur.h; path = src/Addons/ofxBlur/src/ofxBlur.h; sourceTree = SOURCE_ROOT; };
 		1D7B4D07648F9CB293716166 /* ImageVisual3D.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ImageVisual3D.h; path = src/Engine/Visuals/ImageVisual3D.h; sourceTree = SOURCE_ROOT; };
 		25F16E22E030B952F91CEB14 /* RenderPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = RenderPass.h; path = src/Addons/ofxPostProcessing/src/RenderPass.h; sourceTree = SOURCE_ROOT; };
 		270B9F32AC131BBF45E6B021 /* BloomPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = BloomPass.cpp; path = src/Addons/ofxPostProcessing/src/BloomPass.cpp; sourceTree = SOURCE_ROOT; };
@@ -155,6 +161,7 @@
 		4F661FE0411AA0AC01E34CB7 /* ImageVisual.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ImageVisual.cpp; path = src/Engine/Visuals/ImageVisual.cpp; sourceTree = SOURCE_ROOT; };
 		4FE37A31C904F445222B25FC /* ViewManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ViewManager.cpp; path = src/Engine/Visuals/ViewManager.cpp; sourceTree = SOURCE_ROOT; };
 		5056FC61E30B9810903B814D /* AppManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = AppManager.cpp; path = src/Main/AppManager.cpp; sourceTree = SOURCE_ROOT; };
+		53739A80780BD4355F09B5A6 /* ofxBlur.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxBlur.cpp; path = src/Addons/ofxBlur/src/ofxBlur.cpp; sourceTree = SOURCE_ROOT; };
 		550AF6E0E7E2FE9B5FD68BC6 /* ofxDatGuiConstants.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiConstants.h; path = src/Addons/ofxDatGui/src/core/ofxDatGuiConstants.h; sourceTree = SOURCE_ROOT; };
 		555A33C9EE56F75A4B5CCA52 /* ofxDatGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGui.h; path = src/Addons/ofxDatGui/src/ofxDatGui.h; sourceTree = SOURCE_ROOT; };
 		573E12A8F90DB6A67AB58A2C /* ofxDatGuiFRM.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiFRM.h; path = src/Addons/ofxDatGui/src/components/ofxDatGuiFRM.h; sourceTree = SOURCE_ROOT; };
@@ -214,6 +221,7 @@
 		B43BB120107E3121BA75E435 /* RimHighlightingPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = RimHighlightingPass.h; path = src/Addons/ofxPostProcessing/src/RimHighlightingPass.h; sourceTree = SOURCE_ROOT; };
 		B4C368B9ED6096766223AD3C /* RenderPass.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = RenderPass.cpp; path = src/Addons/ofxPostProcessing/src/RenderPass.cpp; sourceTree = SOURCE_ROOT; };
 		B502E6A77816596CB459E0C2 /* VerticalTiltShifPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = VerticalTiltShifPass.h; path = src/Addons/ofxPostProcessing/src/VerticalTiltShifPass.h; sourceTree = SOURCE_ROOT; };
+		B5D3E3DBCF9C9E351AA85AD5 /* readme.md */ = {isa = PBXFileReference; explicitFileType = file; fileEncoding = 4; name = readme.md; path = src/Addons/ofxBlur/readme.md; sourceTree = SOURCE_ROOT; };
 		B75584AF4ADE4F6E8297B5DC /* ofxDatGuiTextInput.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiTextInput.h; path = src/Addons/ofxDatGui/src/components/ofxDatGuiTextInput.h; sourceTree = SOURCE_ROOT; };
 		B760404F70BCA4B5A0A352DC /* ToonPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ToonPass.h; path = src/Addons/ofxPostProcessing/src/ToonPass.h; sourceTree = SOURCE_ROOT; };
 		BC947B31560AD911AA339B5E /* ofxDatGuiThemes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiThemes.h; path = src/Addons/ofxDatGui/src/themes/ofxDatGuiThemes.h; sourceTree = SOURCE_ROOT; };
@@ -286,19 +294,21 @@
 			name = I0;
 			sourceTree = "<group>";
 		};
-		083990872112104B001CC7AE /* ofxBlur */ = {
+		083990B12114872B001CC7AE /* ofxAVFVideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				0839908821121051001CC7AE /* src */,
+				083990B221148790001CC7AE /* src */,
 			);
-			name = ofxBlur;
+			name = ofxAVFVideoPlayer;
 			sourceTree = "<group>";
 		};
-		0839908821121051001CC7AE /* src */ = {
+		083990B221148790001CC7AE /* src */ = {
 			isa = PBXGroup;
 			children = (
-				0839908921121058001CC7AE /* ofxBlur.cpp */,
-				0839908A21121059001CC7AE /* ofxBlur.h */,
+				083990B32114879A001CC7AE /* ofxAVFVideoPlayer.h */,
+				083990B52114879A001CC7AE /* ofxAVFVideoPlayer.mm */,
+				083990B42114879A001CC7AE /* ofxAVFVideoRenderer.h */,
+				083990B62114879A001CC7AE /* ofxAVFVideoRenderer.m */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -530,6 +540,15 @@
 			name = ofxSmartFont;
 			sourceTree = "<group>";
 		};
+		9968FEE4FA0CA80DD5381764 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				53739A80780BD4355F09B5A6 /* ofxBlur.cpp */,
+				1D561D10993BE07F5297841A /* ofxBlur.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
 		9D4CA964E6167024C0594095 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,7 +578,8 @@
 		AD642137CCDF61FB3E6CCEA2 /* Addons */ = {
 			isa = PBXGroup;
 			children = (
-				083990872112104B001CC7AE /* ofxBlur */,
+				083990B12114872B001CC7AE /* ofxAVFVideoPlayer */,
+				F79FFC9032CC6E409159B3E3 /* ofxBlur */,
 				74A312B2568D421CAAEF740A /* ofxDatGui */,
 				3727BF3222C1EA7482176F54 /* ofxPostProcessing */,
 				396B8EBA7FB06F4CA0496C29 /* ofxPSLevels */,
@@ -709,6 +729,15 @@
 			name = themes;
 			sourceTree = "<group>";
 		};
+		F79FFC9032CC6E409159B3E3 /* ofxBlur */ = {
+			isa = PBXGroup;
+			children = (
+				B5D3E3DBCF9C9E351AA85AD5 /* readme.md */,
+				9968FEE4FA0CA80DD5381764 /* src */,
+			);
+			name = ofxBlur;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -810,6 +839,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76A63EE6C436F4596E9DDE8C /* readme.md in Sources */,
+				333113E71EDD596780D5FC0C /* ofxBlur.cpp in Sources */,
 				00E7693985C6746E94870C0C /* history.md in Sources */,
 				E49699C1F3B736D5847985D8 /* license.txt in Sources */,
 				6BE84BED9B493CA514480EF3 /* ofxaddons_thumbnail.png in Sources */,
@@ -817,7 +848,6 @@
 				E23B9A2CD222C1969CC8B2BA /* icon-group-closed.png in Sources */,
 				46DE9A6B85E9B574643D0D67 /* icon-group-open.png in Sources */,
 				63A90FF94CFD24B528DBEF66 /* icon-radio-off.png in Sources */,
-				0839908B21121059001CC7AE /* ofxBlur.cpp in Sources */,
 				5057E92136F67CEB60A9CFE8 /* icon-radio-on.png in Sources */,
 				6F6BBB4756484E68AB2208D7 /* picker-rainbow.png in Sources */,
 				209D83A65C0D547E3D4F62A5 /* readme.md in Sources */,
@@ -857,6 +887,7 @@
 				C6B3BFC2668F137F745DC3C6 /* CameraAnimationsManager.cpp in Sources */,
 				8C9DFFBD826A20F752ED0CD6 /* CameraManager.cpp in Sources */,
 				DC16DA963E4E5873F0AE7C9E /* LightManager.cpp in Sources */,
+				083990B82114879A001CC7AE /* ofxAVFVideoRenderer.m in Sources */,
 				6F36C225B48477DFCCA6FB64 /* ResourceManager.cpp in Sources */,
 				68A59FFAF8D6A1C715A69CD4 /* EngineFont.cpp in Sources */,
 				3A6C7D72771284673CBE247D /* ImageVisual.cpp in Sources */,
@@ -869,6 +900,7 @@
 				B790DA4F42194210B9259E42 /* VisualEffectsManager.cpp in Sources */,
 				5152A5DBF51A461014A1F631 /* KeyboardManager.cpp in Sources */,
 				5D33A9513B2A4C6DBD3188C7 /* GuiManager.cpp in Sources */,
+				083990B72114879A001CC7AE /* ofxAVFVideoPlayer.mm in Sources */,
 				93510377552D47B6620A7586 /* LayoutManager.cpp in Sources */,
 				EB2372CEF0C9D14317E0AC9F /* Led.cpp in Sources */,
 				3FE2F90B109919F6223E9439 /* LedsManager.cpp in Sources */,
@@ -916,6 +948,10 @@
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
+					src/Addons/ofxAVFoundationVideoPlayer,
+					src/Addons/ofxAVFoundationVideoPlayer/src,
+					src/Addons/ofxBlur,
+					src/Addons/ofxBlur/src,
 					src/Addons/ofxDatGui,
 					src/Addons/ofxDatGui/ofxbraitsch/fonts,
 					src/Addons/ofxDatGui/ofxbraitsch/ofxdatgui,
@@ -959,6 +995,10 @@
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "APPSTORE=1";
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
+					src/Addons/ofxAVFoundationVideoPlayer,
+					src/Addons/ofxAVFoundationVideoPlayer/src,
+					src/Addons/ofxBlur,
+					src/Addons/ofxBlur/src,
 					src/Addons/ofxDatGui,
 					src/Addons/ofxDatGui/ofxbraitsch/fonts,
 					src/Addons/ofxDatGui/ofxbraitsch/ofxdatgui,
@@ -1013,6 +1053,10 @@
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
+					src/Addons/ofxAVFoundationVideoPlayer,
+					src/Addons/ofxAVFoundationVideoPlayer/src,
+					src/Addons/ofxBlur,
+					src/Addons/ofxBlur/src,
 					src/Addons/ofxDatGui,
 					src/Addons/ofxDatGui/ofxbraitsch/fonts,
 					src/Addons/ofxDatGui/ofxbraitsch/ofxdatgui,
@@ -1067,6 +1111,10 @@
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
+					src/Addons/ofxAVFoundationVideoPlayer,
+					src/Addons/ofxAVFoundationVideoPlayer/src,
+					src/Addons/ofxBlur,
+					src/Addons/ofxBlur/src,
 					src/Addons/ofxDatGui,
 					src/Addons/ofxDatGui/ofxbraitsch/fonts,
 					src/Addons/ofxDatGui/ofxbraitsch/ofxdatgui,
@@ -1110,6 +1158,10 @@
 				GCC_MODEL_TUNING = NONE;
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
+					src/Addons/ofxAVFoundationVideoPlayer,
+					src/Addons/ofxAVFoundationVideoPlayer/src,
+					src/Addons/ofxBlur,
+					src/Addons/ofxBlur/src,
 					src/Addons/ofxDatGui,
 					src/Addons/ofxDatGui/ofxbraitsch/fonts,
 					src/Addons/ofxDatGui/ofxbraitsch/ofxdatgui,
@@ -1153,6 +1205,10 @@
 				GCC_MODEL_TUNING = NONE;
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
+					src/Addons/ofxAVFoundationVideoPlayer,
+					src/Addons/ofxAVFoundationVideoPlayer/src,
+					src/Addons/ofxBlur,
+					src/Addons/ofxBlur/src,
 					src/Addons/ofxDatGui,
 					src/Addons/ofxDatGui/ofxbraitsch/fonts,
 					src/Addons/ofxDatGui/ofxbraitsch/ofxdatgui,

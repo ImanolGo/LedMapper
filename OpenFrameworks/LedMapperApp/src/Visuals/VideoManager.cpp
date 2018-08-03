@@ -109,7 +109,13 @@ void VideoManager::updateVideo()
         ofLogNotice()<< "VideoManager::updateVideo:  New Frame!!" << frame;
         //ofLogNotice()<< "VideoManager::updateVideo:  Total Frames!!" <<  m_videoPlayer.getTotalNumFrames();
         
-        if(m_exportMode && frame < m_frameNumber){
+//        if(m_exportMode && frame < m_frameNumber){
+//            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
+//            this->stopExporting();
+//        }
+//
+        
+        if(m_exportMode && m_videoPlayer.getIsMovieDone()){
             ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
             this->stopExporting();
         }
@@ -130,10 +136,10 @@ void VideoManager::updateVideo()
         
       
         
-//        if(m_exportMode && m_videoPlayer.getIsMovieDone()){
-//            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
-//            this->stopExporting();
-//        }
+        if(m_exportMode && m_videoPlayer.getIsMovieDone()){
+            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
+            this->stopExporting();
+        }
         
 //        if(m_exportMode && m_frameNumber>= m_videoPlayer.getTotalNumFrames()){
 //            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
