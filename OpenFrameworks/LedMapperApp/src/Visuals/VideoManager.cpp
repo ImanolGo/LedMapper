@@ -16,7 +16,7 @@
 
 VideoManager::VideoManager(): Manager(), m_exportMode(false), m_frameNumber(-1)
 {
-    //Intentionally left empty
+    //m_videoPlayer = new ofxAVFVideoPlayer();
 }
 
 
@@ -105,8 +105,8 @@ void VideoManager::updateVideo()
     if(m_videoPlayer.isFrameNew())
     {
         int frame = m_videoPlayer.getCurrentFrame();
-        ofLogNotice()<< "VideoManager::updateVideo:  Old Frame!!" << m_frameNumber;
-        ofLogNotice()<< "VideoManager::updateVideo:  New Frame!!" << frame;
+       // ofLogNotice()<< "VideoManager::updateVideo:  Old Frame!!" << m_frameNumber;
+        //ofLogNotice()<< "VideoManager::updateVideo:  New Frame!!" << frame;
         //ofLogNotice()<< "VideoManager::updateVideo:  Total Frames!!" <<  m_videoPlayer.getTotalNumFrames();
         
 //        if(m_exportMode && frame < m_frameNumber){
@@ -122,15 +122,16 @@ void VideoManager::updateVideo()
             AppManager::getInstance().getLedsManager().setPixels(pixels);
             //ofLogNotice()<< "VideoManager::newFrame: ";
             
-            if(m_exportMode){
-                ofLogNotice()<< "VideoManager::updateVideo:  Next Frame!!" << m_frameNumber+1;
-                m_videoPlayer.setFrame(m_frameNumber+1);
-            }
+//            if(m_exportMode){
+//                ofLogNotice()<< "VideoManager::updateVideo:  Next Frame!!" << m_frameNumber+1;
+//                m_videoPlayer.setFrame(m_frameNumber+1);
+//                //m_videoPlayer.nextFrame();
+//            }
         }
         
       
         
-        if(m_exportMode && m_videoPlayer.getIsMovieDone()){
+        if(m_exportMode && (m_videoPlayer.getPosition() >= 0.99f)){
             ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
             this->stopExporting();
         }
