@@ -35,12 +35,14 @@ void ModelManager::setup()
 
 	Manager::setup();
     
-    this->setupCamera();
+    this->resetCamera();
 }
 
-void ModelManager::setupCamera()
+void ModelManager::resetCamera()
 {
-    m_camera.setDistance(200);
+    m_camera.reset();
+    m_camera.setDistance(120);
+    //m_camera.enableInertia();
     //m_camera.setAutoDistance(true);
 }
 

@@ -78,6 +78,8 @@ class LedsManager: public Manager
     
         void normalizeLeds();
     
+        bool getIs3D();
+    
         void  centreLeds();
     
         void readLedsPositionFromGroup(const string& groupName, int& id, int numberOfSections);
@@ -101,6 +103,7 @@ class LedsManager: public Manager
         ofPoint            m_maxPos;
         bool               m_isNewFrame;
         string             m_ledsFilePath;
+        bool               m_is3D;
     
 };
 

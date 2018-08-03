@@ -40,11 +40,11 @@ class ModelManager: public Manager
         //! Draw the Vase Manager
         void draw();
 
+        void resetCamera();
 
     private:
 
-        void setupCamera();
-    
+
         //! Draw all Leds
         void drawLeds();
 

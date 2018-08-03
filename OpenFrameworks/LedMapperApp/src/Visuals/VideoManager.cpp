@@ -74,6 +74,8 @@ void VideoManager::load(string& path)
     if(m_videoPlayer.load(path))
     {
         m_exportFbo.allocate(m_videoPlayer.getWidth(), m_videoPlayer.getHeight());
+        m_exportFbo.begin();  ofClear(0); m_exportFbo.end();
+    
         m_videoPlayer.setLoopState(OF_LOOP_NORMAL);
         m_videoPlayer.play();
         
@@ -116,7 +118,7 @@ void VideoManager::updateVideo()
         {
             m_frameNumber = frame;
             ofPixels pixels;
-            m_fbo.readToPixels(pixels);
+            m_exportFbo.readToPixels(pixels);
             AppManager::getInstance().getLedsManager().setPixels(pixels);
             //ofLogNotice()<< "VideoManager::newFrame: ";
         }

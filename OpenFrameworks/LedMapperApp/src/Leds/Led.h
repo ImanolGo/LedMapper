@@ -37,7 +37,7 @@ class Led: public BasicVisual {
     
         void normalize(const ofRectangle& boundingBox);
     
-        void setPixelColor(ofPixelsRef pixels);
+        void setPixelColor(ofPixelsRef pixels, bool is3D);
     
 
     private:

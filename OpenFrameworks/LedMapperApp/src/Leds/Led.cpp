@@ -12,11 +12,11 @@
 #include "AppManager.h"
 
 
-const int Led::SIZE = 4;
+const int Led::SIZE = 1;
 
 Led::Led(const ofPoint& position, int id): BasicVisual(position, SIZE, SIZE), m_id(id)
 {
-    //Intentionaly left empty
+    m_color = ofColor::black;
 }
 
 Led::~Led()
@@ -52,30 +52,30 @@ void Led::normalize(const ofRectangle& boundingBox)
 }
 
 
-void Led::setPixelColor(ofPixelsRef pixels)
+void Led::setPixelColor(ofPixelsRef pixels, bool is3D)
 {
-    float minX = AppManager::getInstance().getLedsManager().getMin().x;
-    float maxX = AppManager::getInstance().getLedsManager().getMax().x;
+    ofPoint min = AppManager::getInstance().getLedsManager().getMin();
+    ofPoint max = AppManager::getInstance().getLedsManager().getMax();
+    ofPoint pixelPos;
     
-    float minY = AppManager::getInstance().getLedsManager().getMin().z;
-    float maxY = AppManager::getInstance().getLedsManager().getMax().z;
-    
-    float minZ = AppManager::getInstance().getLedsManager().getMin().y;
-    float maxZ = AppManager::getInstance().getLedsManager().getMax().y;
-    
-    float treshold = minZ + (maxZ - minZ)*0.5;
-    
-    
-    ofVec2f pixelPos;
-    if(m_position.y >= treshold ){
-        pixelPos.x = ofMap(m_position.x, minX, maxX, 0, (pixels.getWidth()-1)*0.5);
-        pixelPos.y = ofMap(m_position.z, maxY, minY, 0,  pixels.getHeight()-1);
+    if(is3D)
+    {
+        float treshold = min.y + (max.y - min.y)*0.5;
+
+        if(m_position.y >= treshold ){
+            pixelPos.x = ofMap(m_position.x, min.x, max.x, 0, (pixels.getWidth()-1)*0.5);
+            pixelPos.y = ofMap(m_position.z, max.z, min.z, 0,  pixels.getHeight()-1);
+        }
+        else{
+            pixelPos.x = ofMap(m_position.x, min.x, max.y, pixels.getWidth()-1, (pixels.getWidth()-1)*0.5);
+            pixelPos.y = ofMap(m_position.z, max.z, min.z, 0,  pixels.getHeight()-1);
+        }
     }
-    else{
-        pixelPos.x = ofMap(m_position.x, minX, maxX, pixels.getWidth()-1, (pixels.getWidth()-1)*0.5);
-        pixelPos.y = ofMap(m_position.z, maxY, minY, 0,  pixels.getHeight()-1);
+    else
+    {
+        pixelPos.x = ofMap(m_position.x, min.x, max.x, 0, pixels.getWidth()-1);
+        pixelPos.y = ofMap(m_position.y, max.y, min.y, 0,  pixels.getHeight()-1);
     }
-    
     
     //ofLogNotice() <<  m_position.x ; ofLogNotice() <<  m_position.y;
     //ofLogNotice() <<  pixelPos.x ; ofLogNotice() <<  pixelPos.y;

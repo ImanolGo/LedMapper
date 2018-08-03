@@ -72,6 +72,8 @@ public:
     
     void setVideoPath(const string& path) {m_videoPath = path;}
     
+    float getLedsSize() const {return m_ledsSize;}
+    
 private:
     
     void setupGuiParameters();

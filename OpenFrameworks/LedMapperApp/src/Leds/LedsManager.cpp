@@ -15,7 +15,7 @@
 
 
 
-LedsManager::LedsManager(): Manager(), m_isNewFrame(false)
+LedsManager::LedsManager(): Manager(), m_isNewFrame(false), m_is3D(true)
 {
 	//Intentionally left empty
 }
@@ -44,10 +44,13 @@ void LedsManager::setup()
 
 void LedsManager::setupLeds()
 {
+    ofLogNotice() <<"LedsManager::setupLeds" ;
+    
     m_leds.clear();
     
     this->readLedsPosition();
-    this->sortLeds();
+    m_is3D = this->getIs3D();
+    //this->sortLeds();
     this->normalizeLeds();
     this->centreLeds();
 }
@@ -72,6 +75,30 @@ void LedsManager::readLedsPosition()
             
         }
     }
+}
+
+
+bool LedsManager::getIs3D()
+{
+    bool is3D = false;
+    if(m_leds.size()<2){
+        return false;
+    }
+    
+    for(int i=0; i<m_leds.size()-1; i++)
+    {
+        auto position = m_leds[i]->getPosition();
+        auto positionNext= m_leds[i+1]->getPosition();
+        float delta = abs(m_leds[i]->getPosition().z - m_leds[i+1]->getPosition().z);
+        
+        if( delta > 0.001){
+            is3D = true;
+        }
+    }
+  
+    
+    ofLogNotice() <<"LedsManager::getIs3D -> value = " << is3D ;
+    return is3D;
 }
 
 void LedsManager::sortLeds()
@@ -193,18 +220,17 @@ void LedsManager::centreLeds()
         
     }
     
+    m_maxPos -=shift;
+    m_minPos -=shift;
    
 }
 
 
 void LedsManager::createLed(const ofPoint& position, int& id)
 {
-    int numLeds = 88;
-    
     ofPtr<Led> led = ofPtr<Led> (new Led ( position, id ) );
-    int color = ofMap(id,0,numLeds-1,0,255);
-    led->setColor(color);
-    led->setWidth(1);
+    float size = AppManager::getInstance().getGuiManager().getLedsSize();
+    led->setWidth(size);
     m_leds.push_back(led);
     
     ofLogNotice() <<"LedsManager::createLed -> id " << led->getId() << ", x = "  << led->getPosition().x << ", y = "  << led->getPosition().y << ", z = " << led->getPosition().z ;
@@ -261,7 +287,7 @@ void LedsManager::setPixels(ofPixelsRef pixels)
 void LedsManager::setLedColors(ofPixelsRef pixels)
 {
     for(auto led: m_leds){
-        led->setPixelColor(pixels);
+        led->setPixelColor(pixels, m_is3D);
     }
     
     m_isNewFrame = true;
@@ -346,6 +372,7 @@ bool LedsManager::load(string& path)
     if(success){
         m_ledsFilePath =  path;
         AppManager::getInstance().getGuiManager().setModelPath(m_ledsFilePath);
+        AppManager::getInstance().getModelManager().resetCamera();
         this->setupLeds();
     }
     
