@@ -59,7 +59,7 @@ void ImageManager::draw()
 void ImageManager::updateColorPixels()
 {
     auto leds = AppManager::getInstance().getLedsManager().getLeds();
-    
+    ofLogNotice() <<"ImageManager::updateColorPixels" ;
     for (auto& led: leds){
         m_colors.push_back(led->getColor());
     }
@@ -72,9 +72,11 @@ void ImageManager::updateColorPixels()
 void ImageManager::record(bool value)
 {
     if (m_isRecording && !value) {
+        ofLogNotice() <<"ImageManager::record: Stop Recording!!" ;
         this->saveImage();
     }
     else{
+        ofLogNotice() <<"ImageManager::record: Start Recording!!" ;
         m_image.clear();
         m_colors.clear();
     }
@@ -170,8 +172,8 @@ void ImageManager::saveImageSample()
         height = m_colors.size()/width;
     }
     
-    ofLogNotice() <<"ImageManager::saveImageMirror ->  width = " << width;
-    ofLogNotice() <<"ImageManager::saveImageMirror ->  height = " << height;
+    ofLogNotice() <<"ImageManager::saveImageSample ->  width = " << width;
+    ofLogNotice() <<"ImageManager::saveImageSample ->  height = " << height;
     
     int totalWidth = 300;
     m_image.clear();
@@ -203,10 +205,9 @@ void ImageManager::saveImageSample()
     
     m_image.update(); // uploads the new pixels to the gfx card
     
-    string fileName = "images/saved/image_vase_" + getDateTime() +  ".bmp";
-    m_image.saveImage(fileName);
+    m_image.save(m_exportPath);
     
-    ofLogNotice() <<"ImageManager::saveImageSample ->  Saved " << fileName;
+    ofLogNotice() <<"ImageManager::saveImageSample ->  Saved " << m_exportPath;
     
 }
 
@@ -230,6 +231,7 @@ bool ImageManager::startExporting()
     if (saveFileResult.bSuccess){
         //m_exportPath = saveFileResult.filePath;
         m_exportPath = ofSplitString(saveFileResult.filePath, ".bmp")[0] + ".bmp";
+        ofLogNotice() <<"ImageManager::startExporting ->  Path: " << m_exportPath;
         this->record(true);
         return true;
     }

@@ -61,6 +61,8 @@ class LedsManager: public Manager
         bool loadLeds(const string& path);
     
         void loadTest();
+    
+        bool isNewFrame() const {return m_isNewFrame;}
  
     
     private:
@@ -83,8 +85,6 @@ class LedsManager: public Manager
         void createLed(const ofPoint& position, int& id);
     
         void removeCharsFromString( string &str, char* charsToRemove );
-    
-        bool isNewFrame() const {return m_isNewFrame;}
     
         bool isValidFile(const string& path);
     

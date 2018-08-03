@@ -44,6 +44,8 @@ void LedsManager::setup()
 
 void LedsManager::setupLeds()
 {
+    m_leds.clear();
+    
     this->readLedsPosition();
     this->sortLeds();
     this->normalizeLeds();
@@ -205,9 +207,9 @@ bool LedsManager::parseLedLine(string& line, ofPoint& position)
         return false;
     }
     
-    position.x = ofToFloat(positionsStrings[0])*0.1;
-    position.y = ofToFloat(positionsStrings[1])*0.1;
-    position.z = ofToFloat(positionsStrings[2])*0.1;
+    position.x = ofToFloat(positionsStrings[0]);
+    position.y = ofToFloat(positionsStrings[1]);
+    position.z = ofToFloat(positionsStrings[2]);
     
     return true;
 }
@@ -261,7 +263,6 @@ bool LedsManager::loadLeds()
     //Check if the user opened a file
     if (openFileResult.bSuccess){
         
-        ofLogNotice() <<"LedsManager::loadLeds -> ser selected a file";
         ofLogNotice() <<"LedsManager::loadLeds -> name: " <<   openFileResult.getName();
         ofLogNotice() <<"LedsManager::loadLeds -> path: " <<   openFileResult.getPath();
         
@@ -276,10 +277,11 @@ bool LedsManager::loadLeds()
 
 bool LedsManager::isValidFile(const string& path)
 {
-    ofBuffer buffer = ofBufferFromFile(m_ledsFilePath);
+    ofBuffer buffer = ofBufferFromFile(path);
     
     if(buffer.size()==0){
-        return;
+         ofLogNotice() <<"VideoManager::isValidFile -> empty file";
+        return false;
     }
     
     ofPoint ledPosition;
@@ -289,9 +291,12 @@ bool LedsManager::isValidFile(const string& path)
         
         string line = *it;
         
+        ofLogNotice() << line;
+        
         // copy the line to draw later
         // make sure its not a empty line
         if(!line.empty() && !parseLedLine(line,ledPosition)) {
+            ofLogNotice() <<"VideoManager::isValidFile -> File not valid";
             return false;
         }
         

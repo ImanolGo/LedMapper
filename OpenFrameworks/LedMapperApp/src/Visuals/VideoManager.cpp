@@ -100,6 +100,15 @@ void VideoManager::updateVideo()
     if(m_videoPlayer.isFrameNew())
     {
         int frame = m_videoPlayer.getCurrentFrame();
+        ofLogNotice()<< "VideoManager::updateVideo:  New Frame!!" << frame;
+         ofLogNotice()<< "VideoManager::updateVideo:  Old Frame!!" << m_frameNumber;
+        //ofLogNotice()<< "VideoManager::updateVideo:  Total Frames!!" <<  m_videoPlayer.getTotalNumFrames();
+        
+        if(m_exportMode && frame < m_frameNumber){
+            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
+            this->stopExporting();
+        }
+        
         if(m_frameNumber != frame)
         {
             m_frameNumber = frame;
@@ -109,9 +118,22 @@ void VideoManager::updateVideo()
             //ofLogNotice()<< "VideoManager::newFrame: ";
         }
         
-        if(m_exportMode && m_videoPlayer.getIsMovieDone()){
-            this->stopExporting();
-        }
+//        if(m_exportMode){
+//            ofLogNotice()<< "VideoManager::updateVideo:  Next Frame!!" << m_frameNumber+1;
+//            m_videoPlayer.setFrame(m_frameNumber+1);
+//        }
+        
+//        if(m_exportMode && m_videoPlayer.getIsMovieDone()){
+//            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
+//            this->stopExporting();
+//        }
+        
+//        if(m_exportMode && m_frameNumber>= m_videoPlayer.getTotalNumFrames()){
+//            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
+//            this->stopExporting();
+//        }
+        
+        
     }
     
     
@@ -221,12 +243,14 @@ void VideoManager::loadTest()
     
     if(videoPaths.find(name)!=videoPaths.end())
     {
-        ofDisableDataPath();
-        string path = videoPaths.at(name);
-        path = "../../../" + path; //To make it realtive to PrimaveraSoundProto.app
-        ofDirectory dir(path);
-        this->loadVideo(path);
-        ofEnableDataPath();
+//        ofDisableDataPath();
+//        string path = videoPaths.at(name);
+//        path = "../../../" + path; //To make it realtive to PrimaveraSoundProto.app
+//        ofDirectory dir(path);
+//        this->loadVideo(path);
+//        ofEnableDataPath();
+        
+         this->loadVideo(videoPaths.at(name));
         
     }
     else{
@@ -242,8 +266,9 @@ void VideoManager::exportVideo()
     if(m_exportMode){
         m_videoPlayer.setFrame(0);
         m_frameNumber = -1;
-        m_videoPlayer.setLoopState(OF_LOOP_NONE);
+        //m_videoPlayer.setLoopState(OF_LOOP_NONE);
         m_videoPlayer.play();
+        ofLogNotice() <<"VideoManager::exportVideo -> Starting Exportation! ";
     }
     else{
         m_videoPlayer.setLoopState(OF_LOOP_NORMAL);
@@ -254,6 +279,8 @@ void VideoManager::exportVideo()
 
 void VideoManager::stopExporting()
 {
+    ofLogNotice() <<"VideoManager::exportVideo -> Stop Exportation! ";
+    
     m_exportMode = false;
     m_frameNumber = -1;
     m_videoPlayer.setFrame(0);

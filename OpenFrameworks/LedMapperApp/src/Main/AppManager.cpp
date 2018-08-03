@@ -101,7 +101,8 @@ void AppManager::draw()
     if(!m_initialized)
         return;
     
-    ofBackground(27,27,27);
+    
+    ofBackground(17,17,17);
     m_layoutManager.draw();
     m_guiManager.draw();    
 }

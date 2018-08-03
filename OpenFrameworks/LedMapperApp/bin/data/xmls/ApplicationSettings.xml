@@ -3,25 +3,10 @@
 
   <of_settings>
 
-    <window title="CoralSoulApp" x="0" y="50" width="1920" height="1080" fullscreen="0" showCursor="1"/>
-    <debug showCursor="1" setVerbose="1" sceneTimer = "120"/> 
-    <network ipAddress="127.0.0.1" portOscReceive="90000" portOscSend="12346" spout="CoralSoulSpout"/>
+    <window title="Led Mapper App" x="0" y="0" width="1920" height="1200" fullscreen="0" showCursor="1"/>
+    <debug showCursor="1" setVerbose="1"/> 
 
   </of_settings>
-	
-  <models>
-
-    <model name="Full" path="images/model/ROCA_MODELO_COMPLETO_VFX_49000_UV_1.obj"/>
-    <model name="Simplified" path="images/model/ROCA_MODELO_COMPLETO_VFX_49000_UV_1_simple2.obj"/>
-  
-  </models>
-
-  <api>
-       <weather url = "http://api.openweathermap.org/data/2.5/weather?" city="Santa Cruz de Tenerife" lat="28.0983074" lon="-16.748344" units="metric" key="e4c4bf0f238afdc3bcef9346e1a47ff3" request_time ="300"/>
-       <nasa url="https://api.nasa.gov/planetary/apod?api_key=" key="n0OdkEMGNnqqBQ7RHSGTx7U4OnwrMCAporxkvCEu" request_time ="3600"/>
-       <surf city="La Caleta" url="http://magicseaweed.com/api/" key = "6894ba16117b5b91b63a653717789f6c" id="1855" units="eu" request_time ="3600"/>
-     
-  </api>
 
   <textures>
 
@@ -32,7 +17,7 @@
 
   <videos>
 
-    <video name="TEST_VIDEO" path="videos/video_test.mp4"/>
+    <video name="TEST_VIDEO" path="videos/TestVideo.mov"/>
   
   </videos>
 

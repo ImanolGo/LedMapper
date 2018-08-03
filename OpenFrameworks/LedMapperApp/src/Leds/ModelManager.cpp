@@ -34,8 +34,16 @@ void ModelManager::setup()
     ofLogNotice() <<"ModelManager::initialized" ;
 
 	Manager::setup();
-
+    
+    this->setupCamera();
 }
+
+void ModelManager::setupCamera()
+{
+    m_camera.setDistance(200);
+    //m_camera.setAutoDistance(true);
+}
+
 
 void ModelManager::update()
 {
@@ -48,9 +56,9 @@ void ModelManager::draw()
     ofBackgroundGradient( ofColor(80), ofColor(55), OF_GRADIENT_CIRCULAR );
     
     ofEnableDepthTest();
-    m_cam.begin();
+    m_camera.begin();
     this->drawLeds();
-    m_cam.end();
+    m_camera.end();
     ofDisableDepthTest();
     
 }

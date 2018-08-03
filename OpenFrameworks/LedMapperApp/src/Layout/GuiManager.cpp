@@ -28,7 +28,7 @@ GuiManager::GuiManager(): Manager(), m_showGui(true)
 
 GuiManager::~GuiManager()
 {
-    this->saveGuiValues();
+    //this->saveGuiValues();
     ofLogNotice() <<"GuiManager::Destructor";
 }
 
@@ -79,8 +79,9 @@ void GuiManager::setupFileGui()
 {
     ofxDatGuiFolder* folder = m_gui.addFolder("FILE", ofColor::deepPink);
     folder->addButton("Load Model");
-    folder->addToggle("Load Video");
-    folder->addToggle("Export", true);
+    folder->addButton("Load Video");
+    folder->addButton("Load Test");
+    folder->addButton("Export");
 }
 
 
@@ -146,7 +147,7 @@ void GuiManager::draw()
     if(!m_showGui)
         return;
     
-    this->drawRectangle();
+    //this->drawRectangle();
     this->drawGui();
 }
 
@@ -230,6 +231,13 @@ void GuiManager::onButtonEvent(ofxDatGuiButtonEvent e)
     {
         AppManager::getInstance().getVideoManager().exportVideo();
     }
+    
+    else if(e.target->getName() == "Load Test")
+    {
+        AppManager::getInstance().getVideoManager().loadTest();
+        AppManager::getInstance().getLedsManager().loadTest();
+    }
+    
 
 }
 
