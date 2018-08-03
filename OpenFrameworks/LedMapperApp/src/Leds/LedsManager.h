@@ -78,6 +78,8 @@ class LedsManager: public Manager
     
         void normalizeLeds();
     
+        void  centreLeds();
+    
         void readLedsPositionFromGroup(const string& groupName, int& id, int numberOfSections);
     
         void readLasersPositionFromGroup(const string& groupName, int& id, vector<int>& sections);

@@ -49,6 +49,7 @@ void LedsManager::setupLeds()
     this->readLedsPosition();
     this->sortLeds();
     this->normalizeLeds();
+    this->centreLeds();
 }
 
 void LedsManager::readLedsPosition()
@@ -121,13 +122,9 @@ void LedsManager::normalizeLeds()
         if(max < abs(position.z)){
             max = abs(position.z);
         }
-        
     }
     
-    
-    ofLogNotice() <<"LedsManager::normalizeLeds -> max value =  " << max;
-    
-    bool firstIteration = true;
+     ofLogNotice() <<"LedsManager::normalizeLeds -> max value =  " << max;
     
     for (auto led: m_leds)
     {
@@ -136,6 +133,18 @@ void LedsManager::normalizeLeds()
         led->setPosition(position);
         
         ofLogNotice() <<"LedsManager::normalizeLeds -> id " << led->getId() << ", x = "  << led->getPosition().x << ", y = "  << led->getPosition().y << ", z = " << led->getPosition().z ;
+    }
+    
+}
+
+void LedsManager::centreLeds()
+{
+    
+    bool firstIteration = true;
+    
+    for (auto led: m_leds)
+    {
+        auto position = led->getPosition();
         
         if(firstIteration){
             firstIteration = false;
@@ -169,10 +178,23 @@ void LedsManager::normalizeLeds()
         
     }
     
-    ofLogNotice() <<"LedsManager::normalizeLeds -> min position: x = "  << m_minPos.x << ", y = "  << m_minPos.y << ", z = " << m_minPos.z ;
-    ofLogNotice() <<"LedsManager::normalizeLeds -> max position: x = "  << m_maxPos.x << ", y = "  << m_maxPos.y << ", z = " << m_maxPos.z ;
+    ofLogNotice() <<"LedsManager::centreLeds -> min position: x = "  << m_minPos.x << ", y = "  << m_minPos.y << ", z = " << m_minPos.z ;
+    ofLogNotice() <<"LedsManager::centreLeds -> max position: x = "  << m_maxPos.x << ", y = "  << m_maxPos.y << ", z = " << m_maxPos.z ;
+    
+    ofPoint shift = (m_maxPos- m_minPos)*0.5  + m_minPos;
+    
+    ofLogNotice() <<"LedsManager::centreLeds -> shift position: x = "  << shift.x << ", y = "  << shift.y << ", z = " << shift.z ;
+    
+    for (auto led: m_leds)
+    {
+        auto position = led->getPosition();
+        position-=shift;
+        led->setPosition(position);
+        
+    }
+    
+   
 }
-
 
 
 void LedsManager::createLed(const ofPoint& position, int& id)
