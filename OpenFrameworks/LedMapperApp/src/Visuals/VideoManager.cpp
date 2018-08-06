@@ -281,9 +281,9 @@ void VideoManager::loadTest()
 //        string path = videoPaths.at(name);
 //        path = "../../../" + path; //To make it realtive to PrimaveraSoundProto.app
 //        ofDirectory dir(path);
-//        this->loadVideo(path);
+//        this->load(path);
 //        ofEnableDataPath();
-        
+//
         string path = videoPaths.at(name);
          this->load(path);
         

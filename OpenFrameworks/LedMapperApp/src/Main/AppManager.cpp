@@ -58,7 +58,8 @@ void AppManager::setupOF()
 {
     ofSetLogLevel(OF_LOG_NOTICE);
     ofSetVerticalSync(true);
-    ofSetEscapeQuitsApp(true);
+    ofSetEscapeQuitsApp(false);
+    ofSetDataPathRoot("../Resources/data/");
     ofSetBackgroundAuto(true);
 }
 

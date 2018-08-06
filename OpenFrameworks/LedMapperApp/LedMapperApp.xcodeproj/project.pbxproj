@@ -13,6 +13,11 @@
 		059F15A57C00F89CF43FDDD6 /* ofxSmartFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9EA26E2A646CE843DEEB1E /* ofxSmartFont.cpp */; };
 		083990C021148818001CC7AE /* ofxAVFVideoPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 083990BE21148817001CC7AE /* ofxAVFVideoPlayer.mm */; };
 		083990C121148818001CC7AE /* ofxAVFVideoRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 083990BF21148818001CC7AE /* ofxAVFVideoRenderer.m */; };
+		083990CC21188403001CC7AE /* UdpManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083990CB21188403001CC7AE /* UdpManager.cpp */; };
+		083990DC2118895D001CC7AE /* ofxTCPClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083990D32118895D001CC7AE /* ofxTCPClient.cpp */; };
+		083990DD2118895D001CC7AE /* ofxTCPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083990D52118895D001CC7AE /* ofxTCPManager.cpp */; };
+		083990DE2118895D001CC7AE /* ofxTCPServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083990D82118895D001CC7AE /* ofxTCPServer.cpp */; };
+		083990DF2118895D001CC7AE /* ofxUDPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083990DB2118895D001CC7AE /* ofxUDPManager.cpp */; };
 		106B97E658138710B59773AE /* GodRaysPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE19FA45FB564FF3B31F7717 /* GodRaysPass.cpp */; };
 		1835B306208122634C04CA79 /* ModelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2958AE46C53B67E9739A17 /* ModelManager.cpp */; };
 		1AF15FCF93D2DDD6D4285C8E /* AppManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5056FC61E30B9810903B814D /* AppManager.cpp */; };
@@ -123,6 +128,18 @@
 		083990BD21148817001CC7AE /* ofxAVFVideoRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxAVFVideoRenderer.h; path = Addons/ofxAVFVideoPlayer/src/ofxAVFVideoRenderer.h; sourceTree = "<group>"; };
 		083990BE21148817001CC7AE /* ofxAVFVideoPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ofxAVFVideoPlayer.mm; path = Addons/ofxAVFVideoPlayer/src/ofxAVFVideoPlayer.mm; sourceTree = "<group>"; };
 		083990BF21148818001CC7AE /* ofxAVFVideoRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ofxAVFVideoRenderer.m; path = Addons/ofxAVFVideoPlayer/src/ofxAVFVideoRenderer.m; sourceTree = "<group>"; };
+		083990CA21188402001CC7AE /* UdpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UdpManager.h; path = I0/UdpManager.h; sourceTree = "<group>"; };
+		083990CB21188403001CC7AE /* UdpManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UdpManager.cpp; path = I0/UdpManager.cpp; sourceTree = "<group>"; };
+		083990D22118895D001CC7AE /* ofxTCPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxTCPClient.h; path = ../../../../../../../../Applications/of_v0.9.8_osx_release/addons/ofxNetwork/src/ofxTCPClient.h; sourceTree = "<group>"; };
+		083990D32118895D001CC7AE /* ofxTCPClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxTCPClient.cpp; path = ../../../../../../../../Applications/of_v0.9.8_osx_release/addons/ofxNetwork/src/ofxTCPClient.cpp; sourceTree = "<group>"; };
+		083990D42118895D001CC7AE /* ofxTCPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxTCPServer.h; path = ../../../../../../../../Applications/of_v0.9.8_osx_release/addons/ofxNetwork/src/ofxTCPServer.h; sourceTree = "<group>"; };
+		083990D52118895D001CC7AE /* ofxTCPManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxTCPManager.cpp; path = ../../../../../../../../Applications/of_v0.9.8_osx_release/addons/ofxNetwork/src/ofxTCPManager.cpp; sourceTree = "<group>"; };
+		083990D62118895D001CC7AE /* ofxNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxNetwork.h; path = ../../../../../../../../Applications/of_v0.9.8_osx_release/addons/ofxNetwork/src/ofxNetwork.h; sourceTree = "<group>"; };
+		083990D72118895D001CC7AE /* ofxTCPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxTCPManager.h; path = ../../../../../../../../Applications/of_v0.9.8_osx_release/addons/ofxNetwork/src/ofxTCPManager.h; sourceTree = "<group>"; };
+		083990D82118895D001CC7AE /* ofxTCPServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxTCPServer.cpp; path = ../../../../../../../../Applications/of_v0.9.8_osx_release/addons/ofxNetwork/src/ofxTCPServer.cpp; sourceTree = "<group>"; };
+		083990D92118895D001CC7AE /* ofxNetworkUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxNetworkUtils.h; path = ../../../../../../../../Applications/of_v0.9.8_osx_release/addons/ofxNetwork/src/ofxNetworkUtils.h; sourceTree = "<group>"; };
+		083990DA2118895D001CC7AE /* ofxUDPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxUDPManager.h; path = ../../../../../../../../Applications/of_v0.9.8_osx_release/addons/ofxNetwork/src/ofxUDPManager.h; sourceTree = "<group>"; };
+		083990DB2118895D001CC7AE /* ofxUDPManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxUDPManager.cpp; path = ../../../../../../../../Applications/of_v0.9.8_osx_release/addons/ofxNetwork/src/ofxUDPManager.cpp; sourceTree = "<group>"; };
 		09BB1D7613A1F9D8E8B11D7A /* KeyboardManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = KeyboardManager.h; path = src/I0/KeyboardManager.h; sourceTree = SOURCE_ROOT; };
 		09F8F2DF1D53E65319F30B96 /* LightManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = LightManager.cpp; path = src/Engine/3D/LightManager.cpp; sourceTree = SOURCE_ROOT; };
 		11C490A0CA5771C60AE54B4B /* ImageVisual.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImageVisual.h; path = src/Engine/Visuals/ImageVisual.h; sourceTree = SOURCE_ROOT; };
@@ -288,6 +305,8 @@
 		0564C083037E0848473DDC94 /* I0 */ = {
 			isa = PBXGroup;
 			children = (
+				083990CB21188403001CC7AE /* UdpManager.cpp */,
+				083990CA21188402001CC7AE /* UdpManager.h */,
 				3A260C79069FA7DEF9728CEC /* KeyboardManager.cpp */,
 				09BB1D7613A1F9D8E8B11D7A /* KeyboardManager.h */,
 			);
@@ -309,6 +328,31 @@
 				083990BE21148817001CC7AE /* ofxAVFVideoPlayer.mm */,
 				083990BD21148817001CC7AE /* ofxAVFVideoRenderer.h */,
 				083990BF21148818001CC7AE /* ofxAVFVideoRenderer.m */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		083990D021188942001CC7AE /* ofxNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				083990D121188949001CC7AE /* src */,
+			);
+			name = ofxNetwork;
+			sourceTree = "<group>";
+		};
+		083990D121188949001CC7AE /* src */ = {
+			isa = PBXGroup;
+			children = (
+				083990D62118895D001CC7AE /* ofxNetwork.h */,
+				083990D92118895D001CC7AE /* ofxNetworkUtils.h */,
+				083990D32118895D001CC7AE /* ofxTCPClient.cpp */,
+				083990D22118895D001CC7AE /* ofxTCPClient.h */,
+				083990D52118895D001CC7AE /* ofxTCPManager.cpp */,
+				083990D72118895D001CC7AE /* ofxTCPManager.h */,
+				083990D82118895D001CC7AE /* ofxTCPServer.cpp */,
+				083990D42118895D001CC7AE /* ofxTCPServer.h */,
+				083990DB2118895D001CC7AE /* ofxUDPManager.cpp */,
+				083990DA2118895D001CC7AE /* ofxUDPManager.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -607,6 +651,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				083990D021188942001CC7AE /* ofxNetwork */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -816,7 +861,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy default icon file into App/Resources\nrsync -aved \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy libfmod and change install directory for fmod to run\nrsync -aved ../../../../../../../../Applications/of_v0.9.8_osx_release/libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\";\ninstall_name_tool -change @executable_path/libfmodex.dylib @executable_path/../Frameworks/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\n# Copy GLUT framework (must remove for AppStore submissions)\nrsync -aved ../../../../../../../../Applications/of_v0.9.8_osx_release/libs/glut/lib/osx/GLUT.framework \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\"\n";
+			shellScript = "mkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy default icon file into App/Resources\nrsync -aved \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy libfmod and change install directory for fmod to run\nrsync -aved ../../../../../../../../Applications/of_v0.9.8_osx_release/libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\";\ninstall_name_tool -change @executable_path/libfmodex.dylib @executable_path/../Frameworks/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\n# Copy GLUT framework (must remove for AppStore submissions)\nrsync -aved ../../../../../../../../Applications/of_v0.9.8_osx_release/libs/glut/lib/osx/GLUT.framework \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\"\n\ncp -r bin/data \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources\";\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -833,6 +878,7 @@
 				040259BAD9E7E5CDA062C1FF /* Verdana.ttf in Sources */,
 				E23B9A2CD222C1969CC8B2BA /* icon-group-closed.png in Sources */,
 				46DE9A6B85E9B574643D0D67 /* icon-group-open.png in Sources */,
+				083990DF2118895D001CC7AE /* ofxUDPManager.cpp in Sources */,
 				63A90FF94CFD24B528DBEF66 /* icon-radio-off.png in Sources */,
 				5057E92136F67CEB60A9CFE8 /* icon-radio-on.png in Sources */,
 				6F6BBB4756484E68AB2208D7 /* picker-rainbow.png in Sources */,
@@ -841,6 +887,7 @@
 				DF2764E1860DD2D324923A1D /* ofxDatGuiComponent.cpp in Sources */,
 				059F15A57C00F89CF43FDDD6 /* ofxSmartFont.cpp in Sources */,
 				49EE14834E328B244122B5DE /* ofxDatGui.cpp in Sources */,
+				083990DD2118895D001CC7AE /* ofxTCPManager.cpp in Sources */,
 				E0A4FEE5EA64E2D22ECB8279 /* BleachBypassPass.cpp in Sources */,
 				3858F6C5A65122C7E9AB7A44 /* BloomPass.cpp in Sources */,
 				A6F9B2E3C2F68F92EDECB6E4 /* ContrastPass.cpp in Sources */,
@@ -851,10 +898,12 @@
 				F21D9E004F4E33C8FEBB6BC8 /* FakeSSSPass.cpp in Sources */,
 				491AAC4FBA6A0EED0F888BB3 /* FxaaPass.cpp in Sources */,
 				106B97E658138710B59773AE /* GodRaysPass.cpp in Sources */,
+				083990CC21188403001CC7AE /* UdpManager.cpp in Sources */,
 				8EF4DE54739314545CE7072E /* HorizontalTiltShifPass.cpp in Sources */,
 				7A4524965841683C0415874A /* HsbShiftPass.cpp in Sources */,
 				F6400F5A83A5662D5CF069BE /* KaleidoscopePass.cpp in Sources */,
 				C0BE98DAA1C7F09C90863281 /* LimbDarkeningPass.cpp in Sources */,
+				083990DE2118895D001CC7AE /* ofxTCPServer.cpp in Sources */,
 				6CF4DB637050B51EF40A4CE3 /* LUTPass.cpp in Sources */,
 				6286707BC126BC69BE17FB3A /* NoiseWarpPass.cpp in Sources */,
 				F112CEC8EC064BD6AD9E6FE2 /* PixelatePass.cpp in Sources */,
@@ -870,6 +919,7 @@
 				FA0CB8B0BD676FCA764113AE /* ofxPSLevels.cpp in Sources */,
 				00F8DAC81953313F8180A13C /* ofxTextBlock.cpp in Sources */,
 				48F94177806B5CB8D3C0F283 /* CameraAnimations.cpp in Sources */,
+				083990DC2118895D001CC7AE /* ofxTCPClient.cpp in Sources */,
 				C6B3BFC2668F137F745DC3C6 /* CameraAnimationsManager.cpp in Sources */,
 				8C9DFFBD826A20F752ED0CD6 /* CameraManager.cpp in Sources */,
 				DC16DA963E4E5873F0AE7C9E /* LightManager.cpp in Sources */,

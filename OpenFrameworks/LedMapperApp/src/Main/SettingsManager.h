@@ -46,6 +46,10 @@ public:
     float getAppWidth() const {return m_appWidth;}
     
     float getAppHeight() const {return m_appHeight;}
+    
+    int getUdpPortSend() const {return m_portUdpSend;}
+    
+    int getUdpPortReceive() const {return m_portUdpReceive;}
 
     
 private:
@@ -61,6 +65,9 @@ private:
     
     //! Sets all the window properties
     void setWindowProperties();
+    
+    //! Sets all the network properties
+    void setNetworkProperties();
     
     //! Loads all the app colors
     void loadColors();
@@ -85,6 +92,10 @@ private:
     float                   m_appHeight;            ///< stores the applications height
     string                  m_ipAddress;            ///< stores the Ip Address used for the Network communications
     ofColor                 m_blankColor;           ///<return blank color
+    
+    int                     m_portUdpSend;          ///< stores the UDP port used for the OSC Sending communications
+    int                     m_portUdpReceive;       ///< stores the UDP port used for
+    string                  m_ipAddress;            ///< stores the Ip Address used for the Network communications
 
 };
 

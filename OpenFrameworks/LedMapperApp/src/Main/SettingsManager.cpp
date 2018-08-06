@@ -46,6 +46,7 @@ void SettingsManager::loadAllSettings()
 {
     this->setWindowProperties();
     this->setDebugProperties();
+    this->setNetworkProperties();
     this->loadTextureSettings();
     this->loadVideoSettings();
     this->loadColors();
@@ -131,6 +132,28 @@ void SettingsManager::setWindowProperties()
     }
     
     ofLogNotice() <<"SettingsManager::setWindowProperties->  path not found: " << windowPath ;
+}
+
+void SettingsManager::setNetworkProperties()
+{
+    m_xml.setTo("//");
+    
+    string path = "//of_settings/network";
+    if(m_xml.exists(path)) {
+        m_xml.setTo(path);
+        typedef   std::map<string, string>   AttributesMap;
+        AttributesMap attributes = m_xml.getAttributes();
+        string title = attributes["ipAddress"];
+        m_portUdpSend = ofToInt(attributes["portUdpSend"]);
+        m_portUdpReceive= ofToInt(attributes["ipAddress"]);
+        
+
+        
+       ofLogNotice() <<"SettingsManager::setNetworkProperties->  successfully loaded the network settings" ;
+        return;
+    }
+    
+    ofLogNotice() <<"SettingsManager::setNetworkProperties->  path not found: " << path ;
 }
 
 
