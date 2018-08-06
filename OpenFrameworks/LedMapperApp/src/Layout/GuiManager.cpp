@@ -59,7 +59,9 @@ void GuiManager::setupGuiParameters()
     
     ofxDatGuiLog::quiet();
     
-    m_gui.setPosition(ofxDatGuiAnchor::TOP_LEFT);
+    //m_gui.setPosition(ofxDatGuiAnchor::TOP_LEFT);
+    m_gui.setPosition(0,0);
+    //m_gui.setAssetPath(ofToDataPath("fonts/"));
     //m_gui.setAssetPath(ofToDataPath("fonts/"));
     //m_gui.setAssetPath("../Resources/data/fonts/");
     m_gui.setTheme(new GuiTheme());
@@ -98,6 +100,7 @@ void GuiManager::setupFileGui()
     folder->addButton("Load Video");
     folder->addButton("Load Test");
     folder->addButton("Export");
+    folder->expand();
     
 }
 
@@ -148,6 +151,7 @@ void GuiManager::setupLevelsGui()
     folder->addSlider(m_maxInput);
     folder->addSlider(m_minOutput);
     folder->addSlider(m_maxOutput);
+    folder->expand();
 
     m_gui.addBreak();
 }
@@ -163,6 +167,7 @@ void GuiManager::setupLedsGui()
     
     ofxDatGuiFolder* folder = m_gui.addFolder("LEDS", ofColor::yellow);
     folder->addSlider(m_ledsSize);
+    folder->expand();
     
     m_gui.addBreak();
 }
@@ -205,6 +210,7 @@ void GuiManager::saveGuiValues(string path)
 {
     ofXml xml;
     ofSerialize(xml, m_parameters);
+    //xml.serialize(m_parameters);
     
     if(path.empty()){
         xml.save(GUI_SETTINGS_FILE_NAME);
@@ -226,6 +232,7 @@ void GuiManager::loadGuiValues(string path)
          xml.load(path);
     }
     
+    //xml.deserialize(m_parameters);
     ofDeserialize(xml, m_parameters);
 }
 

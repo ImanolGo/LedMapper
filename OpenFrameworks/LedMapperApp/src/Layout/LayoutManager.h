@@ -93,6 +93,8 @@ private:
     
     void resetWindowRects();
     
+    void resetFbos();
+    
     void resetWindowFrames();
     
     void resetWindowTitles();

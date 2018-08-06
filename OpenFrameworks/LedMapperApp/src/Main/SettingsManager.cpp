@@ -46,6 +46,7 @@ void SettingsManager::loadAllSettings()
 {
     this->setWindowProperties();
     this->setDebugProperties();
+    this->setNetworkProperties();
     this->loadTextureSettings();
     this->loadVideoSettings();
     this->loadColors();
@@ -137,6 +138,23 @@ void SettingsManager::setWindowProperties()
     ofLogNotice() <<"SettingsManager::setWindowProperties->  path not found: " << path ;
 }
 
+
+void SettingsManager::setNetworkProperties()
+{
+    string path = "//of_settings/network";
+    auto xml = m_xml.findFirst(path);
+    if(xml) {
+        
+        m_portUdpSend  = xml.getAttribute("portUdpSend").getIntValue();
+        m_portUdpReceive  =  xml.getAttribute("portUdpReceive").getIntValue();
+        m_ipAddress  =  xml.getAttribute("ipAddress").getValue();
+        
+        ofLogNotice() <<"SettingsManager::setNetworkProperties->  successfully loaded the network settings" ;
+        return;
+    }
+    
+    ofLogNotice() <<"SettingsManager::setNetworkProperties->  path not found: " << path ;
+}
 
 void SettingsManager::loadTextureSettings()
 {

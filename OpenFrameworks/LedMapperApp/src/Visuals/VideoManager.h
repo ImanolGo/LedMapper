@@ -11,7 +11,9 @@
 
 #include "Manager.h"
 #include "ofxPSLevels.h"
-//#include "ofxAVFoundationVideoPlayer.h"
+#define OF_VIDEO_PLAYER_QUICKTIME
+//#inclue "ofQuickTimePlayer.h"
+
 
 //========================== class VideoManager ==============================
 //============================================================================
@@ -96,8 +98,9 @@ private:
     
     
     ofVideoPlayer 	m_videoPlayer;
-    //ofxAVFoundationVideoPlayer m_videoPlayer;
     ofxPSLevels     m_levels;
+    //ofxAVFVideoPlayer*   m_videoPlayer;
+    
     
     ofFbo           m_fbo;
     ofFbo           m_exportFbo;

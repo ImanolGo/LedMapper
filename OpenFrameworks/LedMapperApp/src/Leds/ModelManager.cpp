@@ -55,12 +55,20 @@ void ModelManager::update()
 
 void ModelManager::draw()
 {
-    ofBackgroundGradient( ofColor(80), ofColor(55), OF_GRADIENT_CIRCULAR );
+    string name = "Leds";
+    auto rect = AppManager::getInstance().getLayoutManager().getWindowRect(name);
     
+    ofRectangle rect2 = ofRectangle(rect->x, rect->y, 0, 0);
+    
+    ofBackgroundGradient( ofColor(100), ofColor(15), OF_GRADIENT_CIRCULAR );
     ofEnableDepthTest();
+    //ofTranslate(-rect->x, 0, 0);
     m_camera.begin();
+   // ofTranslate(-rect->x, 0, 0);
     this->drawLeds();
+   // ofTranslate(rect->x, 0 , 0);
     m_camera.end();
+    //ofTranslate(rect->x, 0 , 0);
     ofDisableDepthTest();
     
 }

@@ -18,7 +18,7 @@
 
 #include "LayoutManager.h"
 
-const int LayoutManager::MARGIN = 10;
+const int LayoutManager::MARGIN = 2;
 const int LayoutManager::FRAME_MARGIN = 2;
 
 const string LayoutManager::LAYOUT_FONT =  "fonts/open-sans/OpenSans-Semibold.ttf";
@@ -89,6 +89,7 @@ void LayoutManager::setupWindowFrames()
     }
     
     this->resetWindowRects();
+    this->resetFbos();
     this->resetWindowFrames();
 }
 
@@ -99,24 +100,33 @@ void LayoutManager::resetWindowRects()
     float width = AppManager::getInstance().getSettingsManager().getAppWidth();
     float height  = AppManager::getInstance().getSettingsManager().getAppHeight();
     float ratio = width/ height;
-    float frame_width = ofGetWidth() - AppManager::getInstance().getGuiManager().getWidth() - 2*MARGIN;
-    float frame_height= ofGetWindowHeight() - 2*MARGIN;
+    float frame_width = ofGetWidth() - AppManager::getInstance().getGuiManager().getWidth() - 3*MARGIN;
+    float frame_height= ofGetWindowHeight();
     
     
     int i = 0;
     for (auto& rect : m_windowRects)
     {
         rect.second->height = frame_height/m_windowRects.size() - 2*MARGIN;
-        rect.second->width = rect.second->height * ratio;
+        rect.second->width = frame_width;
         
-        if(rect.second->width > frame_width  - 3*MARGIN){
-            rect.second->width = frame_width  - 3*MARGIN;
-            rect.second->height = rect.second->width/ratio;
-        }
+//        if(rect.second->width > frame_width  - 3*MARGIN){
+//            rect.second->width = frame_width  - 3*MARGIN;
+//            rect.second->height = rect.second->width/ratio;
+//        }
         
-        rect.second->x = AppManager::getInstance().getGuiManager().getWidth()  + 4*MARGIN;
-        rect.second->y = i*rect.second->height + 2*i*MARGIN  + 2*MARGIN;
+        rect.second->x = AppManager::getInstance().getGuiManager().getWidth()  + 2*MARGIN;
+        rect.second->y = i*rect.second->height + 2*i*MARGIN  + MARGIN;
         i++;
+    }
+}
+
+void LayoutManager::resetFbos()
+{
+    for (auto& rect : m_windowRects)
+    {
+        m_fbos[rect.first]->allocate(rect.second->width, rect.second->height);
+        m_fbos[rect.first]->begin(); ofClear(0); m_fbos[rect.first]->end();
     }
 }
 
@@ -298,6 +308,7 @@ void LayoutManager::windowResized(int w, int h)
     }
     
     this->resetWindowRects();
+    this->resetFbos();
     this->resetWindowFrames();
     this->resetWindowTitles();
 }

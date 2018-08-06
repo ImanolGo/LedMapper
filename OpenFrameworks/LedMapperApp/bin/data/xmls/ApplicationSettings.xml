@@ -5,6 +5,7 @@
 
     <window title="Led Mapper App" x="0" y="0" width="1920" height="1200" fullscreen="0" showCursor="1"/>
     <debug showCursor="1" setVerbose="1"/> 
+     <network ipAddress="192.168.0.21" portUdpSend="2390" portUdpReceive="2391" syphon="PrimaveraSoundSyphon" numLeds = "72" />
 
   </of_settings>
 
