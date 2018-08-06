@@ -55,7 +55,7 @@ void ModelManager::update()
 
 void ModelManager::draw()
 {
-    ofBackgroundGradient( ofColor(80), ofColor(55), OF_GRADIENT_CIRCULAR );
+    ofBackgroundGradient( ofColor(100), ofColor(15), OF_GRADIENT_CIRCULAR );
     
     ofEnableDepthTest();
     m_camera.begin();

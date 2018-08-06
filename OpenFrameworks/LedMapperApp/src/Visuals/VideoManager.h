@@ -11,7 +11,8 @@
 
 #include "Manager.h"
 #include "ofxPSLevels.h"
-#include "ofxAVFVideoPlayer.h"
+#define OF_VIDEO_PLAYER_QUICKTIME
+//#inclue "ofQuickTimePlayer.h"
 
 
 //========================== class VideoManager ==============================

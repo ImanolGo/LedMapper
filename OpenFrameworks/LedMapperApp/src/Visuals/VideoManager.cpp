@@ -14,6 +14,7 @@
 #include "AppManager.h"
 
 
+
 VideoManager::VideoManager(): Manager(), m_exportMode(false), m_frameNumber(-1)
 {
     //m_videoPlayer = new ofxAVFVideoPlayer();
@@ -77,6 +78,7 @@ void VideoManager::load(string& path)
         m_exportFbo.begin();  ofClear(0); m_exportFbo.end();
         
         m_videoPlayer.setLoopState(OF_LOOP_NORMAL);
+       // m_videoPlayer.setPixelFormat(OF_PIXELS_RGBA);
         m_videoPlayer.play();
         
         this->setupLevels(m_videoPlayer.getWidth(), m_videoPlayer.getHeight());
@@ -192,7 +194,23 @@ void VideoManager::draw()
 
 void VideoManager::drawFbo()
 {
-    m_fbo.draw(0,0);
+    string name = "Video";
+    auto rect = AppManager::getInstance().getLayoutManager().getWindowRect(name);
+    float ratio = m_videoPlayer.getWidth()/ m_videoPlayer.getHeight();
+    float height = rect->getHeight();
+    float width = height*ratio;
+    
+    if( width > rect->getWidth() ){
+        width = rect->getWidth();
+        height = width/ratio;
+    }
+    
+    float x = rect->getWidth()*0.5 - width*0.5;
+    float y = rect->getHeight()*0.5 - height*0.5;
+    
+    m_exportFbo.draw(x,y, width, height);
+    
+    //m_fbo.draw(x,y, width, height);
     
 }
 
