@@ -50,6 +50,8 @@ public:
     int getUdpPortSend() const {return m_portUdpSend;}
     
     int getUdpPortReceive() const {return m_portUdpReceive;}
+    
+    const string& getIpAddress() const {return m_ipAddress;}
 
     
 private:
@@ -90,9 +92,7 @@ private:
     ColorMap                m_colors;               ///< stores all the application's colors
     float                   m_appWidth;             ///< stores the applications width
     float                   m_appHeight;            ///< stores the applications height
-    string                  m_ipAddress;            ///< stores the Ip Address used for the Network communications
     ofColor                 m_blankColor;           ///<return blank color
-    
     int                     m_portUdpSend;          ///< stores the UDP port used for the OSC Sending communications
     int                     m_portUdpReceive;       ///< stores the UDP port used for
     string                  m_ipAddress;            ///< stores the Ip Address used for the Network communications

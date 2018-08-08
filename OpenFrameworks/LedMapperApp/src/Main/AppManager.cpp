@@ -10,7 +10,6 @@
 
 #include "ofMain.h"
 
-
 #include "AppManager.h"
 
 AppManager& AppManager::getInstance()
@@ -71,6 +70,7 @@ void AppManager::setupManagers()
     m_viewManager.setup();
     m_visualEffectsManager.setup();
     m_layoutManager.setup();
+    m_udpManager.setup();
     m_ledsManager.setup();
     m_modelManager.setup();
     m_videoManager.setup();
@@ -92,6 +92,7 @@ void AppManager::update()
     m_videoManager.update();
     m_ledsManager.update();
     m_modelManager.update();
+    m_udpManager.update();
     m_layoutManager.update();
 }
 

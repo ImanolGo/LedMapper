@@ -61,7 +61,7 @@ void GuiManager::setupGuiParameters()
     
     //m_gui.setPosition(ofxDatGuiAnchor::TOP_LEFT);
     m_gui.setPosition(0,0);
-    m_gui.setAssetPath(ofToDataPath("fonts/"));
+    //m_gui.setAssetPath(ofToDataPath("fonts/"));
     //m_gui.setAssetPath(ofToDataPath("fonts/"));
     //m_gui.setAssetPath("../Resources/data/fonts/");
     m_gui.setTheme(new GuiTheme());

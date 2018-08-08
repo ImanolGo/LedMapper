@@ -73,6 +73,9 @@ public:
     //! Returns the leds manager
     LedsManager&  getLedsManager() { return m_ledsManager; }
     
+    //! Returns the udp manager
+    UdpManager&  getUdpManager() { return m_udpManager; }
+    
     //==========================================================================
     
     void toggleDebugMode();
@@ -116,10 +119,12 @@ private:
     ImageManager             m_imageManager;             ///< Manages the image processing and export
     VideoManager             m_videoManager;             ///< Manages the video loading and processing
     LedsManager              m_ledsManager;               ///< Manages the leds and its position
+    UdpManager               m_udpManager;                ///< Manages the udp communications
    
     
     bool                     m_debugMode;
     bool                     m_initialized;
+    
 };
 
 //==========================================================================

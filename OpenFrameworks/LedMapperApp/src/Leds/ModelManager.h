@@ -11,6 +11,7 @@
 #pragma once
 
 #include "Manager.h"
+#include "myEasyCam.h"
 
 
 //========================== class ModelManager ==============================
@@ -50,7 +51,7 @@ class ModelManager: public Manager
 
     private:
     
-        ofEasyCam m_camera; // add mouse controls for camera movement
+        myEasyCam m_camera; // add mouse controls for camera movement
     
         ofFbo     m_fbo;
 

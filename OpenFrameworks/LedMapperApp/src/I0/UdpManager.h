@@ -13,6 +13,8 @@
 #include "ofMain.h"
 #include "ofxNetwork.h"
 #include "Manager.h"
+#include "ofxSimpleTimer.h"
+
 
 //========================== class UdpManager =======================================
 //==============================================================================
@@ -24,11 +26,13 @@
 
 class UdpManager: public Manager
 {
+    static const int UDP_MESSAGE_LENGHT; ///Defines the Udp"s message length
     
     struct udp_header {
         Byte f1;
         Byte f2;
         Byte f3;
+        Byte command;
         short size;
         Byte  channel;
     };
@@ -46,17 +50,48 @@ public:
     //! updates the udp manager
     void update();
     
+    void timerCompleteHandler( int &args ) ;
+    
     
 private:
     
-    void setupUdp();
+    void setupUdpConnection();
     
-    void setupHeader();
+    void setupHeaders();
+    
+    void setupTimer();
+    
+    void setupIP();
+    
+    void updateReveivePackage();
+    
+    bool isMessage(char * buffer, int size);
+    
+    void parseMessage(char * buffer, int size);
+    
+    void receivedIp(char _id);
+    
+    void receivedHeartbeat(char _id, char val1, char val2);
+    
+    void createConnection(string& ip, int port);
+    
+    void sendAutodiscovery();
+    
+    void sendDiscovered();
+    
+    void updatePixels();
+    
+    
     
 private:
     
     ofxUDPManager m_udpConnection;
-    udp_header    m_header;
+    udp_header    m_dataHeader;
+    udp_header    m_connectHeader;
+    ofxSimpleTimer         m_timer;
+    string                 m_broadcast;
+    string                 m_ip;
+    bool                   m_connected;
     
     
 };

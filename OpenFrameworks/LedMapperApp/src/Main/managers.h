@@ -21,3 +21,4 @@
 #include "ImageManager.h"
 #include "VideoManager.h"
 #include "LedsManager.h"
+#include "UdpManager.h"
