@@ -166,6 +166,7 @@ void GuiManager::setupLedsGui()
     
     
     ofxDatGuiFolder* folder = m_gui.addFolder("LEDS", ofColor::yellow);
+    folder->addButton("Reset View");
     folder->addSlider(m_ledsSize);
     folder->expand();
     
@@ -304,6 +305,10 @@ void GuiManager::onButtonEvent(ofxDatGuiButtonEvent e)
     else if(e.target->getName() == "Save Project As")
     {
         this->exportProjectAs();
+    }
+    else if(e.target->getName() == "Reset View")
+    {
+        AppManager::getInstance().getModelManager().resetCamera();
     }
 }
 
