@@ -125,6 +125,10 @@ void GuiManager::setupLevelsGui()
     m_gamma.addListener(videoManager, &VideoManager::setGamma);
     m_parameters.add(m_gamma);
     
+    m_blur.set("Blur", 0.0, 0.0, 10.0);
+    m_blur.addListener(videoManager, &VideoManager::setBlurScale);
+    m_parameters.add(m_blur);
+    
     m_minInput.set("MinInput", 0.0, 0.0, 1.0);
     m_minInput.addListener(videoManager, &VideoManager::setMinInput);
     m_parameters.add(m_minInput);
@@ -147,6 +151,7 @@ void GuiManager::setupLevelsGui()
     folder->addSlider(m_saturation);
     folder->addSlider(m_brightness);
     folder->addSlider(m_gamma);
+    folder->addSlider(m_blur);
     folder->addSlider(m_minInput);
     folder->addSlider(m_maxInput);
     folder->addSlider(m_minOutput);

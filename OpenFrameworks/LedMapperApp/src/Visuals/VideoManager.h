@@ -11,9 +11,7 @@
 
 #include "Manager.h"
 #include "ofxPSLevels.h"
-#define OF_VIDEO_PLAYER_QUICKTIME
-//#inclue "ofQuickTimePlayer.h"
-
+#include "ofxBlur.h"
 
 //========================== class VideoManager ==============================
 //============================================================================
@@ -69,6 +67,8 @@ public:
     
     void setMaxOutput(float& value) {m_levels.maxOutput = value;}
     
+    void setBlurScale(float& value);
+    
     void stopExporting();
     
     void play();
@@ -80,7 +80,9 @@ private:
     
     void setupFbo();
     
-    void setupShaders();
+    void setupShaders(float width,float height);
+    
+    void setupBlur(float width, float height);
     
     void setupLevels(float width, float height);
     
@@ -99,6 +101,7 @@ private:
     
     ofVideoPlayer 	m_videoPlayer;
     ofxPSLevels     m_levels;
+    ofxBlur         m_blur;
     //ofxAVFVideoPlayer*   m_videoPlayer;
     
     
@@ -107,6 +110,7 @@ private:
     ofColor         m_color;
     bool            m_exportMode;
     int             m_frameNumber;
+    float           m_blurScale;
     
 
 };

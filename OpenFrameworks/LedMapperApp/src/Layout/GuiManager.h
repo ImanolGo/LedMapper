@@ -111,6 +111,7 @@ private:
     ofParameter<string>     m_videoPath;
     string                  m_projectPath;
     
+    ofParameter<float>      m_blur;
     ofParameter<float>      m_contrast;
     ofParameter<float>      m_saturation;
     ofParameter<float>      m_brightness;

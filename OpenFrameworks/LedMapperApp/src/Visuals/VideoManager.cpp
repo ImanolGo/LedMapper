@@ -15,7 +15,7 @@
 
 
 
-VideoManager::VideoManager(): Manager(), m_exportMode(false), m_frameNumber(-1)
+VideoManager::VideoManager(): Manager(), m_exportMode(false), m_frameNumber(-1), m_blurScale(0)
 {
     //m_videoPlayer = new ofxAVFVideoPlayer();
 }
@@ -35,8 +35,11 @@ void VideoManager::setup()
     
     Manager::setup();
     
+    float width = AppManager::getInstance().getSettingsManager().getAppWidth();
+    float height  = AppManager::getInstance().getSettingsManager().getAppHeight();
+    
     this->setupFbo();
-    this->setupShaders();
+    this->setupShaders(width,height);
     
     ofLogNotice() <<"VideoManager::initialized" ;
     
@@ -56,11 +59,10 @@ void VideoManager::setupFbo()
     m_exportFbo.begin(); ofClear(0); m_exportFbo.end();
 }
 
-void VideoManager::setupShaders()
+void VideoManager::setupShaders(float width,float height)
 {
-    float width = AppManager::getInstance().getSettingsManager().getAppWidth();
-    float height  = AppManager::getInstance().getSettingsManager().getAppHeight();
     this->setupLevels(width, height);
+    this->setupBlur(width, height);
 }
 
 void VideoManager::setupLevels(float width, float height)
@@ -68,7 +70,17 @@ void VideoManager::setupLevels(float width, float height)
     m_levels.setup(width,height);
 }
 
+void VideoManager::setupBlur(float width, float height)
+{
+    m_blur.setup(width,height, 10, .2, 4);
+    m_blur.setScale(m_blurScale);
+}
 
+void VideoManager::setBlurScale(float& value)
+{
+    m_blurScale = value;
+    m_blur.setScale(m_blurScale);
+}
 
 void VideoManager::load(string& path)
 {
@@ -81,7 +93,7 @@ void VideoManager::load(string& path)
        // m_videoPlayer.setPixelFormat(OF_PIXELS_RGBA);
         m_videoPlayer.play();
         
-        this->setupLevels(m_videoPlayer.getWidth(), m_videoPlayer.getHeight());
+        this->setupShaders(m_videoPlayer.getWidth(), m_videoPlayer.getHeight());
         
         AppManager::getInstance().getGuiManager().setVideoPath(path);
         
@@ -182,7 +194,11 @@ void VideoManager::drawVideo()
     m_videoPlayer.draw(0, 0);
     m_levels.end();
     
+    m_blur.begin();
     m_levels.draw();
+    m_blur.end();
+    
+    m_blur.draw();
 }
 
 
