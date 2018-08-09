@@ -68,9 +68,9 @@ public:
     
     void onMatrixEvent(ofxDatGuiMatrixEvent e);
     
-    void setModelPath(const string& path) {m_modelPath = path;}
+    void setModelPath(const string& path) {m_modelPath = ofToDataPath(path);}
     
-    void setVideoPath(const string& path) {m_videoPath = path;}
+    void setVideoPath(const string& path) {m_videoPath = ofToDataPath(path);}
     
     float getLedsSize() const {return m_ledsSize;}
     
@@ -122,7 +122,7 @@ private:
     ofParameter<float>      m_maxOutput;
     
     ofParameter<float>      m_ledsSize;
-    
+    ofParameter<float>      m_videoSpeed;
     
     
     

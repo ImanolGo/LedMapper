@@ -35,7 +35,7 @@ void LedsManager::setup()
 
 	Manager::setup();
     
-    //this->setupLeds();
+    this->createLedPositions();
     
     ofLogNotice() <<"LedsManager::initialized" ;
     
@@ -51,6 +51,28 @@ void LedsManager::setupLeds()
     this->readLedsPosition();
     m_is3D = this->getIs3D();
     //this->sortLeds();
+    this->normalizeLeds();
+    this->centreLeds();
+}
+
+void LedsManager::createLedPositions()
+{
+    ofLogNotice() <<"LedsManager::createLedPositions" ;
+    
+    int size = 40;
+    
+    int id = 0;
+    for(int i = 0; i<size; i++){
+        for(int j = 0; j<size; j++)
+        {
+            ofPoint pos (j,i) ;
+            createLed(pos, id);
+            id++;
+        }
+            
+    }
+    
+    m_is3D = this->getIs3D();
     this->normalizeLeds();
     this->centreLeds();
 }

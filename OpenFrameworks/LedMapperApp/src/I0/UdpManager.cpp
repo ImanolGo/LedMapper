@@ -90,6 +90,8 @@ void UdpManager::setupUdpConnection()
 
 void UdpManager::createConnection(string& ip, int send)
 {
+    ofLogNotice() <<"UdpManager::createConnection -> sending to IP " << ip.c_str() <<" to port " << send;
+    
     m_udpConnection.Connect(ip.c_str(),send);
     m_udpConnection.SetNonBlocking(true);
     m_connected = true;
@@ -210,7 +212,8 @@ void UdpManager::parseMessage(char * buffer, int size)
             ofLogNotice() <<"UdpManager::isMessage -> Received Connect Command: " << m_connectHeader.command;
             string ip; int port;
             m_udpConnection.GetRemoteAddr(ip, port);
-            this->createConnection(ip, port );
+            int portSend = AppManager::getInstance().getSettingsManager().getUdpPortSend();
+            this->createConnection(ip, portSend );
             this->sendConnected();
             m_timer.stop();
         }
@@ -237,6 +240,8 @@ void UdpManager::sendConnected()
     message+='c';
     
     m_udpConnection.Send(message.c_str(),message.length());
+    
+    ofLogNotice() <<"UdpManager::sendConnected -> Send Connected ";
 }
 void UdpManager::sendAutodiscovery()
 {

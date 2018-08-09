@@ -13,14 +13,15 @@
 #include "WiFiManager.h"
 
 
-#define DATA_PIN_1    32
-#define DATA_PIN_2    2
-
-#define LED_TYPE    WS2812B
-#define COLOR_ORDER GRB
-#define NUM_LEDS 300
+#define DATA_PIN_1    4
+#define DATA_PIN_2    26
+#define CLOCK_PIN_1    0
+#define CLOCK_PIN_2    25
+#define LED_TYPE    DOTSTAR
+#define COLOR_ORDER BGR
+#define NUM_LEDS 20
 #define MAX_BRIGHTNESS 100
-#define TEST_DELAY 300
+#define TEST_DELAY 500
 
 
 const byte channelwidth = 3; //3 channels per pixel
@@ -43,8 +44,12 @@ class LedsManager{
     void setupLeds();
     void initTest();
 
-    CRGBArray<NUM_LEDS> leds1;
-    CRGBArray<NUM_LEDS> leds2;
+    //CRGBArray<NUM_LEDS> leds1;
+    //CRGBArray<NUM_LEDS> leds2;
+    CRGB leds1[NUM_LEDS];
+    CRGB leds2[NUM_LEDS];
+    // Define the array of leds
+    CRGB leds[NUM_LEDS];
 
     
 };
@@ -53,13 +58,16 @@ void LedsManager::setup()
 {
     Serial.println("LedsManager::setup");
     this->setupLeds(); 
+    this->initTest();
 }
 
 
 void LedsManager::setupLeds()
 {
-   FastLED.addLeds<LED_TYPE,DATA_PIN_1,COLOR_ORDER>(leds1, NUM_LEDS);
-   FastLED.addLeds<LED_TYPE,DATA_PIN_2,COLOR_ORDER>(leds2, NUM_LEDS);
+   FastLED.addLeds<LED_TYPE,DATA_PIN_1,CLOCK_PIN_1, COLOR_ORDER>(leds1, NUM_LEDS);
+   FastLED.addLeds<LED_TYPE,DATA_PIN_2,CLOCK_PIN_2, COLOR_ORDER>(leds2, NUM_LEDS);
+
+ 
    FastLED.setMaxPowerInVoltsAndMilliamps (5, 2100);
    FastLED.setDither( 0 );
    FastLED.clear();   

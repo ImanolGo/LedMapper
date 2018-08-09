@@ -24,8 +24,8 @@
 #define DISCOVERY_TIMER 3000
 #define WIFI_TIMEOUT 3000              // checks WiFi every ...ms. Reset after this time, if WiFi cannot reconnect.
 #define NO_DATA_TIMEOUT 10000         // sends autodiscovery if no data is coming after timeout
-#define LOCAL_PORT 2390 
-#define SEND_PORT 2391 
+#define LOCAL_PORT 7000 
+#define SEND_PORT 7001 
 
 
 //The udp library class
@@ -218,11 +218,11 @@ void WifiManager::parseUdp()
   int packetSize = Udp.parsePacket();
   if (packetSize)
   {   
-      //Serial.print("WifiManager::New Message: Size -> ");
-      //Serial.println(packetSize);
+      Serial.print("WifiManager::New Message: Size -> ");
+      Serial.println(packetSize);
       Udp.read(packetBuffer,BUFFER_MAX); //read UDP packet
       int count = checkProtocolHeaders(packetBuffer, packetSize);
-      //Serial.println(count);
+      Serial.println(count);
       if (count) 
       {     
              //Serial.println(packetBuffer[5]);
@@ -232,7 +232,11 @@ void WifiManager::parseUdp()
             }
             else if(packetBuffer[5] == 'c'){
                is_connected = true;
+               Serial.println("WifiManager::parseUdp-> Device Connected!!!");
                no_data_timer =  millis();
+               // if you get a connection, report back via serial:
+//               Udp.begin(LOCAL_PORT);
+//               Udp.flush();
             }
            
            
@@ -352,7 +356,7 @@ void WifiManager::sendAutodiscovery()
       bffr[6] = 0;
       
       // transmit broadcast package
-
+      Udp.beginMulticast(ip, SEND_PORT);
       Udp.beginPacket(ip, SEND_PORT);
       Udp.write((uint8_t *)bffr,packetLength);
       Udp.endPacket();
@@ -368,6 +372,9 @@ void WifiManager::noReceive()
     {
        Serial.println("WifiManager::No received Data!!");
        this->ledsManager->setAllBlack();
+        no_data_timer =  millis();
+        //autodiscovery_timer = millis();
+        is_connected = false;
     }
     
 }

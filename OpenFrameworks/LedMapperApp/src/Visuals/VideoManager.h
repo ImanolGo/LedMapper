@@ -69,6 +69,8 @@ public:
     
     void setBlurScale(float& value);
     
+    void setSpeed(float& value);
+    
     void stopExporting();
     
     void play();

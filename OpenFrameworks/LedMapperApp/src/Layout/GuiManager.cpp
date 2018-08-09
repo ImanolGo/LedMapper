@@ -145,8 +145,14 @@ void GuiManager::setupLevelsGui()
     m_maxOutput.addListener(videoManager, &VideoManager::setMaxOutput);
     m_parameters.add(m_maxOutput);
     
+    m_videoSpeed.set("Speed", 1.0, 0.0, 2.0);
+    m_videoSpeed.addListener(videoManager, &VideoManager::setSpeed);
+    m_parameters.add(m_videoSpeed);
+    
+    
     
     ofxDatGuiFolder* folder = m_gui.addFolder("GENERAL", ofColor::purple);
+    folder->addSlider(m_videoSpeed);
     folder->addSlider(m_contrast);
     folder->addSlider(m_saturation);
     folder->addSlider(m_brightness);

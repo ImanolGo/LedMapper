@@ -95,7 +95,8 @@ void VideoManager::load(string& path)
         
         this->setupShaders(m_videoPlayer.getWidth(), m_videoPlayer.getHeight());
         
-        AppManager::getInstance().getGuiManager().setVideoPath(path);
+        AppManager::getInstance().getGuiManager().setVideoPath(m_videoPlayer.getMoviePath());
+        //AppManager::getInstance().getGuiManager().setVideoPath(path);
         
         ofLogNotice() <<"VideoManager::load -> successfully loaded: " << path;
         
@@ -354,6 +355,11 @@ void VideoManager::pause()
     if(!m_exportMode){
         m_videoPlayer.setPaused(true);
     }
+}
+
+void  VideoManager::setSpeed(float& value)
+{
+    m_videoPlayer.setSpeed(value);
 }
 
 

@@ -74,6 +74,8 @@ class LedsManager: public Manager
     
         void readLedsPosition();
     
+        void createLedPositions();
+    
         void sortLeds();
     
         void normalizeLeds();
