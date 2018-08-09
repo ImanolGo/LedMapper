@@ -90,9 +90,10 @@ void AppManager::update()
     m_visualEffectsManager.update();
     m_viewManager.update();
     m_videoManager.update();
-    m_ledsManager.update();
     m_modelManager.update();
+    m_imageManager.update();
     m_udpManager.update();
+    m_ledsManager.update();
     m_layoutManager.update();
 }
 

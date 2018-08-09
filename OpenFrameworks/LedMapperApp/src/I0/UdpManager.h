@@ -32,8 +32,8 @@ class UdpManager: public Manager
         Byte f1;
         Byte f2;
         Byte f3;
-        Byte command;
         short size;
+        Byte command;
         Byte  channel;
     };
     
@@ -76,6 +76,8 @@ private:
     void createConnection(string& ip, int port);
     
     void sendAutodiscovery();
+    
+    void sendConnected();
     
     void sendDiscovered();
     

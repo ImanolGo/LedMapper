@@ -143,13 +143,15 @@ void SettingsManager::setNetworkProperties()
         m_xml.setTo(path);
         typedef   std::map<string, string>   AttributesMap;
         AttributesMap attributes = m_xml.getAttributes();
-        string title = attributes["ipAddress"];
+        m_ipAddress = attributes["ipAddress"];
         m_portUdpSend = ofToInt(attributes["portUdpSend"]);
-        m_portUdpReceive= ofToInt(attributes["ipAddress"]);
+        m_portUdpReceive= ofToInt(attributes["portUdpReceive"]);
         
 
         
        ofLogNotice() <<"SettingsManager::setNetworkProperties->  successfully loaded the network settings" ;
+        ofLogNotice() <<"SettingsManager::setNetworkProperties->  ipAdress = "<< m_ipAddress<<", port UDP send = " << m_portUdpSend <<", port UDP receive = "
+        <<m_portUdpReceive;
         return;
     }
     

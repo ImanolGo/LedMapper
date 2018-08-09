@@ -52,15 +52,15 @@ void UdpManager::setupHeaders()
     m_dataHeader.f1 = 0x10;
     m_dataHeader.f2 = 0x41;
     m_dataHeader.f3 = 0x37;
-    m_dataHeader.command = 'd';
     m_dataHeader.size = 0;
+    m_dataHeader.command = 'd';
     m_dataHeader.channel = 0;
     
     m_connectHeader.f1 = 0x10;
     m_connectHeader.f2 = 0x41;
     m_connectHeader.f3 = 0x37;
+    m_connectHeader.size = 1;
     m_connectHeader.command = 'c';
-    m_connectHeader.size = 0;
     m_connectHeader.channel = 0;
 }
 
@@ -160,6 +160,7 @@ void UdpManager::updatePixels()
     m_dataHeader.size = ledsPerPixel*leds.size();
     unsigned char * s = (unsigned char*)& m_dataHeader.size;
     message+= s[1] ;  message+=  s[0];
+    message+=m_dataHeader.command;
     message+=m_dataHeader.channel;
     
     for(int i = 0; i< leds.size(); i++)
@@ -181,8 +182,8 @@ void UdpManager::updateReveivePackage()
     
     if(message!="")
     {
-        //ofLogNotice() <<"UdpManager::updateReveivePackage -> SIZE " << message.size();
-        //ofLogNotice() <<"UdpManager::updateReveivePackage -> message " << message;
+        ofLogNotice() <<"UdpManager::updateReveivePackage -> SIZE " << message.size();
+        ofLogNotice() <<"UdpManager::updateReveivePackage -> message " << message;
         
         this->parseMessage(udpMessage, UDP_MESSAGE_LENGHT);
     }
@@ -191,9 +192,12 @@ void UdpManager::updateReveivePackage()
 bool UdpManager::isMessage(char * buffer, int size)
 {
     if(buffer[0] != m_connectHeader.f1  && buffer[1] != m_connectHeader.f2  && buffer[2] != m_connectHeader.f3 ){
+        ofLogNotice() <<"UdpManager::isMessage -> FALSE ";
         return false;
     }
     
+    
+    ofLogNotice() <<"UdpManager::isMessage -> TRUE ";
     return true;
 }
 
@@ -201,12 +205,13 @@ void UdpManager::parseMessage(char * buffer, int size)
 {
     if(isMessage(buffer, size))
     {
-        if(buffer[3] == m_connectHeader.command)
+        if(buffer[5] == m_connectHeader.command)
         {
             ofLogNotice() <<"UdpManager::isMessage -> Received Connect Command: " << m_connectHeader.command;
             string ip; int port;
             m_udpConnection.GetRemoteAddr(ip, port);
             this->createConnection(ip, port );
+            this->sendConnected();
             m_timer.stop();
         }
         
@@ -221,6 +226,18 @@ void UdpManager::timerCompleteHandler( int &args )
     this->sendAutodiscovery();
 }
 
+void UdpManager::sendConnected()
+{
+    string message="";
+    message+= m_connectHeader.f1; message+= m_connectHeader.f2; message+= m_connectHeader.f3;
+    unsigned char * s = (unsigned char*)& m_connectHeader.size;
+    message+= s[1] ;  message+=  s[0];
+    message+=m_connectHeader.command;
+    message+=m_connectHeader.channel;
+    message+='c';
+    
+    m_udpConnection.Send(message.c_str(),message.length());
+}
 void UdpManager::sendAutodiscovery()
 {
 //    string message="";

@@ -272,7 +272,7 @@ void LedsManager::update()
 {
     if(m_isNewFrame){
          m_isNewFrame = false;
-         AppManager::getInstance().getImageManager().update();
+         //AppManager::getInstance().getImageManager().update();
     }
    
 }

@@ -58,6 +58,12 @@ void ImageManager::draw()
 
 void ImageManager::updateColorPixels()
 {
+    bool newFrame = AppManager::getInstance().getLedsManager().isNewFrame();
+    
+    if(!newFrame ){
+        return;
+    }
+    
     auto leds = AppManager::getInstance().getLedsManager().getLeds();
     ofLogNotice() <<"ImageManager::updateColorPixels" ;
     for (auto& led: leds){
