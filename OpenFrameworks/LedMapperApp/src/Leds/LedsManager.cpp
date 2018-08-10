@@ -35,7 +35,7 @@ void LedsManager::setup()
 
 	Manager::setup();
     
-    this->createLedPositions();
+    //this->createLedPositions();
     
     ofLogNotice() <<"LedsManager::initialized" ;
     

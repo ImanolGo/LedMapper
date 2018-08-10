@@ -4,7 +4,7 @@ Led Mapper is a costume made software developed for Moritz Waldemeyer. It uses t
 
 ## Installation
 
-Developed under MacOS Sierra using OpenFrameworks 0.10.0
+Developed under MacOS Sierra using OpenFrameworks 0.9.8
 
 ## Credits
 
