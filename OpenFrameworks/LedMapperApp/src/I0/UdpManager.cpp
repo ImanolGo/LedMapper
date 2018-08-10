@@ -155,6 +155,9 @@ void UdpManager::updatePixels()
     //    const int length = leds.size()*3;
     //    const char* pixels[length];
     
+    
+   // ofLogNotice() <<"UdpManager::updatePixels -> New Frame " << leds.size();
+    
     int ledsPerPixel = 3;
     
     string message="";

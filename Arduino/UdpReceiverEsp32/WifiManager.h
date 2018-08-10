@@ -14,8 +14,8 @@
 #pragma once
 #include "Arduino.h"
 #include <WiFi.h>
-//#include <WiFiUdp.h>
-#include <WiFiMulti.h>
+#include <WiFiUdp.h>
+//#include <WiFiMulti.h>
 #include "LedsManager.h"
 
 
@@ -25,11 +25,14 @@
 #define WIFI_TIMEOUT 3000              // checks WiFi every ...ms. Reset after this time, if WiFi cannot reconnect.
 #define NO_DATA_TIMEOUT 10000         // sends autodiscovery if no data is coming after timeout
 #define LOCAL_PORT 7000 
+#define DISCOVERY_PORT 2390
 #define SEND_PORT 7001 
 
 
 //The udp library class
-WiFiUDP Udp;
+WiFiUDP UdpReceive;
+WiFiUDP UdpDiscovery;
+
 bool wifiConnected = false;
 
 class WifiManager
@@ -83,8 +86,12 @@ WifiManager::WifiManager(LedsManager* ledsManager)
 {
     this->ledsManager=ledsManager;
     
-    ssid = "TPH Operations";
-    pass = "TheFUTURE!Sno3";
+//    ssid = "TPH Operations";
+//    pass = "TheFUTURE!Sno3";
+
+    ssid = "Don't worry, be happy!";
+    pass = "whyistheskysohigh?";
+    
 
     wifiConnected = false;
 
@@ -104,8 +111,10 @@ void WifiManager::setup()
 void WifiManager::initializeWifi()
 {
   
-    Udp.stop();
-    Udp.flush();
+    UdpReceive.stop();
+    UdpReceive.flush();
+    UdpDiscovery.stop();
+    UdpDiscovery.flush();
   
 
     Serial.println("WifiManager::connect wifi");
@@ -149,8 +158,8 @@ void WifiManager::connectWifi() {
          Serial.println(LOCAL_PORT);
 
          // if you get a connection, report back via serial:
-         Udp.begin(LOCAL_PORT);
-         Udp.flush();
+         UdpReceive.begin(LOCAL_PORT);
+         UdpReceive.flush();
     
 
    }
@@ -215,14 +224,14 @@ void WifiManager::update()
 void WifiManager::parseUdp()
 {
   // if there's data available, read a packet
-  int packetSize = Udp.parsePacket();
+  int packetSize = UdpReceive.parsePacket();
   if (packetSize)
   {   
-      Serial.print("WifiManager::New Message: Size -> ");
-      Serial.println(packetSize);
-      Udp.read(packetBuffer,BUFFER_MAX); //read UDP packet
+      //Serial.print("WifiManager::New Message: Size -> ");
+      //Serial.println(packetSize);
+      UdpReceive.read(packetBuffer,BUFFER_MAX); //read UDP packet
       int count = checkProtocolHeaders(packetBuffer, packetSize);
-      Serial.println(count);
+      //Serial.println(count);
       if (count) 
       {     
              //Serial.println(packetBuffer[5]);
@@ -280,7 +289,6 @@ void WifiManager::connectToWiFi(const char * ssid, const char * pwd){
 
   // delete old config
   WiFi.disconnect(true);
-  delay(100);
   //register event handlerpin
   WiFi.onEvent(WiFiEvent);
  // WiFi.config(ip, gateway, subnet);
@@ -316,12 +324,13 @@ void WifiManager::WiFiEvent(WiFiEvent_t event){
           Serial.println(WiFi.localIP());  
           //initializes the UDP state
           //This initializes the transfer buffer
-          Udp.begin(LOCAL_PORT);
+          UdpReceive.begin(LOCAL_PORT);
+          UdpDiscovery.begin(DISCOVERY_PORT);
           Serial.print("Listening to port: ");
-          Serial.println(LOCAL_PORT); 
+          Serial.println(WiFi.localIP(), LOCAL_PORT); 
           wifiConnected = true;
           ip = WiFi.localIP();  ip[3] = 255;
-          Udp.beginMulticast(ip, SEND_PORT);
+ 
           break;
       case SYSTEM_EVENT_STA_DISCONNECTED:
           Serial.println("WifiManager::WiFi lost connection");
@@ -356,10 +365,10 @@ void WifiManager::sendAutodiscovery()
       bffr[6] = 0;
       
       // transmit broadcast package
-      Udp.beginMulticast(ip, SEND_PORT);
-      Udp.beginPacket(ip, SEND_PORT);
-      Udp.write((uint8_t *)bffr,packetLength);
-      Udp.endPacket();
+   
+      UdpDiscovery.beginPacket(ip, SEND_PORT);
+      UdpDiscovery.write((uint8_t *)bffr,packetLength);
+      UdpDiscovery.endPacket();
 
       Serial.println("WifiManager::Autodiscovery sent!");
       autodiscovery_timer = millis();

@@ -70,11 +70,11 @@ void AppManager::setupManagers()
     m_viewManager.setup();
     m_visualEffectsManager.setup();
     m_layoutManager.setup();
-    m_udpManager.setup();
-    m_ledsManager.setup();
     m_modelManager.setup();
     m_videoManager.setup();
     m_imageManager.setup();
+    m_ledsManager.setup();
+    m_udpManager.setup();
     m_keyboardManager.setup();
 
 

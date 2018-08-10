@@ -15,7 +15,7 @@
 
 class Led: public BasicVisual {
     
-    static const int SIZE;
+    static const float SIZE;
     
     public:
     

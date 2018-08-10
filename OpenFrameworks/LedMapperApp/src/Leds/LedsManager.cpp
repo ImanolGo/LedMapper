@@ -62,7 +62,7 @@ void LedsManager::createLedPositions()
     int size = 40;
     
     int id = 0;
-    for(int i = 0; i<size; i++){
+    for(int i = 0; i<size/4; i++){
         for(int j = 0; j<size; j++)
         {
             ofPoint pos (j,i) ;

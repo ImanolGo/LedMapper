@@ -19,7 +19,7 @@
 #define CLOCK_PIN_2    25
 #define LED_TYPE    DOTSTAR
 #define COLOR_ORDER BGR
-#define NUM_LEDS 20
+#define NUM_LEDS 300
 #define MAX_BRIGHTNESS 100
 #define TEST_DELAY 500
 
@@ -58,7 +58,7 @@ void LedsManager::setup()
 {
     Serial.println("LedsManager::setup");
     this->setupLeds(); 
-    this->initTest();
+    //this->initTest();
 }
 
 
@@ -68,8 +68,8 @@ void LedsManager::setupLeds()
    FastLED.addLeds<LED_TYPE,DATA_PIN_2,CLOCK_PIN_2, COLOR_ORDER>(leds2, NUM_LEDS);
 
  
-   FastLED.setMaxPowerInVoltsAndMilliamps (5, 2100);
-   FastLED.setDither( 0 );
+   //FastLED.setMaxPowerInVoltsAndMilliamps (5, 2100);
+   //FastLED.setDither( 0 );
    FastLED.clear();   
    this->setAllBlack();
    Serial.println("LedsManager::setupLeds");
@@ -133,7 +133,7 @@ void LedsManager::parseRGBReceived(unsigned char* pbuff, int count)
 
 void LedsManager::initTest() //runs at board boot to make sure pixels are working
 {
-  FastLED.setBrightness(255);       // set to full power
+  FastLED.setBrightness(MAX_BRIGHTNESS);       // set to full power
   
   FastLED.clear(); // on power up, one or more leds can be in a funky state.
   

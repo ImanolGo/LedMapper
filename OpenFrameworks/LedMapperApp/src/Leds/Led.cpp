@@ -12,7 +12,7 @@
 #include "AppManager.h"
 
 
-const int Led::SIZE = 1;
+const float Led::SIZE = 1.0;
 
 Led::Led(const ofPoint& position, int id): BasicVisual(position, SIZE, SIZE), m_id(id)
 {
