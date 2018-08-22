@@ -9,18 +9,18 @@
 
 #pragma once
 #include "Arduino.h"
+#define FASTLED_ALLOW_INTERRUPTS 0
 #include "FastLED.h"
 #include "WiFiManager.h"
 
-#define LED_TYPE    DOTSTAR
-#define COLOR_ORDER BGR
-#define NUM_CHANNELS 8
-#define NUM_LEDS 150
+
+#define DATA_PIN_1    12
+#define DATA_PIN_2    15
+#define LED_TYPE    WS2812
+#define COLOR_ORDER GRB
+#define NUM_LEDS 170
 #define MAX_BRIGHTNESS 100
 #define TEST_DELAY 500
-
-constexpr int data_pins[NUM_CHANNELS] = {0,2,4,12,13,14,15,16};
-constexpr int clock_pins[NUM_CHANNELS] = {17,18,19,21,22,25,26,27};
 
 
 const byte channelwidth = 3; //3 channels per pixel
@@ -30,29 +30,25 @@ class LedsManager{
 
   public:
     
-    LedsManager();
+    LedsManager() {}
     
     void setup();
     void update();
 
     void parseRGBReceived(unsigned char* pbuff, int count);
-    void setAllColor(CRGB color);
+    void setAllBlack();
     
   private:
 
     void setupLeds();
     void initTest();
 
-    //int data_pins[NUM_CHANNELS];
-    //int clock_pins[NUM_CHANNELS];
-    CRGB leds[NUM_CHANNELS][NUM_LEDS];
+    //CRGBArray<NUM_LEDS> leds1;
+    //CRGBArray<NUM_LEDS> leds2;
+    CRGB leds1[NUM_LEDS];
+    CRGB leds2[NUM_LEDS];
     
 };
-
-LedsManager::LedsManager()
-{
-
-}
 
 void LedsManager::setup()
 {
@@ -64,32 +60,28 @@ void LedsManager::setup()
 
 void LedsManager::setupLeds()
 {
-//    for(int i=0; i<NUM_CHANNELS; i++)
-//    {
-//      FastLED.addLeds<LED_TYPE,data_pins[i],clock_pins[i], COLOR_ORDER>(leds[i], NUM_LEDS);
-//    }
-
-    FastLED.addLeds<WS2812B,32, GRB>(leds[0], NUM_LEDS);
-    //FastLED.addLeds<LED_TYPE,data_pins[0],clock_pins[0], COLOR_ORDER>(leds[0], NUM_LEDS);
-    FastLED.addLeds<LED_TYPE,data_pins[1],clock_pins[1], COLOR_ORDER>(leds[1], NUM_LEDS);
-    FastLED.addLeds<LED_TYPE,data_pins[2],clock_pins[2], COLOR_ORDER>(leds[2], NUM_LEDS);
-    FastLED.addLeds<LED_TYPE,data_pins[3],clock_pins[3], COLOR_ORDER>(leds[3], NUM_LEDS);
-    FastLED.addLeds<LED_TYPE,data_pins[4],clock_pins[4], COLOR_ORDER>(leds[4], NUM_LEDS);
-    FastLED.addLeds<LED_TYPE,data_pins[5],clock_pins[5], COLOR_ORDER>(leds[5], NUM_LEDS);
-    FastLED.addLeds<LED_TYPE,data_pins[6],clock_pins[6], COLOR_ORDER>(leds[6], NUM_LEDS);
-    FastLED.addLeds<LED_TYPE,data_pins[7],clock_pins[7], COLOR_ORDER>(leds[7], NUM_LEDS);
+   FastLED.addLeds<LED_TYPE,DATA_PIN_1, COLOR_ORDER>(leds1, NUM_LEDS);
+   FastLED.addLeds<LED_TYPE,DATA_PIN_2, COLOR_ORDER>(leds2, NUM_LEDS);
 
  
-   //FastLED.setMaxPowerInVoltsAndMilliamps (5, 2100);
+   FastLED.setMaxPowerInVoltsAndMilliamps (5, 2100);
    //FastLED.setDither( 0 );
-   FastLED.clear();  
-   this->setAllColor(CRGB::Black); 
+   FastLED.clear();   
+   this->setAllBlack();
    Serial.println("LedsManager::setupLeds");
 }
 
 void LedsManager::update()
 {
     
+}
+
+void LedsManager::setAllBlack()
+{ 
+  fill_solid(leds1,NUM_LEDS, CRGB::Black);
+  fill_solid(leds2,NUM_LEDS, CRGB::Black);
+  FastLED.show();
+ 
 }
 
 void LedsManager::parseRGBReceived(unsigned char* pbuff, int count) 
@@ -103,37 +95,38 @@ void LedsManager::parseRGBReceived(unsigned char* pbuff, int count)
 //
 //  Serial.print("LedsManager::parseRGBReceived -> numLeds: ");
 //  Serial.println(numLeds);
-
-   if(output_channel < 0 || output_channel>= NUM_CHANNELS){
-    return;
-  }
   
   if(numLeds > NUM_LEDS){
      numLeds = NUM_LEDS;
   }
-
- 
+  
+  if ( output_channel == 0) 
+  {
     int channel = 0; //reset RGB channel assignment to 0 each time through loop.
     for (int i = 0; i < numLeds; i++) //loop to assign 3 channels to each pixel
     {
-        leds[output_channel][i] = CRGB(pbuff[HEADER_SIZE + channel], pbuff[HEADER_SIZE + (channel +1)], pbuff[HEADER_SIZE + (channel +2)]);
+        leds1[i] = CRGB(pbuff[HEADER_SIZE + channel], pbuff[HEADER_SIZE + (channel +1)], pbuff[HEADER_SIZE + (channel +2)]);
         channel +=channelwidth; //increase last channel number by channel width
     }
-  
+  } 
+
+ else if( output_channel ==  1)
+  {
+      int channel = 0; //reset RGB channel assignment to 0 each time through loop.
+      for (int i = 0; i < numLeds; i++) //loop to assign 3 channels to each pixel
+      {
+          leds2[i] = CRGB(pbuff[HEADER_SIZE + channel], pbuff[HEADER_SIZE + (channel +1)], pbuff[HEADER_SIZE + (channel +2)]);
+          channel +=channelwidth; //increase last channel number by channel width
+      }
+  }
+
+
   //adjust_gamma();
   
   FastLED.show(); //send data to pixels
 }
 
-void LedsManager::setAllColor(CRGB color) 
-{
-  for(int i=0; i<NUM_CHANNELS; i++)
-  {
-     fill_solid(leds[i],NUM_LEDS, color);
-  }
- 
-  FastLED.show();
-}
+
 void LedsManager::initTest() //runs at board boot to make sure pixels are working
 {
   FastLED.setBrightness(MAX_BRIGHTNESS);       // set to full power
@@ -142,38 +135,43 @@ void LedsManager::initTest() //runs at board boot to make sure pixels are workin
   
   
   Serial.println ("LedsManager::Red:");
-  this->setAllColor(CRGB::Red);
-  
+  fill_solid(leds1,NUM_LEDS, CRGB::Red);
+  fill_solid(leds2,NUM_LEDS, CRGB::Red);
+  FastLED.show();
   FastLED.delay(TEST_DELAY);
-  
+  fill_solid(leds1,NUM_LEDS, CRGB::Green);
+  fill_solid(leds2,NUM_LEDS, CRGB::Green);
   Serial.println ("LedsManager::Green");
-  this->setAllColor(CRGB::Green);
-  
+  FastLED.show();
   FastLED.delay(TEST_DELAY);
-  
-  Serial.println ("LedsManager::Blue");
-  this->setAllColor(CRGB::Blue);
-  
+  fill_solid(leds1,NUM_LEDS, CRGB::Blue);
+  fill_solid(leds2,NUM_LEDS, CRGB::Blue);
+  Serial.println ("vBlue");
+  FastLED.show();
   FastLED.delay(TEST_DELAY);
-
+  fill_solid(leds1,NUM_LEDS, CRGB::Yellow);
+  fill_solid(leds2,NUM_LEDS, CRGB::Yellow);
   Serial.println ("LedsManager::Yellow");
-  this->setAllColor(CRGB::Yellow);
-  
+  FastLED.show();
   FastLED.delay(TEST_DELAY);
-
+  fill_solid(leds1,NUM_LEDS, CRGB::Violet);
+  fill_solid(leds2,NUM_LEDS, CRGB::Violet);
   Serial.println ("LedsManager::Violet");
-  this->setAllColor(CRGB::Violet);
- 
+  FastLED.show();
   FastLED.delay(TEST_DELAY);
-
-  Serial.println ("LedsManager::White  - Check Power!");
-  this->setAllColor(CRGB::White);
-  
+  fill_solid(leds1,NUM_LEDS, CRGB::White);
+  fill_solid(leds2,NUM_LEDS, CRGB::White);
+  Serial.println ("LedsManager::White - Check Power!");
+  FastLED.show();
   FastLED.delay(TEST_DELAY);
-
+  FastLED.clear();
+  Serial.println ("LedsManager::Rainbows!");
+  fill_rainbow(leds1, NUM_LEDS, CRGB::White);
+  fill_rainbow(leds2, NUM_LEDS, CRGB::White);
+  FastLED.show();
+  FastLED.delay(TEST_DELAY);
   Serial.println("LedsManager::Show Time...");
   FastLED.clear();
-  this->setAllColor(CRGB::Black);
   //FastLED.setBrightness(MAX_BRIGHTNESS);
 }
 

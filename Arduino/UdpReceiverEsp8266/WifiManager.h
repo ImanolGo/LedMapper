@@ -13,7 +13,7 @@
 
 #pragma once
 #include "Arduino.h"
-#include <WiFi.h>
+#include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 //#include <WiFiMulti.h>
 #include "LedsManager.h"
@@ -88,11 +88,8 @@ WifiManager::WifiManager(LedsManager* ledsManager)
 //    ssid = "TPH Operations";
 //    pass = "TheFUTURE!Sno3";
 
-//    ssid = "Don't worry, be happy!";
-//    pass = "whyistheskysohigh?";
-
-    ssid     =  "TP-LINK_54E4";
-    pass = "27155332";
+    ssid = "Don't worry, be happy!";
+    pass = "whyistheskysohigh?";
     
 
     wifiConnected = false;
@@ -320,7 +317,7 @@ void WifiManager::WiFiEvent(WiFiEvent_t event){
     IPAddress ip;
   
     switch(event) {
-      case SYSTEM_EVENT_STA_GOT_IP:
+      case WIFI_EVENT_STAMODE_GOT_IP:
           //When connected set 
           Serial.print("WifiManager::WiFi connected! IP address: ");
           Serial.println(WiFi.localIP());  
@@ -334,7 +331,7 @@ void WifiManager::WiFiEvent(WiFiEvent_t event){
           ip = WiFi.localIP();  ip[3] = 255;
  
           break;
-      case SYSTEM_EVENT_STA_DISCONNECTED:
+      case WIFI_EVENT_STAMODE_DISCONNECTED:
           Serial.println("WifiManager::WiFi lost connection");
           wifiConnected = false;
           //software_Reset();
@@ -382,7 +379,7 @@ void WifiManager::noReceive()
     if((millis() - no_data_timer) > NO_DATA_TIMEOUT) //is the time since the counter changed greater than 5 seconds?
     {
        Serial.println("WifiManager::No received Data!!");
-       this->ledsManager->setAllColor(CRGB::Black);
+       this->ledsManager->setAllBlack();
         no_data_timer =  millis();
         //autodiscovery_timer = millis();
         is_connected = false;

@@ -159,33 +159,38 @@ void UdpManager::updatePixels()
    // ofLogNotice() <<"UdpManager::updatePixels -> New Frame " << leds.size();
     
     int ledsPerPixel = 3;
-    int numChannels = leds.size()/m_ledsPerChannel;
+    int numChannels = leds.size()/m_ledsPerChannel + 1;
+    
+    //ofLogNotice() <<"UdpManager::updatePixels -> numChannels " << numChannels;
     
     for(int channel=0; channel<numChannels; channel++){
         int startIndex  = channel*m_ledsPerChannel;
         int endIndex  = (channel+1)*m_ledsPerChannel;
+        
+        if(endIndex>leds.size()){
+            endIndex = leds.size();
+        }
+        
+        string message="";
+        message+= m_dataHeader.f1; message+= m_dataHeader.f2; message+= m_dataHeader.f3;
+        int size = endIndex - startIndex;
+        m_dataHeader.size = ledsPerPixel*size;
+        unsigned char * s = (unsigned char*)& m_dataHeader.size;
+        message+= s[1] ;  message+=  s[0];
+        message+=m_dataHeader.command;
+        message+=channel;
+        
         for(int i=startIndex; i<endIndex; i++){
             if(i>=leds.size()){
                 break;
             }
-            
-            string message="";
-            message+= m_dataHeader.f1; message+= m_dataHeader.f2; message+= m_dataHeader.f3;
-            m_dataHeader.size = ledsPerPixel*leds.size();
-            unsigned char * s = (unsigned char*)& m_dataHeader.size;
-            message+= s[1] ;  message+=  s[0];
-            message+=m_dataHeader.command;
-            message+=channel;
-            
-            for(int i = 0; i< leds.size(); i++)
-            {
-                message+=leds[i]->getColor().r;
-                message+=leds[i]->getColor().g;
-                message+=leds[i]->getColor().b;
-            }
-            
-            m_udpConnection.Send(message.c_str(),message.length());
+            message+=leds[i]->getColor().r;
+            message+=leds[i]->getColor().g;
+            message+=leds[i]->getColor().b;
+      
         }
+        
+        m_udpConnection.Send(message.c_str(),message.length());
     }
     
    
