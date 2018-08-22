@@ -60,6 +60,8 @@ class LedsManager: public Manager
     
         bool load(string& path);
     
+        bool saveLeds(string& path);
+    
         void loadTest();
     
         bool isNewFrame() const {return m_isNewFrame;}

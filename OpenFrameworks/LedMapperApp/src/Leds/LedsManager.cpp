@@ -72,6 +72,8 @@ void LedsManager::createLedPositions()
             
     }
     
+    string path = "leds/LedPositionsTest.txt";
+    this->saveLeds(path);
     m_is3D = this->getIs3D();
     this->normalizeLeds();
     this->centreLeds();
@@ -349,7 +351,7 @@ bool LedsManager::loadLeds()
         
     }else {
         
-        ofLogNotice() <<"VideoManager::loadVideo -> User hit cancel";
+        ofLogNotice() <<"LedsManager::loadVideo -> User hit cancel";
         return false;
     }
 }
@@ -359,7 +361,7 @@ bool LedsManager::isValidFile(const string& path)
     ofBuffer buffer = ofBufferFromFile(path);
     
     if(buffer.size()==0){
-         ofLogNotice() <<"VideoManager::isValidFile -> empty file";
+         ofLogNotice() <<"LedsManager::isValidFile -> empty file";
         return false;
     }
     
@@ -375,7 +377,7 @@ bool LedsManager::isValidFile(const string& path)
         // copy the line to draw later
         // make sure its not a empty line
         if(!line.empty() && !parseLedLine(line,ledPosition)) {
-            ofLogNotice() <<"VideoManager::isValidFile -> File not valid";
+            ofLogNotice() <<"LedsManager::isValidFile -> File not valid";
             return false;
         }
         
@@ -400,9 +402,31 @@ bool LedsManager::load(string& path)
     
     return success;
 }
+
+bool LedsManager::saveLeds(string& path)
+{
+    ofFile file;
+    if( file.open(path, ofFile::WriteOnly)){
+        
+        ofLogNotice() <<"LedsManager::saveLeds writing to: " << path;
+        for(auto led: m_leds){
+            file<< "{" << led->getPosition().x << ", " << led->getPosition().y << ", " << led->getPosition().z << "}\n";
+        }
+        
+       
+    }
+    else{
+        ofLogNotice() <<"LedsManager::saveLeds -> File does not exist: " << path;
+    }
+   
+     file.close();
+    
+    
+}
+
 void LedsManager::loadTest()
 {
-    string path = "leds/LedPositions1.txt";
+    string path = "leds/LedPositionsTest.txt";
     this->load(path);
 }
 
