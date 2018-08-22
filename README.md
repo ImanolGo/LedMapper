@@ -1,6 +1,6 @@
 # LedMapper
 
-Led Mapper is a costume made software developed for Moritz Waldemeyer. It uses the designer's 3D objects, maps its leds and exports them to a certain format.
+Led Mapper is a custom-made software developed for Moritz Waldemeyer. It uses the designer's 3D objects, maps its leds and exports them to a certain format.
 
 ## Installation
 
