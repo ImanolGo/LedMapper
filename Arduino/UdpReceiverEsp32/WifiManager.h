@@ -56,7 +56,6 @@ class WifiManager
     void initializeWifi();
     void parseUdp();
     void connectToWiFi(const char * ssid, const char * pwd);
-    bool isMessage(char* _buffer, int bufferSize);
     void connectWifi();
     void checkWifiConnection();
     void sendAutodiscovery();

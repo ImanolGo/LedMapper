@@ -15,7 +15,7 @@
 
 const int UdpManager::UDP_MESSAGE_LENGHT = 100;
 
-UdpManager::UdpManager(): Manager(), m_connected(false)
+UdpManager::UdpManager(): Manager(), m_connected(false), m_ledsPerChannel(100)
 {
     //Intentionally left empty
 }
@@ -159,23 +159,36 @@ void UdpManager::updatePixels()
    // ofLogNotice() <<"UdpManager::updatePixels -> New Frame " << leds.size();
     
     int ledsPerPixel = 3;
+    int numChannels = leds.size()/m_ledsPerChannel;
     
-    string message="";
-    message+= m_dataHeader.f1; message+= m_dataHeader.f2; message+= m_dataHeader.f3;
-    m_dataHeader.size = ledsPerPixel*leds.size();
-    unsigned char * s = (unsigned char*)& m_dataHeader.size;
-    message+= s[1] ;  message+=  s[0];
-    message+=m_dataHeader.command;
-    message+=m_dataHeader.channel;
-    
-    for(int i = 0; i< leds.size(); i++)
-    {
-        message+=leds[i]->getColor().r;
-        message+=leds[i]->getColor().g;
-        message+=leds[i]->getColor().b;
+    for(int channel=0; channel<numChannels; channel++){
+        int startIndex  = channel*m_ledsPerChannel;
+        int endIndex  = (channel+1)*m_ledsPerChannel;
+        for(int i=startIndex; i<endIndex; i++){
+            if(i>=leds.size()){
+                break;
+            }
+            
+            string message="";
+            message+= m_dataHeader.f1; message+= m_dataHeader.f2; message+= m_dataHeader.f3;
+            m_dataHeader.size = ledsPerPixel*leds.size();
+            unsigned char * s = (unsigned char*)& m_dataHeader.size;
+            message+= s[1] ;  message+=  s[0];
+            message+=m_dataHeader.command;
+            message+=channel;
+            
+            for(int i = 0; i< leds.size(); i++)
+            {
+                message+=leds[i]->getColor().r;
+                message+=leds[i]->getColor().g;
+                message+=leds[i]->getColor().b;
+            }
+            
+            m_udpConnection.Send(message.c_str(),message.length());
+        }
     }
     
-    m_udpConnection.Send(message.c_str(),message.length());
+   
     
 }
 

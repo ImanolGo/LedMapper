@@ -52,6 +52,8 @@ public:
     
     void timerCompleteHandler( int &args ) ;
     
+    void setLedsPerChannel(int& value) {m_ledsPerChannel=value;}
+    
     
 private:
     
@@ -94,6 +96,7 @@ private:
     string                 m_broadcast;
     string                 m_ip;
     bool                   m_connected;
+    int                    m_ledsPerChannel;
     
     
 };

@@ -48,9 +48,6 @@ class LedsManager{
     //CRGBArray<NUM_LEDS> leds2;
     CRGB leds1[NUM_LEDS];
     CRGB leds2[NUM_LEDS];
-    // Define the array of leds
-    CRGB leds[NUM_LEDS];
-
     
 };
 
@@ -138,43 +135,43 @@ void LedsManager::initTest() //runs at board boot to make sure pixels are workin
   FastLED.clear(); // on power up, one or more leds can be in a funky state.
   
   
-  Serial.println ("Red:");
+  Serial.println ("LedsManager::Red:");
   fill_solid(leds1,NUM_LEDS, CRGB::Red);
   fill_solid(leds2,NUM_LEDS, CRGB::Red);
   FastLED.show();
   FastLED.delay(TEST_DELAY);
   fill_solid(leds1,NUM_LEDS, CRGB::Green);
   fill_solid(leds2,NUM_LEDS, CRGB::Green);
-  Serial.println ("Green");
+  Serial.println ("LedsManager::Green");
   FastLED.show();
   FastLED.delay(TEST_DELAY);
   fill_solid(leds1,NUM_LEDS, CRGB::Blue);
   fill_solid(leds2,NUM_LEDS, CRGB::Blue);
-  Serial.println ("Blue");
+  Serial.println ("vBlue");
   FastLED.show();
   FastLED.delay(TEST_DELAY);
   fill_solid(leds1,NUM_LEDS, CRGB::Yellow);
   fill_solid(leds2,NUM_LEDS, CRGB::Yellow);
-  Serial.println ("Yellow");
+  Serial.println ("LedsManager::Yellow");
   FastLED.show();
   FastLED.delay(TEST_DELAY);
   fill_solid(leds1,NUM_LEDS, CRGB::Violet);
   fill_solid(leds2,NUM_LEDS, CRGB::Violet);
-  Serial.println ("Violet");
+  Serial.println ("LedsManager::Violet");
   FastLED.show();
   FastLED.delay(TEST_DELAY);
   fill_solid(leds1,NUM_LEDS, CRGB::White);
   fill_solid(leds2,NUM_LEDS, CRGB::White);
-  Serial.println ("White - Check Power!");
+  Serial.println ("LedsManager::White - Check Power!");
   FastLED.show();
   FastLED.delay(TEST_DELAY);
   FastLED.clear();
-  Serial.println ("Rainbows!");
+  Serial.println ("LedsManager::Rainbows!");
   fill_rainbow(leds1, NUM_LEDS, CRGB::White);
   fill_rainbow(leds2, NUM_LEDS, CRGB::White);
   FastLED.show();
   FastLED.delay(TEST_DELAY);
-  Serial.println("Show Time...");
+  Serial.println("LedsManager::Show Time...");
   FastLED.clear();
   //FastLED.setBrightness(MAX_BRIGHTNESS);
 }

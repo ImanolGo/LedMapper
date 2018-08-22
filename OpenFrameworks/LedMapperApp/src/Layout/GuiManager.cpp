@@ -170,10 +170,17 @@ void GuiManager::setupLevelsGui()
 void GuiManager::setupLedsGui()
 {
     auto ledsManager = &AppManager::getInstance().getLedsManager();
+    auto udpManager = &AppManager::getInstance().getUdpManager();
     
     m_ledsSize.set("Size", 1.0, 0.0, 5.0);
     m_ledsSize.addListener(ledsManager, &LedsManager::setSize);
     m_parameters.add(m_ledsSize);
+    
+    m_ledsPerChannel.set("LedsPerChannel", 100, 1, 300);
+    m_ledsPerChannel.addListener(udpManager, &UdpManager::setLedsPerChannel);
+    m_parameters.add(m_ledsPerChannel);
+    
+    
     
     
     ofxDatGuiFolder* folder = m_gui.addFolder("LEDS", ofColor::yellow);
