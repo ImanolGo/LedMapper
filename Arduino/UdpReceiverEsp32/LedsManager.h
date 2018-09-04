@@ -15,7 +15,7 @@
 #define LED_TYPE    DOTSTAR
 #define COLOR_ORDER BGR
 #define NUM_CHANNELS 8
-#define NUM_LEDS 150
+#define NUM_LEDS 300
 #define MAX_BRIGHTNESS 100
 #define TEST_DELAY 500
 
@@ -64,13 +64,9 @@ void LedsManager::setup()
 
 void LedsManager::setupLeds()
 {
-//    for(int i=0; i<NUM_CHANNELS; i++)
-//    {
-//      FastLED.addLeds<LED_TYPE,data_pins[i],clock_pins[i], COLOR_ORDER>(leds[i], NUM_LEDS);
-//    }
 
-    FastLED.addLeds<WS2812B,32, GRB>(leds[0], NUM_LEDS);
-    //FastLED.addLeds<LED_TYPE,data_pins[0],clock_pins[0], COLOR_ORDER>(leds[0], NUM_LEDS);
+    //FastLED.addLeds<WS2812B,32, GRB>(leds[0], NUM_LEDS);
+    FastLED.addLeds<LED_TYPE,data_pins[0],clock_pins[0], COLOR_ORDER>(leds[0], NUM_LEDS);
     FastLED.addLeds<LED_TYPE,data_pins[1],clock_pins[1], COLOR_ORDER>(leds[1], NUM_LEDS);
     FastLED.addLeds<LED_TYPE,data_pins[2],clock_pins[2], COLOR_ORDER>(leds[2], NUM_LEDS);
     FastLED.addLeds<LED_TYPE,data_pins[3],clock_pins[3], COLOR_ORDER>(leds[3], NUM_LEDS);

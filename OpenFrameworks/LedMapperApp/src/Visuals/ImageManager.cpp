@@ -117,8 +117,7 @@ void ImageManager::saveImageMirror()
     
     auto leds = AppManager::getInstance().getLedsManager().getLeds();
     
-    
-    int totalWidth = 300;
+
     int width = leds.size();
     int height = 0;
     
@@ -130,7 +129,7 @@ void ImageManager::saveImageMirror()
     ofLogNotice() <<"ImageManager::saveImageMirror ->  height = " << height;
     
     m_image.clear();
-    m_image.allocate(totalWidth, height, OF_IMAGE_COLOR);
+    m_image.allocate(width, height, OF_IMAGE_COLOR);
     
     
     ofPixelsRef pixels = m_image.getPixelsRef();
@@ -146,13 +145,6 @@ void ImageManager::saveImageMirror()
             
             
             pixels.setColor(x, y, m_colors[n]);
-        }
-    }
-    
-    for (int y = 0; y < height; y++) {
-        for (int x = width; x < totalWidth ; x++) {
-            //ofLogNotice() <<"ImageManager::saveImageSample ->  x = " << x;
-            pixels.setColor(x, y, ofColor::black);
         }
     }
     
@@ -181,9 +173,9 @@ void ImageManager::saveImageSample()
     ofLogNotice() <<"ImageManager::saveImageSample ->  width = " << width;
     ofLogNotice() <<"ImageManager::saveImageSample ->  height = " << height;
     
-    int totalWidth = 300;
+    
     m_image.clear();
-    m_image.allocate(totalWidth, height, OF_IMAGE_COLOR);
+    m_image.allocate(width, height, OF_IMAGE_COLOR);
     
     ofPixelsRef pixels = m_image.getPixelsRef();
     
@@ -199,13 +191,6 @@ void ImageManager::saveImageSample()
             int y_ = height - y - 1;
             int n = x + y_*width;
             pixels.setColor(x, y, m_colors[n]);
-        }
-    }
-    
-    for (int y = 0; y < height; y++) {
-        for (int x = width; x < totalWidth ; x++) {
-            //ofLogNotice() <<"ImageManager::saveImageSample ->  x = " << x;
-            pixels.setColor(x, y, ofColor::black);
         }
     }
     
