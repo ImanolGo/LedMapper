@@ -417,11 +417,12 @@ bool LedsManager::saveLeds(string& path)
     }
     else{
         ofLogNotice() <<"LedsManager::saveLeds -> File does not exist: " << path;
-    }
+		return false;
+	}
    
      file.close();
     
-    
+	 return true;
 }
 
 void LedsManager::loadTest()

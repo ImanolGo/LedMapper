@@ -104,9 +104,7 @@ private:
     ofVideoPlayer 	m_videoPlayer;
     ofxPSLevels     m_levels;
     ofxBlur         m_blur;
-    //ofxAVFVideoPlayer*   m_videoPlayer;
-    
-    
+  
     ofFbo           m_fbo;
     ofFbo           m_exportFbo;
     ofColor         m_color;

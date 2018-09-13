@@ -118,8 +118,9 @@ void SettingsManager::setWindowProperties()
         int y = ofToInt(attributes["y"]);
         bool fullscreen = ofToBool(attributes["fullscreen"]);
         
-        ofSetFullscreen(fullscreen);
-        ofSetWindowShape(ofGetScreenWidth(),ofGetScreenHeight());
+      
+        ofSetWindowShape(ofGetScreenWidth() - x,ofGetScreenHeight() - 2.5*y);
+		ofSetFullscreen(fullscreen);
         if(!fullscreen){
             ofSetWindowPosition(x,y);
         }

@@ -11,7 +11,10 @@
 
 #include "UdpManager.h"
 #include "AppManager.h"
+
+#ifndef TARGET_WIN32
 #include "ofxMyIP.h"
+#endif
 
 const int UdpManager::UDP_MESSAGE_LENGHT = 100;
 
@@ -107,11 +110,18 @@ void UdpManager::setupTimer()
 
 void UdpManager::setupIP()
 {
-    ofxMyIP myip;
-    myip.setup();
-    m_ip = myip.getIpAddress();
+	#ifdef TARGET_WIN32
+		system("ipfirst.cmd");
+		ofFile file("my.ip");
+		file >> m_ip;
+		//ofLog() << "My IP: " << m_ip;
 
+	#else
+		ofxMyIP myip;
+		myip.setup();
+		m_ip = myip.getIpAddress();
 
+	#endif
 
     ofLogNotice() <<"UdpManager::setupIP -> IP address: " << m_ip;
 

@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>LedMapperApp</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="../../../../../Applications/of_v0.9.8_vs_release/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="../../../../../Applications/of_v0.9.8_vs_release/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="../../../../../Applications/of_v0.9.8_vs_release/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="../../../../../Applications/of_v0.9.8_vs_release/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src\Addons\ofxAVFVideoPlayer;src\Addons\ofxAVFVideoPlayer\src;src\Addons\ofxBlur;src\Addons\ofxBlur\src;src\Addons\ofxDatGui;src\Addons\ofxDatGui\ofxbraitsch\fonts;src\Addons\ofxDatGui\ofxbraitsch\ofxdatgui;src\Addons\ofxDatGui\src;src\Addons\ofxDatGui\src\components;src\Addons\ofxDatGui\src\core;src\Addons\ofxDatGui\src\libs\ofxSmartFont;src\Addons\ofxDatGui\src\themes;src\Addons\ofxGrabCam;src\Addons\ofxGrabCam\src;src\Addons\ofxMyIP\src;src\Addons\ofxPSLevels;src\Addons\ofxPSLevels\src;src\Addons\ofxPostProcessing;src\Addons\ofxPostProcessing\src;src\Addons\ofxSimpleTimer\src;src\Addons\ofxTextSuite\src;src\Engine\3D;src\Engine\Resources;src\Engine\Tools;src\Engine\Visuals;src\I0;src\Layout;src\Leds;src\Main;src\Visuals;..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src\Addons\ofxAVFVideoPlayer;src\Addons\ofxAVFVideoPlayer\src;src\Addons\ofxBlur;src\Addons\ofxBlur\src;src\Addons\ofxDatGui;src\Addons\ofxDatGui\ofxbraitsch\fonts;src\Addons\ofxDatGui\ofxbraitsch\ofxdatgui;src\Addons\ofxDatGui\src;src\Addons\ofxDatGui\src\components;src\Addons\ofxDatGui\src\core;src\Addons\ofxDatGui\src\libs\ofxSmartFont;src\Addons\ofxDatGui\src\themes;src\Addons\ofxGrabCam;src\Addons\ofxGrabCam\src;src\Addons\ofxMyIP\src;src\Addons\ofxPSLevels;src\Addons\ofxPSLevels\src;src\Addons\ofxPostProcessing;src\Addons\ofxPostProcessing\src;src\Addons\ofxSimpleTimer\src;src\Addons\ofxTextSuite\src;src\Engine\3D;src\Engine\Resources;src\Engine\Tools;src\Engine\Visuals;src\I0;src\Layout;src\Leds;src\Main;src\Visuals;..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src\Addons\ofxAVFVideoPlayer;src\Addons\ofxAVFVideoPlayer\src;src\Addons\ofxBlur;src\Addons\ofxBlur\src;src\Addons\ofxDatGui;src\Addons\ofxDatGui\ofxbraitsch\fonts;src\Addons\ofxDatGui\ofxbraitsch\ofxdatgui;src\Addons\ofxDatGui\src;src\Addons\ofxDatGui\src\components;src\Addons\ofxDatGui\src\core;src\Addons\ofxDatGui\src\libs\ofxSmartFont;src\Addons\ofxDatGui\src\themes;src\Addons\ofxGrabCam;src\Addons\ofxGrabCam\src;src\Addons\ofxMyIP\src;src\Addons\ofxPSLevels;src\Addons\ofxPSLevels\src;src\Addons\ofxPostProcessing;src\Addons\ofxPostProcessing\src;src\Addons\ofxSimpleTimer\src;src\Addons\ofxTextSuite\src;src\Engine\3D;src\Engine\Resources;src\Engine\Tools;src\Engine\Visuals;src\I0;src\Layout;src\Leds;src\Main;src\Visuals;..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src\Addons\ofxAVFVideoPlayer;src\Addons\ofxAVFVideoPlayer\src;src\Addons\ofxBlur;src\Addons\ofxBlur\src;src\Addons\ofxDatGui;src\Addons\ofxDatGui\ofxbraitsch\fonts;src\Addons\ofxDatGui\ofxbraitsch\ofxdatgui;src\Addons\ofxDatGui\src;src\Addons\ofxDatGui\src\components;src\Addons\ofxDatGui\src\core;src\Addons\ofxDatGui\src\libs\ofxSmartFont;src\Addons\ofxDatGui\src\themes;src\Addons\ofxGrabCam;src\Addons\ofxGrabCam\src;src\Addons\ofxMyIP\src;src\Addons\ofxPSLevels;src\Addons\ofxPSLevels\src;src\Addons\ofxPostProcessing;src\Addons\ofxPostProcessing\src;src\Addons\ofxSimpleTimer\src;src\Addons\ofxTextSuite\src;src\Engine\3D;src\Engine\Resources;src\Engine\Tools;src\Engine\Visuals;src\I0;src\Layout;src\Leds;src\Main;src\Visuals;..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent />
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Addons\ofxBlur\src\ofxBlur.cpp" />
+    <ClCompile Include="src\Addons\ofxDatGui\src\core\ofxDatGuiComponent.cpp" />
+    <ClCompile Include="src\Addons\ofxDatGui\src\libs\ofxSmartFont\ofxSmartFont.cpp" />
+    <ClCompile Include="src\Addons\ofxDatGui\src\ofxDatGui.cpp" />
+    <ClCompile Include="src\Addons\ofxGrabCam\src\ofxGrabCam.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\BleachBypassPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\BloomPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\ContrastPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\ConvolutionPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\DofAltPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\DofPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\EdgePass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\FakeSSSPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\FxaaPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\GodRaysPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\HorizontalTiltShifPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\HsbShiftPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\KaleidoscopePass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\LimbDarkeningPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\LUTPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\NoiseWarpPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\PixelatePass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\PostProcessing.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\RenderPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\RGBShiftPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\RimHighlightingPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\SSAOPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\ToonPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\VerticalTiltShifPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\ZoomBlurPass.cpp" />
+    <ClCompile Include="src\Addons\ofxPSLevels\src\ofxPSLevels.cpp" />
+    <ClCompile Include="src\Addons\ofxSimpleTimer\src\ofxSimpleTimer.cpp" />
+    <ClCompile Include="src\Addons\ofxTextSuite\src\ofxTextBlock.cpp" />
+    <ClCompile Include="src\Engine\3D\CameraAnimations.cpp" />
+    <ClCompile Include="src\Engine\3D\CameraAnimationsManager.cpp" />
+    <ClCompile Include="src\Engine\3D\CameraManager.cpp" />
+    <ClCompile Include="src\Engine\3D\LightManager.cpp" />
+    <ClCompile Include="src\Engine\Resources\ResourceManager.cpp" />
+    <ClCompile Include="src\Engine\Tools\EngineFont.cpp" />
+    <ClCompile Include="src\Engine\Visuals\ImageVisual.cpp" />
+    <ClCompile Include="src\Engine\Visuals\ImageVisual3D.cpp" />
+    <ClCompile Include="src\Engine\Visuals\RectangleVisual.cpp" />
+    <ClCompile Include="src\Engine\Visuals\TextVisual.cpp" />
+    <ClCompile Include="src\Engine\Visuals\VideoVisual.cpp" />
+    <ClCompile Include="src\Engine\Visuals\ViewManager.cpp" />
+    <ClCompile Include="src\Engine\Visuals\VisualEffects.cpp" />
+    <ClCompile Include="src\Engine\Visuals\VisualEffectsManager.cpp" />
+    <ClCompile Include="src\I0\KeyboardManager.cpp" />
+    <ClCompile Include="src\I0\UdpManager.cpp" />
+    <ClCompile Include="src\Layout\GuiManager.cpp" />
+    <ClCompile Include="src\Layout\LayoutManager.cpp" />
+    <ClCompile Include="src\Leds\Led.cpp" />
+    <ClCompile Include="src\Leds\LedsManager.cpp" />
+    <ClCompile Include="src\Leds\ModelManager.cpp" />
+    <ClCompile Include="src\Main\AppManager.cpp" />
+    <ClCompile Include="src\Main\LedMapperApp.cpp" />
+    <ClCompile Include="src\Main\main.cpp" />
+    <ClCompile Include="src\Main\SettingsManager.cpp" />
+    <ClCompile Include="src\Visuals\ImageManager.cpp" />
+    <ClCompile Include="src\Visuals\myEasyCam.cpp" />
+    <ClCompile Include="src\Visuals\VideoManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxTCPClient.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxTCPManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxTCPServer.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxUDPManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="src\Addons\ofxBlur\src\ofxBlur.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGui2dPad.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiButton.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiColorPicker.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiControls.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiFRM.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiGroups.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiLabel.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiMatrix.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiScrollView.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiSlider.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiTextInput.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiTextInputField.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiTimeGraph.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\core\ofxDatGuiComponent.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\core\ofxDatGuiConstants.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\core\ofxDatGuiEvents.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\core\ofxDatGuiIntObject.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\libs\ofxSmartFont\ofxSmartFont.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\ofxDatGui.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\themes\ofxDatGuiTheme.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\themes\ofxDatGuiThemes.h" />
+    <ClInclude Include="src\Addons\ofxGrabCam\src\ofxGrabCam.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\BleachBypassPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\BloomPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\ContrastPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\ConvolutionPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\DofAltPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\DofPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\EdgePass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\FakeSSSPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\FxaaPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\GodRaysPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\HorizontalTiltShifPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\HsbShiftPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\KaleidoscopePass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\LimbDarkeningPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\LUTPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\NoiseWarpPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\ofxPostProcessing.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\PixelatePass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\PostProcessing.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\RenderPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\RGBShiftPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\RimHighlightingPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\SSAOPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\ToonPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\VerticalTiltShifPass.h" />
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\ZoomBlurPass.h" />
+    <ClInclude Include="src\Addons\ofxPSLevels\src\ofxPSLevels.h" />
+    <ClInclude Include="src\Addons\ofxSimpleTimer\src\ofxSimpleTimer.h" />
+    <ClInclude Include="src\Addons\ofxTextSuite\src\ofxTextBlock.h" />
+    <ClInclude Include="src\Addons\ofxTextSuite\src\ofxTextSuite.h" />
+    <ClInclude Include="src\Engine\3D\CameraAnimations.h" />
+    <ClInclude Include="src\Engine\3D\CameraAnimationsManager.h" />
+    <ClInclude Include="src\Engine\3D\CameraManager.h" />
+    <ClInclude Include="src\Engine\3D\LightManager.h" />
+    <ClInclude Include="src\Engine\Resources\ResourceManager.h" />
+    <ClInclude Include="src\Engine\Tools\EngineFont.h" />
+    <ClInclude Include="src\Engine\Visuals\BasicVisual.h" />
+    <ClInclude Include="src\Engine\Visuals\ImageVisual.h" />
+    <ClInclude Include="src\Engine\Visuals\ImageVisual3D.h" />
+    <ClInclude Include="src\Engine\Visuals\RectangleVisual.h" />
+    <ClInclude Include="src\Engine\Visuals\TextVisual.h" />
+    <ClInclude Include="src\Engine\Visuals\VideoVisual.h" />
+    <ClInclude Include="src\Engine\Visuals\ViewManager.h" />
+    <ClInclude Include="src\Engine\Visuals\VisualEffects.h" />
+    <ClInclude Include="src\Engine\Visuals\VisualEffectsManager.h" />
+    <ClInclude Include="src\I0\KeyboardManager.h" />
+    <ClInclude Include="src\I0\UdpManager.h" />
+    <ClInclude Include="src\Layout\GuiManager.h" />
+    <ClInclude Include="src\Layout\GuiTheme.h" />
+    <ClInclude Include="src\Layout\LayoutManager.h" />
+    <ClInclude Include="src\Leds\Led.h" />
+    <ClInclude Include="src\Leds\LedsManager.h" />
+    <ClInclude Include="src\Leds\ModelManager.h" />
+    <ClInclude Include="src\Main\AppManager.h" />
+    <ClInclude Include="src\Main\LedMapperApp.h" />
+    <ClInclude Include="src\Main\Manager.h" />
+    <ClInclude Include="src\Main\managers.h" />
+    <ClInclude Include="src\Main\SettingsManager.h" />
+    <ClInclude Include="src\Visuals\ImageManager.h" />
+    <ClInclude Include="src\Visuals\myEasyCam.h" />
+    <ClInclude Include="src\Visuals\VideoManager.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxNetwork.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxNetworkUtils.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxTCPClient.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxTCPManager.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxTCPServer.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxUDPManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
+      <Project>{5837595d-aca9-485c-8e76-729040ce4b0b}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="bin\data\images\icons\icon.ico" />
+    <Image Include="icon.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="icon.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

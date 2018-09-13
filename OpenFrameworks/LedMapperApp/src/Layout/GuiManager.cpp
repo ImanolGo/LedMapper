@@ -368,7 +368,7 @@ void GuiManager::importProject()
     }
 }
 
-void GuiManager::exportProjectAs()
+bool GuiManager::exportProjectAs()
 {
     ofFileDialogResult saveFileResult = ofSystemSaveDialog(ofGetTimestampString() + ".mori", "Export your .mori file");
     

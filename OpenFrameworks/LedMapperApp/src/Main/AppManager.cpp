@@ -38,9 +38,7 @@ void AppManager::setup()
 {
 	if(m_initialized)
 		return;
-
-    //ofSetDataPathRoot("../Resources/data/");
-    
+ 
     ofLogNotice() << "AppManager::initialized";
 
 	Manager::setup();
@@ -58,8 +56,11 @@ void AppManager::setupOF()
     ofSetLogLevel(OF_LOG_NOTICE);
     ofSetVerticalSync(true);
     ofSetEscapeQuitsApp(false);
-    ofSetDataPathRoot("../Resources/data/");
     ofSetBackgroundAuto(true);
+
+#ifdef TARGET_OSX
+	ofSetDataPathRoot("../Resources/data/");
+#endif
 }
 
 

@@ -1,0 +1,584 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\Addons\ofxBlur\src\ofxBlur.cpp">
+      <Filter>src\Addons\ofxBlur\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxDatGui\src\core\ofxDatGuiComponent.cpp">
+      <Filter>src\Addons\ofxDatGui\src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxDatGui\src\libs\ofxSmartFont\ofxSmartFont.cpp">
+      <Filter>src\Addons\ofxDatGui\src\libs\ofxSmartFont</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxDatGui\src\ofxDatGui.cpp">
+      <Filter>src\Addons\ofxDatGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxGrabCam\src\ofxGrabCam.cpp">
+      <Filter>src\Addons\ofxGrabCam\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\BleachBypassPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\BloomPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\ContrastPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\ConvolutionPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\DofAltPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\DofPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\EdgePass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\FakeSSSPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\FxaaPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\GodRaysPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\HorizontalTiltShifPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\HsbShiftPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\KaleidoscopePass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\LimbDarkeningPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\LUTPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\NoiseWarpPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\PixelatePass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\PostProcessing.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\RenderPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\RGBShiftPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\RimHighlightingPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\SSAOPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\ToonPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\VerticalTiltShifPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPostProcessing\src\ZoomBlurPass.cpp">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxPSLevels\src\ofxPSLevels.cpp">
+      <Filter>src\Addons\ofxPSLevels\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxSimpleTimer\src\ofxSimpleTimer.cpp">
+      <Filter>src\Addons\ofxSimpleTimer\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Addons\ofxTextSuite\src\ofxTextBlock.cpp">
+      <Filter>src\Addons\ofxTextSuite\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\3D\CameraAnimations.cpp">
+      <Filter>src\Engine\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\3D\CameraAnimationsManager.cpp">
+      <Filter>src\Engine\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\3D\CameraManager.cpp">
+      <Filter>src\Engine\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\3D\LightManager.cpp">
+      <Filter>src\Engine\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Resources\ResourceManager.cpp">
+      <Filter>src\Engine\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Tools\EngineFont.cpp">
+      <Filter>src\Engine\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Visuals\ImageVisual.cpp">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Visuals\ImageVisual3D.cpp">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Visuals\RectangleVisual.cpp">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Visuals\TextVisual.cpp">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Visuals\VideoVisual.cpp">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Visuals\ViewManager.cpp">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Visuals\VisualEffects.cpp">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Visuals\VisualEffectsManager.cpp">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\I0\KeyboardManager.cpp">
+      <Filter>src\I0</Filter>
+    </ClCompile>
+    <ClCompile Include="src\I0\UdpManager.cpp">
+      <Filter>src\I0</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Layout\GuiManager.cpp">
+      <Filter>src\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Layout\LayoutManager.cpp">
+      <Filter>src\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Leds\Led.cpp">
+      <Filter>src\Leds</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Leds\LedsManager.cpp">
+      <Filter>src\Leds</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Leds\ModelManager.cpp">
+      <Filter>src\Leds</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main\AppManager.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main\LedMapperApp.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main\main.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main\SettingsManager.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Visuals\ImageManager.cpp">
+      <Filter>src\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Visuals\myEasyCam.cpp">
+      <Filter>src\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Visuals\VideoManager.cpp">
+      <Filter>src\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxTCPClient.cpp">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxTCPManager.cpp">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxTCPServer.cpp">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxUDPManager.cpp">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons">
+      <UniqueIdentifier>{44C2E31E-3A94-67F8-2669-D1C5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxBlur">
+      <UniqueIdentifier>{57CC6BC8-743F-F22E-49D6-27CD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxBlur\src">
+      <UniqueIdentifier>{57191D09-23A5-E049-E5BA-6C15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxDatGui">
+      <UniqueIdentifier>{2E7538D4-C36F-8777-AEB8-6078}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxDatGui\src">
+      <UniqueIdentifier>{9B2BD274-10FB-AEC5-2635-E9EE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxDatGui\src\components">
+      <UniqueIdentifier>{7498F6AF-C5E1-8250-334D-DE6B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxDatGui\src\core">
+      <UniqueIdentifier>{EE4C6E4F-0B27-9C00-46A0-70AD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxDatGui\src\libs">
+      <UniqueIdentifier>{5E70804E-04B1-BC1B-EB8D-28D6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxDatGui\src\libs\ofxSmartFont">
+      <UniqueIdentifier>{31F722F6-F0EF-18F4-8045-5ECA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxDatGui\src\themes">
+      <UniqueIdentifier>{52BDAD53-CF60-61F0-0B2B-310F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxGrabCam">
+      <UniqueIdentifier>{F9A60A6F-015B-65CF-FB0E-5A2B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxGrabCam\src">
+      <UniqueIdentifier>{FAE0B43F-C745-7EF8-610C-BBCA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxPostProcessing">
+      <UniqueIdentifier>{7BEA20A9-9218-DA83-9F7F-00A6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxPostProcessing\src">
+      <UniqueIdentifier>{982066E3-23DB-A569-7B4D-3B2D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxPSLevels">
+      <UniqueIdentifier>{11144B62-513F-581A-4C16-D090}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxPSLevels\src">
+      <UniqueIdentifier>{77D5313E-9B90-AD0E-F043-810A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxSimpleTimer">
+      <UniqueIdentifier>{74AEBA5E-2F47-F8C4-14FE-70BA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxSimpleTimer\src">
+      <UniqueIdentifier>{04B539E9-0F22-138F-5D6F-2E70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxTextSuite">
+      <UniqueIdentifier>{4C901EBD-3F7C-9A90-D6F3-9111}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Addons\ofxTextSuite\src">
+      <UniqueIdentifier>{680B2582-57A0-7039-D0F7-5540}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Engine">
+      <UniqueIdentifier>{33FA9329-3569-5A99-A4AF-D67C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Engine\3D">
+      <UniqueIdentifier>{EFB4B634-3010-294F-63BC-3A8C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Engine\Resources">
+      <UniqueIdentifier>{2975D63A-2923-8592-710A-D9A3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Engine\Tools">
+      <UniqueIdentifier>{35A02FAA-7975-79C0-ECB0-0B79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Engine\Visuals">
+      <UniqueIdentifier>{F737640D-9F42-AC92-7F50-BCBC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\I0">
+      <UniqueIdentifier>{2328543A-8C7A-E3DD-7D4D-BD0B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Layout">
+      <UniqueIdentifier>{48DE4E4C-4D44-6A7D-6721-F29B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Leds">
+      <UniqueIdentifier>{0C6D54F0-B40A-4E3D-144D-7BBA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Main">
+      <UniqueIdentifier>{B604249B-4527-FF17-F2E4-84CF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Visuals">
+      <UniqueIdentifier>{A6B5F35D-A8B6-920A-78B7-EB46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons">
+      <UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNetwork">
+      <UniqueIdentifier>{01A15744-29A6-108D-08E9-83A7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNetwork\src">
+      <UniqueIdentifier>{3D1C10C7-8F35-E796-9C70-F5F3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Addons\ofxBlur\src\ofxBlur.h">
+      <Filter>src\Addons\ofxBlur\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGui2dPad.h">
+      <Filter>src\Addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiButton.h">
+      <Filter>src\Addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiColorPicker.h">
+      <Filter>src\Addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiControls.h">
+      <Filter>src\Addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiFRM.h">
+      <Filter>src\Addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiGroups.h">
+      <Filter>src\Addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiLabel.h">
+      <Filter>src\Addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiMatrix.h">
+      <Filter>src\Addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiScrollView.h">
+      <Filter>src\Addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiSlider.h">
+      <Filter>src\Addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiTextInput.h">
+      <Filter>src\Addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiTextInputField.h">
+      <Filter>src\Addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiTimeGraph.h">
+      <Filter>src\Addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\core\ofxDatGuiComponent.h">
+      <Filter>src\Addons\ofxDatGui\src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\core\ofxDatGuiConstants.h">
+      <Filter>src\Addons\ofxDatGui\src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\core\ofxDatGuiEvents.h">
+      <Filter>src\Addons\ofxDatGui\src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\core\ofxDatGuiIntObject.h">
+      <Filter>src\Addons\ofxDatGui\src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\libs\ofxSmartFont\ofxSmartFont.h">
+      <Filter>src\Addons\ofxDatGui\src\libs\ofxSmartFont</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\ofxDatGui.h">
+      <Filter>src\Addons\ofxDatGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\themes\ofxDatGuiTheme.h">
+      <Filter>src\Addons\ofxDatGui\src\themes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxDatGui\src\themes\ofxDatGuiThemes.h">
+      <Filter>src\Addons\ofxDatGui\src\themes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxGrabCam\src\ofxGrabCam.h">
+      <Filter>src\Addons\ofxGrabCam\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\BleachBypassPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\BloomPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\ContrastPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\ConvolutionPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\DofAltPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\DofPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\EdgePass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\FakeSSSPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\FxaaPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\GodRaysPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\HorizontalTiltShifPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\HsbShiftPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\KaleidoscopePass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\LimbDarkeningPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\LUTPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\NoiseWarpPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\ofxPostProcessing.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\PixelatePass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\PostProcessing.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\RenderPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\RGBShiftPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\RimHighlightingPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\SSAOPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\ToonPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\VerticalTiltShifPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPostProcessing\src\ZoomBlurPass.h">
+      <Filter>src\Addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxPSLevels\src\ofxPSLevels.h">
+      <Filter>src\Addons\ofxPSLevels\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxSimpleTimer\src\ofxSimpleTimer.h">
+      <Filter>src\Addons\ofxSimpleTimer\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxTextSuite\src\ofxTextBlock.h">
+      <Filter>src\Addons\ofxTextSuite\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Addons\ofxTextSuite\src\ofxTextSuite.h">
+      <Filter>src\Addons\ofxTextSuite\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\3D\CameraAnimations.h">
+      <Filter>src\Engine\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\3D\CameraAnimationsManager.h">
+      <Filter>src\Engine\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\3D\CameraManager.h">
+      <Filter>src\Engine\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\3D\LightManager.h">
+      <Filter>src\Engine\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Resources\ResourceManager.h">
+      <Filter>src\Engine\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Tools\EngineFont.h">
+      <Filter>src\Engine\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Visuals\BasicVisual.h">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Visuals\ImageVisual.h">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Visuals\ImageVisual3D.h">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Visuals\RectangleVisual.h">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Visuals\TextVisual.h">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Visuals\VideoVisual.h">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Visuals\ViewManager.h">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Visuals\VisualEffects.h">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Visuals\VisualEffectsManager.h">
+      <Filter>src\Engine\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="src\I0\KeyboardManager.h">
+      <Filter>src\I0</Filter>
+    </ClInclude>
+    <ClInclude Include="src\I0\UdpManager.h">
+      <Filter>src\I0</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Layout\GuiManager.h">
+      <Filter>src\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Layout\GuiTheme.h">
+      <Filter>src\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Layout\LayoutManager.h">
+      <Filter>src\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leds\Led.h">
+      <Filter>src\Leds</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leds\LedsManager.h">
+      <Filter>src\Leds</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leds\ModelManager.h">
+      <Filter>src\Leds</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Main\AppManager.h">
+      <Filter>src\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Main\LedMapperApp.h">
+      <Filter>src\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Main\Manager.h">
+      <Filter>src\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Main\managers.h">
+      <Filter>src\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Main\SettingsManager.h">
+      <Filter>src\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Visuals\ImageManager.h">
+      <Filter>src\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Visuals\myEasyCam.h">
+      <Filter>src\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Visuals\VideoManager.h">
+      <Filter>src\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxNetwork.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxNetworkUtils.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxTCPClient.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxTCPManager.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxTCPServer.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.9.8_vs_release\of_v0.9.8_vs_release\addons\ofxNetwork\src\ofxUDPManager.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="bin\data\images\icons\icon.ico" />
+    <Image Include="icon.ico" />
+  </ItemGroup>
+</Project>

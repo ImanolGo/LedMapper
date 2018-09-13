@@ -29,12 +29,12 @@ class UdpManager: public Manager
     static const int UDP_MESSAGE_LENGHT; ///Defines the Udp"s message length
     
     struct udp_header {
-        Byte f1;
-        Byte f2;
-        Byte f3;
+        unsigned char f1;
+		unsigned char f2;
+		unsigned char f3;
         short size;
-        Byte command;
-        Byte  channel;
+		unsigned char command;
+		unsigned char  channel;
     };
     
 public:

@@ -94,7 +94,7 @@ private:
     
     void exportProject();
     
-    void exportProjectAs();
+    bool exportProjectAs();
     
     bool isValidFile(const string& path);
     
