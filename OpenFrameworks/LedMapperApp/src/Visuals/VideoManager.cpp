@@ -204,26 +204,26 @@ void VideoManager::drawVideo()
 
 void VideoManager::drawExporting()
 {
-	float width = AppManager::getInstance().getSettingsManager().getAppWidth();
-	float height = AppManager::getInstance().getSettingsManager().getAppHeight();
-	float w = width / 2;
-	float h = height/4;
+	string name = "Video";
+	auto rect = AppManager::getInstance().getLayoutManager().getWindowRect(name);
+	float w = 2* rect->width / 3;
+	float h = rect->height/4;
 
 	ofPushStyle();
 	ofSetColor(60);
 	ofFill();
-	ofDrawRectangle(width/2 - w/2, height/2-h/2,w,h);
+	ofDrawRectangle(rect->width/2 - w/2, rect->height/2-h/2,w,h);
 
 	 w = w - w/10;
 	 h = h/6;
 
 	ofSetColor(30, 144, 255);
-	ofDrawRectangle(width / 2 - w / 2, height / 2 - h / 2, w*m_videoPlayer.getPosition(), h);
+	ofDrawRectangle(rect->width / 2 - w / 2, rect->height / 2 - h / 2, w*m_videoPlayer.getPosition(), h);
 
 	ofSetColor(230);
 	ofSetLineWidth(5);
 	ofNoFill();
-	ofDrawRectangle(width / 2 - w / 2, height / 2 - h / 2, w, h);
+	ofDrawRectangle(rect->width / 2 - w / 2, rect->height / 2 - h / 2, w, h);
 
 	ofPopStyle();
 }
