@@ -320,6 +320,7 @@ void VideoManager::exportVideo()
         m_frameNumber = -1;
         //m_videoPlayer.setLoopState(OF_LOOP_NONE);
         m_videoPlayer.play();
+        this->update();
         ofLogNotice() <<"VideoManager::exportVideo -> Starting Exportation! ";
     }
     else{

@@ -65,7 +65,7 @@ void ImageManager::updateColorPixels()
     }
     
     auto leds = AppManager::getInstance().getLedsManager().getLeds();
-    ofLogNotice() <<"ImageManager::updateColorPixels" ;
+   // ofLogNotice() <<"ImageManager::updateColorPixels" ;
     for (auto& led: leds){
         m_colors.push_back(led->getColor());
     }
