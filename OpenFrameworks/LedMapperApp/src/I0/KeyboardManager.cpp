@@ -46,6 +46,7 @@ void KeyboardManager::keyPressed(ofKeyEventArgs &e)
     
     //ofLogVerbose() <<"KeyboardManager::keyPressed-> " + ofToString(key);
     
+	/*
   
     if(key == 'g' || key == 'G') {
         AppManager::getInstance().getGuiManager().toggleGui();
@@ -73,6 +74,8 @@ void KeyboardManager::keyPressed(ofKeyEventArgs &e)
             AppManager::getInstance().getGuiManager().showGui(false);
         }
     }
+
+	*/
     
 }
 

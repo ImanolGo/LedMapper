@@ -95,6 +95,8 @@ private:
     void drawFbo();
     
     void drawVideo();
+
+	void drawExporting();
     
     bool isVideo(const string& path);
     

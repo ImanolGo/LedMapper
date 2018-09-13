@@ -119,6 +119,7 @@ void VideoManager::updateVideo()
     
     if(m_videoPlayer.isFrameNew())
     {
+		this->updateFbos();
         int frame = m_videoPlayer.getCurrentFrame();
        // ofLogNotice()<< "VideoManager::updateVideo:  Old Frame!!" << m_frameNumber;
         //ofLogNotice()<< "VideoManager::updateVideo:  New Frame!!" << frame;
@@ -165,7 +166,6 @@ void VideoManager::updateVideo()
 void VideoManager::update()
 {
     this->updateVideo();
-    this->updateFbos();
     
 }
 
@@ -202,11 +202,41 @@ void VideoManager::drawVideo()
     m_blur.draw();
 }
 
+void VideoManager::drawExporting()
+{
+	float width = AppManager::getInstance().getSettingsManager().getAppWidth();
+	float height = AppManager::getInstance().getSettingsManager().getAppHeight();
+	float w = width / 2;
+	float h = height/4;
+
+	ofPushStyle();
+	ofSetColor(60);
+	ofFill();
+	ofDrawRectangle(width/2 - w/2, height/2-h/2,w,h);
+
+	 w = w - w/10;
+	 h = h/6;
+
+	ofSetColor(30, 144, 255);
+	ofDrawRectangle(width / 2 - w / 2, height / 2 - h / 2, w*m_videoPlayer.getPosition(), h);
+
+	ofSetColor(230);
+	ofSetLineWidth(5);
+	ofNoFill();
+	ofDrawRectangle(width / 2 - w / 2, height / 2 - h / 2, w, h);
+
+	ofPopStyle();
+}
+
+
 
 
 void VideoManager::draw()
 {
     this->drawFbo();
+	if (m_exportMode) {
+		this->drawExporting();
+	}
 }
 
 void VideoManager::drawFbo()
@@ -320,6 +350,7 @@ void VideoManager::exportVideo()
         m_frameNumber = -1;
         //m_videoPlayer.setLoopState(OF_LOOP_NONE);
         m_videoPlayer.play();
+		//m_videoPlayer.update();
         this->update();
         ofLogNotice() <<"VideoManager::exportVideo -> Starting Exportation! ";
     }
