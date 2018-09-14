@@ -42,7 +42,7 @@ class BasicVisual
         virtual void setColor(const ofColor& color) {m_color = color;}
 
         //! Gets the color of the BasicVisual
-        virtual const ofColor& getColor() {return m_color;}
+        virtual ofColor& getColor() {return m_color;}
 
         //! Gets the position of the BasicVisual
         virtual const ofPoint& getPosition() const{ return m_position;}

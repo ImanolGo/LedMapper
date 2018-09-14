@@ -176,7 +176,7 @@ void GuiManager::setupLedsGui()
     m_ledsBrightness.addListener(ledsManager, &LedsManager::setLedBrightness);
     m_parameters.add(m_ledsBrightness);
     
-    m_laserBrightness.set("Lser Bright.", 0.25, 0.0, 1.0);
+    m_laserBrightness.set("Laser Bright.", 0.25, 0.0, 1.0);
     m_laserBrightness.addListener(ledsManager, &LedsManager::setLaserBrightness);
     m_parameters.add(m_laserBrightness);
 
