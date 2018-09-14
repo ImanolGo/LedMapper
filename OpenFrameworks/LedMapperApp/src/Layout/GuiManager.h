@@ -121,8 +121,10 @@ private:
     ofParameter<float>      m_minOutput;
     ofParameter<float>      m_maxOutput;
     
+    ofParameter<float>      m_ledsBrightness;
+    ofParameter<float>      m_laserBrightness;
     ofParameter<float>      m_ledsSize;
-    ofParameter<int>      m_ledsPerChannel;
+    ofParameter<int>        m_ledsPerChannel;
     ofParameter<float>      m_videoSpeed;
     
     

@@ -172,6 +172,14 @@ void GuiManager::setupLedsGui()
     auto ledsManager = &AppManager::getInstance().getLedsManager();
     auto udpManager = &AppManager::getInstance().getUdpManager();
     
+    m_ledsBrightness.set("Leds Bright.", 1.0, 0.0, 1.0);
+    m_ledsBrightness.addListener(ledsManager, &LedsManager::setLedBrightness);
+    m_parameters.add(m_ledsBrightness);
+    
+    m_laserBrightness.set("Lser Bright.", 0.25, 0.0, 1.0);
+    m_laserBrightness.addListener(ledsManager, &LedsManager::setLaserBrightness);
+    m_parameters.add(m_laserBrightness);
+
     m_ledsSize.set("Size", 1.0, 0.0, 5.0);
     m_ledsSize.addListener(ledsManager, &LedsManager::setSize);
     m_parameters.add(m_ledsSize);
@@ -185,6 +193,8 @@ void GuiManager::setupLedsGui()
     
     ofxDatGuiFolder* folder = m_gui.addFolder("LEDS", ofColor::yellow);
     folder->addButton("Reset View");
+    folder->addSlider(m_ledsBrightness);
+    folder->addSlider(m_laserBrightness);
     folder->addSlider(m_ledsSize);
     folder->addSlider(m_ledsPerChannel);
     folder->expand();

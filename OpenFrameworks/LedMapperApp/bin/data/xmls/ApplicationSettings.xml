@@ -3,7 +3,7 @@
 
   <of_settings>
 
-    <window title="Led Mapper App" x="0" y="45" width="1920" height="1200" fullscreen="0" showCursor="1"/>
+    <window title="Led Mapper App" x="0" y="0" width="1920" height="1200" fullscreen="0" showCursor="1"/>
     <debug showCursor="1" setVerbose="1"/> 
      <network ipAddress="192.168.0.21" portUdpSend="7000" portUdpReceive="7001" />
 

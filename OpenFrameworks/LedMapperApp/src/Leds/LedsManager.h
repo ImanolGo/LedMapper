@@ -67,7 +67,11 @@ class LedsManager: public Manager
         bool isNewFrame() const {return m_isNewFrame;}
     
         void setSize(float& value);
- 
+    
+        void setLedBrightness(float& value){m_ledsBrightness = value;}
+    
+        void setLaserBrightness(float& value){m_laserBrightness = value;}
+
     
     private:
     
@@ -108,6 +112,8 @@ class LedsManager: public Manager
         bool               m_isNewFrame;
         string             m_ledsFilePath;
         bool               m_is3D;
+        float              m_ledsBrightness;
+        float              m_laserBrightness;
     
 };
 

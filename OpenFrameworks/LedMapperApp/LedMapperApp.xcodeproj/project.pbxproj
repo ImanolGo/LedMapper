@@ -11,8 +11,6 @@
 		00F8DAC81953313F8180A13C /* ofxTextBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1486C841BC2A30DB7CBC449C /* ofxTextBlock.cpp */; };
 		040259BAD9E7E5CDA062C1FF /* Verdana.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 63946788F06FDE10D90614A3 /* Verdana.ttf */; };
 		059F15A57C00F89CF43FDDD6 /* ofxSmartFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9EA26E2A646CE843DEEB1E /* ofxSmartFont.cpp */; };
-		083990C021148818001CC7AE /* ofxAVFVideoPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 083990BE21148817001CC7AE /* ofxAVFVideoPlayer.mm */; };
-		083990C121148818001CC7AE /* ofxAVFVideoRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 083990BF21148818001CC7AE /* ofxAVFVideoRenderer.m */; };
 		083990CC21188403001CC7AE /* UdpManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083990CB21188403001CC7AE /* UdpManager.cpp */; };
 		083990DC2118895D001CC7AE /* ofxTCPClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083990D32118895D001CC7AE /* ofxTCPClient.cpp */; };
 		083990DD2118895D001CC7AE /* ofxTCPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083990D52118895D001CC7AE /* ofxTCPManager.cpp */; };
@@ -126,10 +124,6 @@
 		04E341BAF173644575D80ED3 /* ofxTextSuite.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTextSuite.h; path = src/Addons/ofxTextSuite/src/ofxTextSuite.h; sourceTree = SOURCE_ROOT; };
 		05B11A7F5D0BA7A59C78DDC4 /* ofxDatGuiControls.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxDatGuiControls.h; path = src/Addons/ofxDatGui/src/components/ofxDatGuiControls.h; sourceTree = SOURCE_ROOT; };
 		0731597061D6181DB86681B1 /* ofxDatGuiSlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxDatGuiSlider.h; path = src/Addons/ofxDatGui/src/components/ofxDatGuiSlider.h; sourceTree = SOURCE_ROOT; };
-		083990BC21148817001CC7AE /* ofxAVFVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxAVFVideoPlayer.h; path = Addons/ofxAVFVideoPlayer/src/ofxAVFVideoPlayer.h; sourceTree = "<group>"; };
-		083990BD21148817001CC7AE /* ofxAVFVideoRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxAVFVideoRenderer.h; path = Addons/ofxAVFVideoPlayer/src/ofxAVFVideoRenderer.h; sourceTree = "<group>"; };
-		083990BE21148817001CC7AE /* ofxAVFVideoPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ofxAVFVideoPlayer.mm; path = Addons/ofxAVFVideoPlayer/src/ofxAVFVideoPlayer.mm; sourceTree = "<group>"; };
-		083990BF21148818001CC7AE /* ofxAVFVideoRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ofxAVFVideoRenderer.m; path = Addons/ofxAVFVideoPlayer/src/ofxAVFVideoRenderer.m; sourceTree = "<group>"; };
 		083990CA21188402001CC7AE /* UdpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UdpManager.h; path = I0/UdpManager.h; sourceTree = "<group>"; };
 		083990CB21188403001CC7AE /* UdpManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UdpManager.cpp; path = I0/UdpManager.cpp; sourceTree = "<group>"; };
 		083990D22118895D001CC7AE /* ofxTCPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxTCPClient.h; path = ../../../../../../../../Applications/of_v0.9.8_osx_release/addons/ofxNetwork/src/ofxTCPClient.h; sourceTree = "<group>"; };
@@ -318,25 +312,6 @@
 				09BB1D7613A1F9D8E8B11D7A /* KeyboardManager.h */,
 			);
 			name = I0;
-			sourceTree = "<group>";
-		};
-		083990BA21148804001CC7AE /* ofxAVFVideoPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				083990BB21148810001CC7AE /* src */,
-			);
-			name = ofxAVFVideoPlayer;
-			sourceTree = "<group>";
-		};
-		083990BB21148810001CC7AE /* src */ = {
-			isa = PBXGroup;
-			children = (
-				083990BC21148817001CC7AE /* ofxAVFVideoPlayer.h */,
-				083990BE21148817001CC7AE /* ofxAVFVideoPlayer.mm */,
-				083990BD21148817001CC7AE /* ofxAVFVideoRenderer.h */,
-				083990BF21148818001CC7AE /* ofxAVFVideoRenderer.m */,
-			);
-			name = src;
 			sourceTree = "<group>";
 		};
 		083990D021188942001CC7AE /* ofxNetwork */ = {
@@ -664,7 +639,6 @@
 			children = (
 				08B297652118DFE300B46CCB /* ofxSimpleTimer */,
 				08B297622118DED600B46CCB /* ofxMyIP */,
-				083990BA21148804001CC7AE /* ofxAVFVideoPlayer */,
 				F79FFC9032CC6E409159B3E3 /* ofxBlur */,
 				74A312B2568D421CAAEF740A /* ofxDatGui */,
 				3727BF3222C1EA7482176F54 /* ofxPostProcessing */,
@@ -967,7 +941,6 @@
 				C6B3BFC2668F137F745DC3C6 /* CameraAnimationsManager.cpp in Sources */,
 				8C9DFFBD826A20F752ED0CD6 /* CameraManager.cpp in Sources */,
 				DC16DA963E4E5873F0AE7C9E /* LightManager.cpp in Sources */,
-				083990C121148818001CC7AE /* ofxAVFVideoRenderer.m in Sources */,
 				6F36C225B48477DFCCA6FB64 /* ResourceManager.cpp in Sources */,
 				68A59FFAF8D6A1C715A69CD4 /* EngineFont.cpp in Sources */,
 				3A6C7D72771284673CBE247D /* ImageVisual.cpp in Sources */,
@@ -980,7 +953,6 @@
 				B790DA4F42194210B9259E42 /* VisualEffectsManager.cpp in Sources */,
 				5152A5DBF51A461014A1F631 /* KeyboardManager.cpp in Sources */,
 				5D33A9513B2A4C6DBD3188C7 /* GuiManager.cpp in Sources */,
-				083990C021148818001CC7AE /* ofxAVFVideoPlayer.mm in Sources */,
 				08B297692118DFF400B46CCB /* ofxSimpleTimer.cpp in Sources */,
 				93510377552D47B6620A7586 /* LayoutManager.cpp in Sources */,
 				EB2372CEF0C9D14317E0AC9F /* Led.cpp in Sources */,
