@@ -181,10 +181,10 @@ void VideoManager::updateFbos()
         m_exportFbo.end();
     }
     
-    m_fbo.begin();
-        ofClear(0);
-        m_exportFbo.draw(0,0,m_fbo.getWidth(), m_fbo.getHeight());
-    m_fbo.end();
+//    m_fbo.begin();
+//        ofClear(0);
+//        m_exportFbo.draw(0,0,m_fbo.getWidth(), m_fbo.getHeight());
+//    m_fbo.end();
     
 }
 
@@ -233,10 +233,12 @@ void VideoManager::drawExporting()
 
 void VideoManager::draw()
 {
-    this->drawFbo();
 	if (m_exportMode) {
 		this->drawExporting();
 	}
+    else{
+         this->drawFbo();
+    }
 }
 
 void VideoManager::drawFbo()
@@ -351,7 +353,7 @@ void VideoManager::exportVideo()
         //m_videoPlayer.setLoopState(OF_LOOP_NONE);
         m_videoPlayer.play();
 		//m_videoPlayer.update();
-        this->update();
+        //this->update();
         ofLogNotice() <<"VideoManager::exportVideo -> Starting Exportation! ";
     }
     else{

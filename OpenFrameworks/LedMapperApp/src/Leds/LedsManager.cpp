@@ -311,27 +311,30 @@ void LedsManager::setPixels(ofPixelsRef pixels)
 void LedsManager::setLedColors(ofPixelsRef pixels)
 {
     
-    for(int i=0; i<m_leds.size(); i++){
-        m_leds[i]->setPixelColor(pixels, m_is3D);
-        int n = i%9;
-    
-        auto& color = m_leds[i]->getColor();
-        if(n==8)
-        {
-            float brightness =  color.getBrightness()*m_laserBrightness;
-            color = ofColor(brightness,0,0);
-           // color.setBrightness(m_laserBrightness*brightness);
-        }
-        else{
-             color.setBrightness(m_ledsBrightness*color.getBrightness());
-            //m_leds[i]->getColor().setBrightness(m_ledsBrightness* m_leds[i]->getColor().getBrightness());
-        }
-    }
-    
-    
-//    for(auto led: m_leds){
-//        led->setPixelColor(pixels, m_is3D);
+//    for(int i=0; i<m_leds.size(); i++){
+//        m_leds[i]->setPixelColor(pixels, m_is3D);
+//        int n = i%9;
+//
+//        auto& color = m_leds[i]->getColor();
+//        if(n==8)
+//        {
+//            float brightness =  color.getBrightness()*m_laserBrightness;
+//            color = ofColor(brightness,0,0);
+//           // color.setBrightness(m_laserBrightness*brightness);
+//        }
+//        else{
+//             color.setBrightness(m_ledsBrightness*color.getBrightness());
+//            //m_leds[i]->getColor().setBrightness(m_ledsBrightness* m_leds[i]->getColor().getBrightness());
+//        }
 //    }
+//
+//
+    
+    
+    
+    for(auto led: m_leds){
+        led->setPixelColor(pixels, m_is3D);
+    }
     
     m_isNewFrame = true;
     

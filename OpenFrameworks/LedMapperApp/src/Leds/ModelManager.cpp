@@ -61,11 +61,19 @@ void ModelManager::draw()
     ofRectangle rect2 = ofRectangle(rect->x, rect->y, 0, 0);
     
     ofBackgroundGradient( ofColor(100), ofColor(15), OF_GRADIENT_CIRCULAR );
+    
+    if(AppManager::getInstance().getVideoManager().isExporting()){
+        return;
+    }
+    
+    
+    
     ofEnableDepthTest();
     //ofTranslate(-rect->x, 0, 0);
     m_camera.begin();
    // ofTranslate(-rect->x, 0, 0);
     this->drawLeds();
+    
    // ofTranslate(rect->x, 0 , 0);
     m_camera.end();
     //ofTranslate(rect->x, 0 , 0);

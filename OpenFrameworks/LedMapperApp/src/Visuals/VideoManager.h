@@ -77,7 +77,9 @@ public:
     
     void pause();
     
+    bool  isExporting() {return m_exportMode;}
     
+
 private:
     
     void setupFbo();
