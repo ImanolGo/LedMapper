@@ -67,7 +67,7 @@ void Led::setPixelColor(ofPixelsRef pixels, bool is3D)
             pixelPos.y = ofMap(m_position.z, max.z, min.z, 0,  pixels.getHeight()-1);
         }
         else{
-            pixelPos.x = ofMap(m_position.x, min.x, max.y, pixels.getWidth()-1, (pixels.getWidth()-1)*0.5);
+            pixelPos.x = ofMap(m_position.x, min.x, max.x, pixels.getWidth()-1, (pixels.getWidth()-1)*0.5);
             pixelPos.y = ofMap(m_position.z, max.z, min.z, 0,  pixels.getHeight()-1);
         }
     }

@@ -327,11 +327,8 @@ void LedsManager::setLedColors(ofPixelsRef pixels)
 //            //m_leds[i]->getColor().setBrightness(m_ledsBrightness* m_leds[i]->getColor().getBrightness());
 //        }
 //    }
-//
-//
-    
-    
-    
+
+
     for(auto led: m_leds){
         led->setPixelColor(pixels, m_is3D);
     }

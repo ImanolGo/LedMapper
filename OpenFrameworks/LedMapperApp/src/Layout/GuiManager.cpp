@@ -191,8 +191,8 @@ void GuiManager::setupLedsGui()
     
     ofxDatGuiFolder* folder = m_gui.addFolder("LEDS", ofColor::yellow);
     folder->addButton("Reset View");
-    //folder->addSlider(m_ledsBrightness);
-    //folder->addSlider(m_laserBrightness);
+    folder->addSlider(m_ledsBrightness);
+    folder->addSlider(m_laserBrightness);
     folder->addSlider(m_ledsSize);
     folder->addSlider(m_ledsPerChannel);
     folder->expand();

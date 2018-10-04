@@ -130,6 +130,14 @@ void VideoManager::updateVideo()
 //            this->stopExporting();
 //        }
         
+        
+        if(m_exportMode && m_frameNumber > frame){
+            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
+            this->stopExporting();
+        }
+        
+       
+        
         if(m_frameNumber != frame)
         {
             m_frameNumber = frame;
@@ -145,12 +153,15 @@ void VideoManager::updateVideo()
 //            }
         }
         
+//        if(m_exportMode && (m_videoPlayer.getPosition() >= 0.99f)){
+//            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
+//            this->stopExporting();
+//        }
+//
+        
       
         
-        if(m_exportMode && (m_videoPlayer.getPosition() >= 0.99f)){
-            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
-            this->stopExporting();
-        }
+        
         
 //        if(m_exportMode && m_frameNumber>= m_videoPlayer.getTotalNumFrames()){
 //            ofLogNotice()<< "VideoManager::updateVideo:  Movie DONE!!";
