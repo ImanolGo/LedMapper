@@ -12,6 +12,7 @@
 #include "Manager.h"
 #include "ofxPSLevels.h"
 #include "ofxBlur.h"
+#include "ofxFastFboReader.h"
 
 //========================== class VideoManager ==============================
 //============================================================================
@@ -105,9 +106,10 @@ private:
 private:
     
     
-    ofVideoPlayer 	m_videoPlayer;
-    ofxPSLevels     m_levels;
-    ofxBlur         m_blur;
+    ofVideoPlayer 	    m_videoPlayer;
+    ofxPSLevels         m_levels;
+    ofxBlur             m_blur;
+    ofxFastFboReader    m_reader;
   
     ofFbo           m_fbo;
     ofFbo           m_exportFbo;

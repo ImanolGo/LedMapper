@@ -91,8 +91,12 @@ WifiManager::WifiManager(LedsManager* ledsManager)
 //    ssid = "Don't worry, be happy!";
 //    pass = "whyistheskysohigh?";
 
-    ssid     =  "TP-LINK_54E4";
-    pass = "27155332";
+//    ssid     =  "TP-LINK_54E4";
+//    pass = "27155332";
+
+       ssid     =  "Spektrum";
+    pass = "sonicvibrations19";
+    
     
 
     wifiConnected = false;

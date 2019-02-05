@@ -142,7 +142,8 @@ void VideoManager::updateVideo()
         {
             m_frameNumber = frame;
             ofPixels pixels;
-            m_exportFbo.readToPixels(pixels);
+            m_reader.readToPixels(m_exportFbo, pixels);
+            //m_exportFbo.readToPixels(pixels);
             AppManager::getInstance().getLedsManager().setPixels(pixels);
             //ofLogNotice()<< "VideoManager::newFrame: ";
             

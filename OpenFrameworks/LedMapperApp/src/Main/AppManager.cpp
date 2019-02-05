@@ -54,7 +54,7 @@ void AppManager::setup()
 void AppManager::setupOF()
 {
     ofSetLogLevel(OF_LOG_NOTICE);
-    ofSetVerticalSync(true);
+    ofSetVerticalSync(false);
     ofSetEscapeQuitsApp(false);
     ofSetBackgroundAuto(true);
 

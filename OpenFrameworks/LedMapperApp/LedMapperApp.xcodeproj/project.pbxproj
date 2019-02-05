@@ -17,6 +17,7 @@
 		083990DE2118895D001CC7AE /* ofxTCPServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083990D82118895D001CC7AE /* ofxTCPServer.cpp */; };
 		083990DF2118895D001CC7AE /* ofxUDPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083990DB2118895D001CC7AE /* ofxUDPManager.cpp */; };
 		08B297692118DFF400B46CCB /* ofxSimpleTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08B297682118DFF400B46CCB /* ofxSimpleTimer.cpp */; };
+		08CAC31F21F9AAE6002559A3 /* ofxFastFboReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08CAC31D21F9AAE6002559A3 /* ofxFastFboReader.cpp */; };
 		08F6603D211B422C00E6D734 /* myEasyCam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F6603B211B422C00E6D734 /* myEasyCam.cpp */; };
 		106B97E658138710B59773AE /* GodRaysPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE19FA45FB564FF3B31F7717 /* GodRaysPass.cpp */; };
 		1835B306208122634C04CA79 /* ModelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2958AE46C53B67E9739A17 /* ModelManager.cpp */; };
@@ -139,6 +140,8 @@
 		08B297642118DEEA00B46CCB /* ofxMyIP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ofxMyIP.h; path = Addons/ofxMyIP/src/ofxMyIP.h; sourceTree = "<group>"; };
 		08B297672118DFF400B46CCB /* ofxSimpleTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxSimpleTimer.h; path = Addons/ofxSimpleTimer/src/ofxSimpleTimer.h; sourceTree = "<group>"; };
 		08B297682118DFF400B46CCB /* ofxSimpleTimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxSimpleTimer.cpp; path = Addons/ofxSimpleTimer/src/ofxSimpleTimer.cpp; sourceTree = "<group>"; };
+		08CAC31D21F9AAE6002559A3 /* ofxFastFboReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxFastFboReader.cpp; path = Addons/ofxFastFboReader/src/ofxFastFboReader.cpp; sourceTree = "<group>"; };
+		08CAC31E21F9AAE6002559A3 /* ofxFastFboReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxFastFboReader.h; path = Addons/ofxFastFboReader/src/ofxFastFboReader.h; sourceTree = "<group>"; };
 		08F6603B211B422C00E6D734 /* myEasyCam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = myEasyCam.cpp; path = Visuals/myEasyCam.cpp; sourceTree = "<group>"; };
 		08F6603C211B422C00E6D734 /* myEasyCam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = myEasyCam.h; path = Visuals/myEasyCam.h; sourceTree = "<group>"; };
 		09BB1D7613A1F9D8E8B11D7A /* KeyboardManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = KeyboardManager.h; path = src/I0/KeyboardManager.h; sourceTree = SOURCE_ROOT; };
@@ -368,6 +371,23 @@
 			children = (
 				08B297682118DFF400B46CCB /* ofxSimpleTimer.cpp */,
 				08B297672118DFF400B46CCB /* ofxSimpleTimer.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		08CAC31B21F9AAC8002559A3 /* ofxFastFboReader */ = {
+			isa = PBXGroup;
+			children = (
+				08CAC31C21F9AAD4002559A3 /* src */,
+			);
+			name = ofxFastFboReader;
+			sourceTree = "<group>";
+		};
+		08CAC31C21F9AAD4002559A3 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				08CAC31D21F9AAE6002559A3 /* ofxFastFboReader.cpp */,
+				08CAC31E21F9AAE6002559A3 /* ofxFastFboReader.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -637,6 +657,7 @@
 		AD642137CCDF61FB3E6CCEA2 /* Addons */ = {
 			isa = PBXGroup;
 			children = (
+				08CAC31B21F9AAC8002559A3 /* ofxFastFboReader */,
 				08B297652118DFE300B46CCB /* ofxSimpleTimer */,
 				08B297622118DED600B46CCB /* ofxMyIP */,
 				F79FFC9032CC6E409159B3E3 /* ofxBlur */,
@@ -900,6 +921,7 @@
 				63A90FF94CFD24B528DBEF66 /* icon-radio-off.png in Sources */,
 				5057E92136F67CEB60A9CFE8 /* icon-radio-on.png in Sources */,
 				6F6BBB4756484E68AB2208D7 /* picker-rainbow.png in Sources */,
+				08CAC31F21F9AAE6002559A3 /* ofxFastFboReader.cpp in Sources */,
 				209D83A65C0D547E3D4F62A5 /* readme.md in Sources */,
 				86973836275DBDFE10FC4D07 /* roadmap.md in Sources */,
 				DF2764E1860DD2D324923A1D /* ofxDatGuiComponent.cpp in Sources */,
