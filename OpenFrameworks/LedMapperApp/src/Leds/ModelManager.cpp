@@ -66,18 +66,28 @@ void ModelManager::draw()
         return;
     }
     
+    ofDisableArbTex();
+    glDepthMask(GL_FALSE);
+    
+    //ofSetColor(255, 100, 90);
+    
+    // this makes everything look glowy :)
+    ofEnableBlendMode(OF_BLENDMODE_ADD);
+    ofEnablePointSprites();
     
     
-    ofEnableDepthTest();
+    //ofEnableDepthTest();
     //ofTranslate(-rect->x, 0, 0);
     m_camera.begin();
    // ofTranslate(-rect->x, 0, 0);
-    this->drawLeds();
+    //this->drawLeds();
+    AppManager::getInstance().getLedsManager().draw();
     
    // ofTranslate(rect->x, 0 , 0);
     m_camera.end();
     //ofTranslate(rect->x, 0 , 0);
-    ofDisableDepthTest();
+    //ofDisableDepthTest();
+    ofEnableArbTex();
     
 }
 

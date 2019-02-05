@@ -77,6 +77,7 @@ class LedsManager: public Manager
     
     
         void setupLeds();
+        void setupShader();
     
         void readLedsPosition();
     
@@ -102,6 +103,8 @@ class LedsManager: public Manager
     
         bool isValidFile(const string& path);
     
+        void setPixelColor(ofPixelsRef pixels, int index);
+    
     
 
     private:
@@ -114,6 +117,18 @@ class LedsManager: public Manager
         bool               m_is3D;
         float              m_ledsBrightness;
         float              m_laserBrightness;
+    
+    
+        ofVbo m_vbo;
+        ofShader m_shader;
+        ofTexture m_texture;
+    
+        vector <ofVec3f> m_points;
+        vector <ofVec3f> m_sizes;
+        vector <ofFloatColor> m_colors;
+        int         m_offset;
+    
+    
 };
 
 

@@ -175,6 +175,7 @@ void LayoutManager::updateLedsFbo()
     this->begin(name);
     ofClear(0);
     AppManager::getInstance().getModelManager().draw();
+    //AppManager::getInstance().getLedManager().draw();
     this->end(name);
 }
 

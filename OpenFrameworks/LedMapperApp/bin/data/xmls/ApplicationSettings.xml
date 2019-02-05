@@ -12,6 +12,7 @@
   <textures>
 
     <texture name="Brush" path="images/general/brush.png"/>  
+    <texture name="Dot" path="images/general/dot.png"/>  
 
   </textures>
 

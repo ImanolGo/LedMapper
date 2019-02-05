@@ -15,7 +15,7 @@
 
 
 
-LedsManager::LedsManager(): Manager(), m_isNewFrame(false), m_is3D(true), m_ledsBrightness(1.0), m_laserBrightness(0.25)
+LedsManager::LedsManager(): Manager(), m_isNewFrame(false), m_is3D(true), m_ledsBrightness(1.0), m_laserBrightness(0.25), m_offset(100)
 {
 	//Intentionally left empty
 }
@@ -36,23 +36,42 @@ void LedsManager::setup()
 	Manager::setup();
     
     //this->createLedPositions();
+    this->setupShader();
     
     ofLogNotice() <<"LedsManager::initialized" ;
     
 }
 
 
+void LedsManager::setupShader()
+{
+    m_shader.load("shaders/vboShader");
+    ofDisableArbTex();
+    ofLoadImage(m_texture, "images/general/dot.png");
+    ofEnableArbTex();
+    
+    
+}
+
 void LedsManager::setupLeds()
 {
     ofLogNotice() <<"LedsManager::setupLeds" ;
     
     m_leds.clear();
+    m_vbo.clear();
+    m_points.clear();
+    m_sizes.clear();
     
     this->readLedsPosition();
     m_is3D = this->getIs3D();
     //this->sortLeds();
     this->normalizeLeds();
     this->centreLeds();
+    
+    int total = (int)m_points.size();
+    m_vbo.setVertexData(&m_points[0], total, GL_DYNAMIC_DRAW);
+    m_vbo.setNormalData(&m_sizes[0], total, GL_DYNAMIC_DRAW);
+    m_vbo.setColorData(&m_colors[0], m_points.size(), GL_DYNAMIC_DRAW);
 }
 
 void LedsManager::createLedPositions()
@@ -77,6 +96,7 @@ void LedsManager::createLedPositions()
     m_is3D = this->getIs3D();
     this->normalizeLeds();
     this->centreLeds();
+    
 }
 
 void LedsManager::readLedsPosition()
@@ -158,10 +178,9 @@ void LedsManager::sortLeds()
 void LedsManager::normalizeLeds()
 {
     float max = 0;
-    for (auto led: m_leds)
+    for (auto position: m_points)
     {
-        auto position = led->getPosition();
-        
+    
         if(max < abs(position.x)){
             max = abs(position.x);
         }
@@ -177,13 +196,13 @@ void LedsManager::normalizeLeds()
     
      ofLogNotice() <<"LedsManager::normalizeLeds -> max value =  " << max;
     
-    for (auto led: m_leds)
+    int id = 0;
+    for (auto& position: m_points)
     {
-        auto position = led->getPosition();
         position/=max;
-        led->setPosition(position);
         
-        ofLogNotice() <<"LedsManager::normalizeLeds -> id " << led->getId() << ", x = "  << led->getPosition().x << ", y = "  << led->getPosition().y << ", z = " << led->getPosition().z ;
+        ofLogNotice() <<"LedsManager::normalizeLeds -> id " << id << ", x = "  << position.x << ", y = "  << position.y << ", z = " << position.z ;
+        id++;
     }
     
 }
@@ -193,10 +212,8 @@ void LedsManager::centreLeds()
     
     bool firstIteration = true;
     
-    for (auto led: m_leds)
+    for (auto position: m_points)
     {
-        auto position = led->getPosition();
-        
         if(firstIteration){
             firstIteration = false;
             m_maxPos = position;
@@ -236,28 +253,32 @@ void LedsManager::centreLeds()
     
     ofLogNotice() <<"LedsManager::centreLeds -> shift position: x = "  << shift.x << ", y = "  << shift.y << ", z = " << shift.z ;
     
-    for (auto led: m_leds)
+    for (auto& position: m_points)
     {
-        auto position = led->getPosition();
         position-=shift;
-        led->setPosition(position);
-        
+        position*=m_offset;
     }
     
     m_maxPos -=shift;
     m_minPos -=shift;
+
    
 }
 
 
 void LedsManager::createLed(const ofPoint& position, int& id)
 {
-    ofPtr<Led> led = ofPtr<Led> (new Led ( position, id ) );
+    //ofPtr<Led> led = ofPtr<Led> (new Led ( position, id ) );
     float size = AppManager::getInstance().getGuiManager().getLedsSize();
-    led->setWidth(size);
-    m_leds.push_back(led);
+//    led->setWidth(size);
+//    m_leds.push_back(led);
     
-    ofLogNotice() <<"LedsManager::createLed -> id " << led->getId() << ", x = "  << led->getPosition().x << ", y = "  << led->getPosition().y << ", z = " << led->getPosition().z ;
+//    ofLogNotice() <<"LedsManager::createLed -> id " << led->getId() << ", x = "  << led->getPosition().x << ", y = "  << led->getPosition().y << ", z = " << led->getPosition().z ;
+    
+    m_points.push_back(position);
+    m_sizes.push_back(ofVec3f(10*size));
+    m_colors.push_back(ofFloatColor(0,0,0));
+    
 }
 
 bool LedsManager::parseLedLine(string& line, ofPoint& position)
@@ -329,27 +350,80 @@ void LedsManager::setLedColors(ofPixelsRef pixels)
 //    }
 
 
-    for(auto led: m_leds){
-        led->setPixelColor(pixels, m_is3D);
+//    for(auto led: m_leds){
+//        led->setPixelColor(pixels, m_is3D);
+//    }
+//
+    for(int i=0; i<m_points.size(); i++){
+        this->setPixelColor(pixels, i);
     }
     
+    m_vbo.setColorData(&m_colors[0], m_points.size(), GL_DYNAMIC_DRAW);
     m_isNewFrame = true;
     
 }
 
 
+void LedsManager::setPixelColor(ofPixelsRef pixels, int index)
+{
+    if(index<0 || index>=m_points.size()){
+        return;
+    }
+    
+    
+    ofPoint pixelPos;
+    if(m_is3D)
+    {
+        float treshold = m_minPos.y + (m_maxPos.y - m_minPos.y)*0.5;
+        
+        if(m_points[index].y >= treshold ){
+            pixelPos.x = ofMap(m_points[index].x/m_offset, m_minPos.x, m_maxPos.x, 0, (pixels.getWidth()-1)*0.5);
+            pixelPos.y = ofMap(m_points[index].z/m_offset, m_maxPos.z, m_minPos.z, 0,  pixels.getHeight()-1);
+        }
+        else{
+            pixelPos.x = ofMap(m_points[index].x/m_offset, m_minPos.x, m_maxPos.x, pixels.getWidth()-1, (pixels.getWidth()-1)*0.5);
+            pixelPos.y = ofMap(m_points[index].z/m_offset, m_maxPos.z, m_minPos.z, 0,  pixels.getHeight()-1);
+        }
+    }
+    else
+    {
+        pixelPos.x = ofMap(m_points[index].x/m_offset, m_minPos.x, m_maxPos.x, 0, pixels.getWidth()-1);
+        pixelPos.y = ofMap(m_points[index].y/m_offset, m_maxPos.y, m_minPos.y, 0,  pixels.getHeight()-1);
+    }
+    
+    //ofLogNotice() <<  m_position.x ; ofLogNotice() <<  m_position.y;
+    //ofLogNotice() <<  pixelPos.x ; ofLogNotice() <<  pixelPos.y;
+    //ofLogNotice() << pixelPos.x;
+    
+    auto color = pixels.getColor((int)pixelPos.x, (int)pixelPos.y);
+    m_colors[index] = ofFloatColor(color.r/255.0f, color.g/255.0f, color.b/255.0f);
+}
+
 void LedsManager::draw()
 {
-    for(auto led: m_leds){
-        led->draw();
-    }
+//    for(auto led: m_leds){
+//        led->draw();
+//    }
+    
+    m_shader.begin();
+    m_texture.bind();
+        m_vbo.draw(GL_POINTS, 0, (int)m_points.size());
+    m_texture.unbind();
+    m_shader.end();
 }
 
 void LedsManager::setSize(float& value)
 {
-    for(auto led: m_leds){
-        led->setWidth(value);
+//    for(auto led: m_leds){
+//        led->setWidth(value);
+//    }
+    
+    //m_sizes.clear();
+    for(auto& size: m_sizes){
+        size = ofVec3f(10*value);
     }
+    
+    m_vbo.setNormalData(&m_sizes[0], m_sizes.size(), GL_DYNAMIC_DRAW);
 }
 
 
